@@ -10,6 +10,7 @@ public class TrappedPerson : MonoBehaviour
     internal Transform thisTransform;
 
     internal AICharacterControl control;
+    public PeepManager peepManager;
 
     public enum State
     {
@@ -43,7 +44,7 @@ public class TrappedPerson : MonoBehaviour
 
     public bool IsPlayerCloseEnough()
     {
-        if ((player.position - transform.position).magnitude < 7.5f)
+        if ((player.position - transform.position).magnitude < 2.5f)
         {
             return true;
         }
@@ -60,6 +61,7 @@ public class TrappedPerson : MonoBehaviour
             if (tp.IsPlayerCloseEnough() == false)
             {
                 tp.currentState = State.Wandering;
+                tp.peepManager.RemoveFromSnake(tp.transform);
                 return false;
             }
 
@@ -92,7 +94,9 @@ public class TrappedPerson : MonoBehaviour
             if(tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                tp.control.SetTarget(tp.transform);
+                tp.peepManager.AddToSnake(tp.transform);
+                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp));
+                //tp.control.SetTarget(tp.player.transform);
                 return false;
             }
 

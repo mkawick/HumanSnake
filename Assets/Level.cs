@@ -30,4 +30,17 @@ public class Level : MonoBehaviour
 
         return listOfPeeps.OfType<TrappedPerson>().ToList();
     }
+
+    public bool IsLevelComplete()
+    {
+        var listOfPeeps = GetTrappedPeople();
+        foreach (var peep in listOfPeeps)
+        {
+            if (peep.currentState != TrappedPerson.State.EndOfLevel)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

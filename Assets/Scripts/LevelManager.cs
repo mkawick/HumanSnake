@@ -11,15 +11,37 @@ public class LevelManager : MonoBehaviour
     int currentLevel = 0;
     public PeepManager peepManager;
     // Start is called before the first frame update
+
+    enum LevelState
+    {
+        Preload,
+        Start,
+        Gameplay,
+        EndLevel
+    }
+    LevelState levelState = LevelState.Preload;
     void Start()
     {
-        StartNewLevel();// todo, move
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //levels[currentLevel].SetupPlayerStart(player);
+        switch(levelState)
+        {
+            case LevelState.Preload:
+                StartNewLevel();
+                break;
+            case LevelState.Gameplay:
+                NormalGameplay();
+                break;
+            case LevelState.EndLevel:
+                FinishLevel();
+                break;
+
+        }
     }
 
     public Level GetCurrentLevel()
@@ -39,11 +61,21 @@ public class LevelManager : MonoBehaviour
 
         }
         levels[currentLevel].gameObject.SetActive(true);
-        levels[currentLevel].SetupPlayerStart(player);
+        navMesh.BuildNavMesh();
+
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;
+        levels[currentLevel].SetupPlayerStart(player);
 
-        navMesh.BuildNavMesh();
+        levelState = LevelState.Gameplay;
+    }
+
+    void NormalGameplay()
+    {
+        if(levels[currentLevel].IsLevelComplete() == true)
+        {
+            levelState = LevelState.EndLevel;
+        }
     }
 
     void FinishLevel()

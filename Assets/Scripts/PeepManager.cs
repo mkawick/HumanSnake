@@ -7,6 +7,8 @@ public class PeepManager : MonoBehaviour
     List<TrappedPerson> peeps;
     List<Transform> snakeList;
     public Transform player;
+    public float defaultDistanceToFollowPlayer = 2.5f;
+    public float increasedRangeWithEachFollower = 0.2f;
     void Start()
     {
         peeps = new List<TrappedPerson>();
@@ -23,6 +25,14 @@ public class PeepManager : MonoBehaviour
         
     }
 
+    public float DistanceToPlayer(int indexInSnake)
+    {
+        float addedDist = indexInSnake * increasedRangeWithEachFollower;
+        if (indexInSnake < 0)
+            addedDist = 0;
+        return defaultDistanceToFollowPlayer + addedDist;
+    }
+
     public Transform WhomDoIFollow(TrappedPerson tp)
     {
         GameObject go = snakeList[0].gameObject;
@@ -37,8 +47,20 @@ public class PeepManager : MonoBehaviour
         return go.transform;
     }
 
-
-    public void AddToSnake(Transform tp)
+    int GetIndex(Transform tp)
+    {
+        int index = 0;
+        foreach (var v in snakeList)
+        {
+            if (v.gameObject == tp.gameObject)// always look for the previous item in a chain
+            {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+    public int AddToSnake(Transform tp)
     {
         if(snakeList.Count == 0)
         {
@@ -46,6 +68,8 @@ public class PeepManager : MonoBehaviour
         }
         if(snakeList.Contains(tp) == false)
             snakeList.Add(tp);
+
+        return GetIndex(tp);
     }
 
     public void RemoveFromSnake(Transform tp)

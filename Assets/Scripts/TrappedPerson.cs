@@ -12,6 +12,8 @@ public class TrappedPerson : MonoBehaviour
     internal AICharacterControl control;
     public PeepManager peepManager;
 
+    int indexInSnake = 0;
+
     public enum State
     {
         Wandering,
@@ -44,7 +46,7 @@ public class TrappedPerson : MonoBehaviour
 
     public bool IsPlayerCloseEnough()
     {
-        if ((player.position - transform.position).magnitude < 2.5f)
+        if ((player.position - transform.position).magnitude < peepManager.DistanceToPlayer(indexInSnake))
         {
             return true;
         }
@@ -62,7 +64,27 @@ public class TrappedPerson : MonoBehaviour
             {
                 tp.currentState = State.Wandering;
                 tp.peepManager.RemoveFromSnake(tp.transform);
+                tp.indexInSnake = -1;
                 return false;
+            }
+            else
+            {
+                Vector3 playerPos = tp.peepManager.WhomDoIFollow(tp).position;
+                Vector3 pos = tp.transform.position;
+                Vector3 dist = (pos - playerPos);
+                if (dist.sqrMagnitude < 2)
+                {
+                    tp.control.SetTarget(pos);
+                    return true;
+                }
+                else 
+                { 
+                    // we want to stop just shy of the destination.
+                    Vector3 dir = (dist).normalized;
+                    dir.y = 0;
+                    Vector3 dest = playerPos - dir;
+                    tp.control.SetTarget(dest);
+                }
             }
 
             return true;
@@ -94,8 +116,8 @@ public class TrappedPerson : MonoBehaviour
             if(tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                tp.peepManager.AddToSnake(tp.transform);
-                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp));
+                tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
+                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 //tp.control.SetTarget(tp.player.transform);
                 return false;
             }

@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &327291602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,7 +3369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1936985989
 Transform:
   m_ObjectHideFlags: 0
@@ -3507,6 +3507,7 @@ MonoBehaviour:
   - {fileID: 327291602}
   player: {fileID: 374292837}
   peepManager: {fileID: 1107837590}
+  enableTransitionToNewLevels: 1
 --- !u!1 &2089072705
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 public class TrappedPerson : MonoBehaviour
 {
     [SerializeField]
     internal Transform player;
-    internal Transform thisTransform;
     internal Vector3 originalPos;
 
     internal AICharacterControl control;
@@ -32,14 +32,7 @@ public class TrappedPerson : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        control = GetComponent<AICharacterControl>();
-        thisTransform = this.transform;
-        states = new TrappedState[(int)State.NumStates];
-        //foreach(var s in State)
-        states[(int)State.Wandering] = new StateWander();
-        states[(int)State.FollowPLayer] = new StateFollowPlayer();
-        states[(int)State.EndOfLevel] = new StateEndOfLevel();
-        peepManager. ChangeState(this);
+        SetupInitialState();
     }
 
     // Update is called once per frame
@@ -52,6 +45,30 @@ public class TrappedPerson : MonoBehaviour
     }
 
     //----------------------------------------------
+
+    public void SetupInitialState()
+    {
+        if (states == null)
+        {
+            states = new TrappedState[(int)State.NumStates];
+            //foreach(var s in State)
+            states[(int)State.Wandering] = new StateWander();
+            states[(int)State.FollowPLayer] = new StateFollowPlayer();
+            states[(int)State.EndOfLevel] = new StateEndOfLevel();
+        }
+        control = GetComponent<AICharacterControl>();
+        if(originalPos == Vector3.zero)// init
+            originalPos = transform.position;
+
+        transform.position = originalPos;
+        NavMeshAgent nma = GetComponent<NavMeshAgent>();
+        //nma.transform.position = originalPos;
+        //nma.nextPosition = originalPos;
+        nma.Warp(originalPos);
+
+        currentState = State.Wandering;
+        peepManager.ChangeState(this);
+    }
 
     public bool IsPlayerCloseEnough()
     {

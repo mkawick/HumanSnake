@@ -25,8 +25,7 @@ public class Level : MonoBehaviour
     {
         Vector3 pos =( playerStartPosition.position);
         NavMeshAgent nma = go.GetComponent<NavMeshAgent>();
-        nma.gameObject.transform.position = pos;
-        nma.nextPosition = pos;
+        nma.Warp( pos);
         //Debug.Log(go.gameObject.transform.position);
     }
 

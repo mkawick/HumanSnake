@@ -101,6 +101,8 @@ public class LevelManager : MonoBehaviour
         {
             if(enableTransitionToNewLevels == true)
                 currentLevel++;
+            if (currentLevel >= levels.Length)
+                currentLevel = levels.Length - 1;
             levelState = LevelState.Start;
         }
     }

@@ -29,10 +29,7 @@ public class PeepManager : MonoBehaviour
         peeps = peepList;
         foreach(var p in peeps)
         {
-            if (p.originalPos == null)
-                p.originalPos = p.gameObject.transform.position;
-            else
-                p.gameObject.transform.position = p.originalPos;
+            p.SetupInitialState();
         }
         snakeList = new List<Transform>();
     }

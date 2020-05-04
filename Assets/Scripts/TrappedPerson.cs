@@ -8,9 +8,12 @@ public class TrappedPerson : MonoBehaviour
     [SerializeField]
     internal Transform player;
     internal Transform thisTransform;
+    internal Vector3 originalPos;
 
     internal AICharacterControl control;
     public PeepManager peepManager;
+
+    public Renderer mesh;
 
     int indexInSnake = 0;
 
@@ -18,6 +21,7 @@ public class TrappedPerson : MonoBehaviour
     {
         Wandering,
         FollowPLayer,
+        EndOfLevel,
         RunningFromFire,
         HelpingFightFire,
         NumStates
@@ -34,11 +38,16 @@ public class TrappedPerson : MonoBehaviour
         //foreach(var s in State)
         states[(int)State.Wandering] = new StateWander();
         states[(int)State.FollowPLayer] = new StateFollowPlayer();
+        states[(int)State.EndOfLevel] = new StateEndOfLevel();
+        peepManager. ChangeState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isActiveAndEnabled == false)
+            return;
+
         states[(int)currentState].Update(this);
     }
 
@@ -52,6 +61,17 @@ public class TrappedPerson : MonoBehaviour
         }
         return false;
     }
+    public bool IsExitCloseEnough()
+    {
+        
+        if ((peepManager.exitLocation.position - transform.position).magnitude < peepManager.distanceToExit)
+        {
+            return true;
+        }
+        return false;
+    }
+    //----------------------------------------------
+
     public abstract class TrappedState
     {
         public abstract bool Update(TrappedPerson tp);
@@ -60,14 +80,15 @@ public class TrappedPerson : MonoBehaviour
     {
         public override bool Update(TrappedPerson tp)
         {
-            if (tp.IsPlayerCloseEnough() == false)
+            if (tp.IsExitCloseEnough() == true)
             {
-                tp.currentState = State.Wandering;
+                tp.currentState = State.EndOfLevel;
+                tp.peepManager.ChangeState(tp);
                 tp.peepManager.RemoveFromSnake(tp.transform);
                 tp.indexInSnake = -1;
                 return false;
             }
-            else
+            else if (tp.IsPlayerCloseEnough() == true)
             {
                 Vector3 playerPos = tp.peepManager.WhomDoIFollow(tp).position;
                 Vector3 pos = tp.transform.position;
@@ -77,8 +98,8 @@ public class TrappedPerson : MonoBehaviour
                     tp.control.SetTarget(pos);
                     return true;
                 }
-                else 
-                { 
+                else
+                {
                     // we want to stop just shy of the destination.
                     Vector3 dir = (dist).normalized;
                     dir.y = 0;
@@ -86,6 +107,23 @@ public class TrappedPerson : MonoBehaviour
                     tp.control.SetTarget(dest);
                 }
             }
+            else
+            {
+                tp.currentState = State.Wandering;
+                tp.peepManager.ChangeState(tp);
+                tp.peepManager.RemoveFromSnake(tp.transform);
+                tp.indexInSnake = -1;
+                return false;
+            }
+
+            return true;
+        }
+    }
+    public class StateEndOfLevel : TrappedState
+    {
+        public override bool Update(TrappedPerson tp)
+        {
+            
 
             return true;
         }
@@ -116,6 +154,7 @@ public class TrappedPerson : MonoBehaviour
             if(tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
+                tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 //tp.control.SetTarget(tp.player.transform);

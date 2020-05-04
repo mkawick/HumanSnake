@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     int currentLevel = 0;
     public PeepManager peepManager;
+
+    float timeWhenICanTransition = 0;
+    public bool enableTransitionToNewLevels = true;
     // Start is called before the first frame update
 
     enum LevelState
@@ -20,7 +23,7 @@ public class LevelManager : MonoBehaviour
         Gameplay,
         EndLevel
     }
-    LevelState levelState = LevelState.Preload;
+    LevelState levelState = LevelState.Start;
     void Start()
     {
         
@@ -33,6 +36,9 @@ public class LevelManager : MonoBehaviour
         switch(levelState)
         {
             case LevelState.Preload:
+                FinishLevelTransitionToNewLevel();
+                break;
+            case LevelState.Start:
                 StartNewLevel();
                 break;
             case LevelState.Gameplay:
@@ -82,7 +88,20 @@ public class LevelManager : MonoBehaviour
 
     void FinishLevel()
     {
-        currentLevel++;
+        // lock level
+        timeWhenICanTransition = Time.time + 5;
+        
         // celebration
+        levelState = LevelState.Preload;
+    }
+
+    void FinishLevelTransitionToNewLevel()
+    {
+        if (timeWhenICanTransition < Time.time)
+        {
+            if(enableTransitionToNewLevels == true)
+                currentLevel++;
+            levelState = LevelState.Start;
+        }
     }
 }

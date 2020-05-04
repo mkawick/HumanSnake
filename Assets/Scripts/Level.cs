@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.AI;
 
 public class Level : MonoBehaviour
 {
@@ -19,10 +21,13 @@ public class Level : MonoBehaviour
         
     }
 
-    public void SetupPlayerStart(GameObject go)
+    public void SetupPlayerStart(ThirdPersonCharacter go)
     {
-        go.transform.position = playerStartPosition.position;
-        go.gameObject.transform.position = playerStartPosition.position;
+        Vector3 pos =( playerStartPosition.position);
+        NavMeshAgent nma = go.GetComponent<NavMeshAgent>();
+        nma.gameObject.transform.position = pos;
+        nma.nextPosition = pos;
+        //Debug.Log(go.gameObject.transform.position);
     }
 
     public List<TrappedPerson> GetTrappedPeople()

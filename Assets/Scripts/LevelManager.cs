@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class LevelManager : MonoBehaviour
 {
@@ -60,12 +61,13 @@ public class LevelManager : MonoBehaviour
             levels[i].gameObject.SetActive(false);
 
         }
+        levels[currentLevel].SetupPlayerStart(player.GetComponent<ThirdPersonCharacter>());
         levels[currentLevel].gameObject.SetActive(true);
         navMesh.BuildNavMesh();
 
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;
-        levels[currentLevel].SetupPlayerStart(player);
+        
 
         levelState = LevelState.Gameplay;
     }

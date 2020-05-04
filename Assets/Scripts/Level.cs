@@ -22,6 +22,7 @@ public class Level : MonoBehaviour
     public void SetupPlayerStart(GameObject go)
     {
         go.transform.position = playerStartPosition.position;
+        go.gameObject.transform.position = playerStartPosition.position;
     }
 
     public List<TrappedPerson> GetTrappedPeople()

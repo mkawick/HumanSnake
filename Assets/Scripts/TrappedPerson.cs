@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(ThirdPersonCharacter))]
 public class TrappedPerson : MonoBehaviour
 {
     [SerializeField]

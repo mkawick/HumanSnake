@@ -9,9 +9,11 @@ public class PeepManager : MonoBehaviour
     public Transform player;
     public float defaultDistanceToFollowPlayer = 2.2f;
     public float increasedRangeWithEachFollower = 0.9f;
-    public float distanceToExit = 1.2f;
+    
     public float followingPlayerSpeedMultipler = 1.1f;
+
     internal Transform exitLocation;
+    public float distanceToExit = 1.2f;
 
     public Material[] materialsForPeeps;
     enum PeepStateColors

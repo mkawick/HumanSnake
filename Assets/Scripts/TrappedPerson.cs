@@ -11,11 +11,13 @@ public class TrappedPerson : MonoBehaviour
     internal Vector3 originalPos;
 
     internal AICharacterControl control;
+    internal ThirdPersonCharacter character;
     public PeepManager peepManager;
 
     public Renderer mesh;
 
     int indexInSnake = 0;
+    float originalForwardSpeedMultiplier = 0;
 
     public enum State
     {
@@ -51,7 +53,6 @@ public class TrappedPerson : MonoBehaviour
         if (states == null)
         {
             states = new TrappedState[(int)State.NumStates];
-            //foreach(var s in State)
             states[(int)State.Wandering] = new StateWander();
             states[(int)State.FollowPLayer] = new StateFollowPlayer();
             states[(int)State.EndOfLevel] = new StateEndOfLevel();
@@ -60,10 +61,14 @@ public class TrappedPerson : MonoBehaviour
         if(originalPos == Vector3.zero)// init
             originalPos = transform.position;
 
+        character = GetComponent<ThirdPersonCharacter>();
+        if (originalForwardSpeedMultiplier == 0)
+            originalForwardSpeedMultiplier = character.ForwardSpeedMultiplier;
+        else
+            character.ForwardSpeedMultiplier = originalForwardSpeedMultiplier;
+
         transform.position = originalPos;
         NavMeshAgent nma = GetComponent<NavMeshAgent>();
-        //nma.transform.position = originalPos;
-        //nma.nextPosition = originalPos;
         nma.Warp(originalPos);
 
         currentState = State.Wandering;
@@ -105,12 +110,12 @@ public class TrappedPerson : MonoBehaviour
                 tp.indexInSnake = -1;
                 return false;
             }
-            else if (tp.IsPlayerCloseEnough() == true)
+          //  else if (tp.IsPlayerCloseEnough() == true)
             {
                 Vector3 playerPos = tp.peepManager.WhomDoIFollow(tp).position;
                 Vector3 pos = tp.transform.position;
                 Vector3 dist = (pos - playerPos);
-                if (dist.sqrMagnitude < 2)
+                if (dist.sqrMagnitude < 3)
                 {
                     tp.control.SetTarget(pos);
                     return true;
@@ -124,14 +129,14 @@ public class TrappedPerson : MonoBehaviour
                     tp.control.SetTarget(dest);
                 }
             }
-            else
+           /* else
             {
                 tp.currentState = State.Wandering;
                 tp.peepManager.ChangeState(tp);
                 tp.peepManager.RemoveFromSnake(tp.transform);
                 tp.indexInSnake = -1;
                 return false;
-            }
+            }*/
 
             return true;
         }
@@ -140,7 +145,8 @@ public class TrappedPerson : MonoBehaviour
     {
         public override bool Update(TrappedPerson tp)
         {
-            
+            Vector3 pos = tp.transform.position;
+            tp.control.SetTarget(pos);
 
             return true;
         }
@@ -174,6 +180,7 @@ public class TrappedPerson : MonoBehaviour
                 tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
+                tp.character.ForwardSpeedMultiplier = tp.peepManager.followingPlayerSpeedMultipler;
                 //tp.control.SetTarget(tp.player.transform);
                 return false;
             }

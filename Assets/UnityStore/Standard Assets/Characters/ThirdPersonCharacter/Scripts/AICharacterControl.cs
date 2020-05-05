@@ -38,17 +38,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void SetTarget(Transform target)
         {
-            Debug.Log("SetTarget :");
+           // Debug.Log("SetTarget :");
 
             this.target = target;
             if (this.target != null)
             {
-                Debug.Log("target != null");
+                //Debug.Log("target != null");
                 agent.SetDestination(targetPosition);
             }
             else
             {
-                Debug.Log("target == null");
+                //Debug.Log("target == null");
                 try
                 {
                     //if (agent.isActiveAndEnabled == false)

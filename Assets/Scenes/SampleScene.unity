@@ -173,6 +173,18 @@ Transform:
   m_Father: {fileID: 327291603}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &127301011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904146110201542314, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241091726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &127301019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241091726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151029009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: ccb150aa6f64f324fbfd55db7b3767e8,
@@ -646,12 +658,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &374292837 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5065673819184326594, guid: 3413af5d147d96048b2abe195cd4f55b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9195371894201551917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &374292839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8077129684005721553, guid: 3413af5d147d96048b2abe195cd4f55b,
@@ -2524,7 +2530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57f473c0bea672419a7706418184022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 374292839}
+  player: {fileID: 127301019}
   defaultDistanceToFollowPlayer: 3
   increasedRangeWithEachFollower: 1
   followingPlayerSpeedMultipler: 1
@@ -5604,7 +5610,7 @@ MonoBehaviour:
   - {fileID: 1936985990}
   - {fileID: 327291602}
   - {fileID: 1367985723}
-  player: {fileID: 374292837}
+  player: {fileID: 127301011}
   peepManager: {fileID: 1107837590}
   enableTransitionToNewLevels: 1
 --- !u!1 &2089072705
@@ -5786,6 +5792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065673819184326594, guid: 3413af5d147d96048b2abe195cd4f55b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8077129684005721553, guid: 3413af5d147d96048b2abe195cd4f55b,
         type: 3}

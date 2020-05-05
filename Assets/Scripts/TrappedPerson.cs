@@ -34,13 +34,13 @@ public class TrappedPerson : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetupInitialState();
+        //SetupInitialState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isActiveAndEnabled == false)
+        if (isActiveAndEnabled == false || states == null)
             return;
 
         states[(int)currentState].Update(this);
@@ -48,7 +48,7 @@ public class TrappedPerson : MonoBehaviour
 
     //----------------------------------------------
 
-    public void SetupInitialState()
+    public void SetupInitialState(Transform _player)
     {
         if (states == null)
         {
@@ -73,6 +73,7 @@ public class TrappedPerson : MonoBehaviour
 
         currentState = State.Wandering;
         peepManager.ChangeState(this);
+        player = _player;
     }
 
     public bool IsPlayerCloseEnough()

@@ -32,7 +32,7 @@ public class PeepManager : MonoBehaviour
         peeps = peepList;
         foreach(var p in peeps)
         {
-            p.SetupInitialState();
+            p.SetupInitialState(player);
         }
         snakeList = new List<Transform>();
     }

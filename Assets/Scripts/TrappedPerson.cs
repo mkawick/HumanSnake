@@ -8,6 +8,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(ThirdPersonCharacter))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(AICharacterControl))]
 public class TrappedPerson : MonoBehaviour
 {
     [SerializeField]

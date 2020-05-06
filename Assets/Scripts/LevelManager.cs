@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     LevelState levelState = LevelState.Start;
     void Start()
     {
-        
+        peepManager.levelManager = this;
     }
 
     // Update is called once per frame

@@ -152,8 +152,8 @@ public class TrappedPerson : MonoBehaviour
     {
         public override bool Update(TrappedPerson tp)
         {
-            Vector3 pos = tp.transform.position;
-            tp.control.SetTarget(tp.player);
+            //Vector3 pos = tp.transform.position;
+            tp.control.SetTarget(tp.peepManager.GetFinalDestination());
 
             return true;
         }

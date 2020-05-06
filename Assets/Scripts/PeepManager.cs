@@ -16,6 +16,8 @@ public class PeepManager : MonoBehaviour
     public float distanceToExit = 1.2f;
 
     public Material[] materialsForPeeps;
+    internal LevelManager levelManager;
+
     enum PeepStateColors
     {
         WanderingScared,
@@ -48,17 +50,17 @@ public class PeepManager : MonoBehaviour
         {
             case TrappedPerson.State.Wandering:
                 {
-                    tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
+                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
                 }
                 break;
             case TrappedPerson.State.FollowPLayer:
                 {
-                    tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
+                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
                 }
                 break;
             case TrappedPerson.State.EndOfLevel:
                 {
-                    tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
+                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
                 }
                 break;
         }
@@ -86,6 +88,10 @@ public class PeepManager : MonoBehaviour
             go = v.gameObject;
         }
         return go.transform;
+    }
+    public Transform GetFinalDestination()
+    {
+        return exitLocation;
     }
 
     int GetIndex(Transform tp)

@@ -33,7 +33,7 @@ public class DoorController : MonoBehaviour
         playerInZone = false;                   //Player not in zone
         doorState = DoorState.Closed;           //Starting state is door closed
 
-        txtToDisplay.SetActive(false);
+        if (txtToDisplay != null) txtToDisplay.SetActive(false);
 
         doorAnim = transform.parent.gameObject.GetComponent<Animation>();
         doorCollider = transform.parent.gameObject.GetComponent<BoxCollider>();
@@ -48,14 +48,16 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        txtToDisplay.SetActive(true);
+        if(txtToDisplay != null)
+            txtToDisplay.SetActive(true);
         playerInZone = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerInZone = false;
-        txtToDisplay.SetActive(false);
+        if (txtToDisplay != null)
+            txtToDisplay.SetActive(false);
     }
 
     private void Update()
@@ -65,17 +67,17 @@ public class DoorController : MonoBehaviour
         {
             if (doorState == DoorState.Opened)
             {
-                txtToDisplay.GetComponent<Text>().text = "Press 'E' to Close";
+                if (txtToDisplay != null) txtToDisplay.GetComponent<Text>().text = "Press 'E' to Close";
                 doorCollider.enabled = false;
             }
             else if (doorState == DoorState.Closed || gotKey)
             {
-                txtToDisplay.GetComponent<Text>().text = "Press 'E' to Open";
+                if (txtToDisplay != null) txtToDisplay.GetComponent<Text>().text = "Press 'E' to Open";
                 doorCollider.enabled = true;
             }
             else if (doorState == DoorState.Jammed)
             {
-                txtToDisplay.GetComponent<Text>().text = "Needs Key";
+                if (txtToDisplay != null) txtToDisplay.GetComponent<Text>().text = "Needs Key";
                 doorCollider.enabled = true;
             }
         }

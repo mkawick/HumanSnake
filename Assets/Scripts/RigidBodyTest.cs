@@ -9,6 +9,7 @@ public class RigidBodyTest : MonoBehaviour
     bool running = false;
     public float runSpeed = 1;
     public bool isPlayer = false;
+    Vector3 target;
 
     void Start()
     {
@@ -36,14 +37,19 @@ public class RigidBodyTest : MonoBehaviour
 
                 StartRunning();
             }
-            else
+        }
+        else
+        {
+            if (target == null || target == Vector3.zero)
             {
                 GoToIdle();
             }
-            /*if (Input.GetMouseButtonDown(0) == true)
+            else
             {
-                rb.velocity += new Vector3(0f, 0, 0.5f);
-            }*/
+                if (MoveTowardPosition(target))
+                    StartRunning();
+                FaceMousePosition(target);
+            }
         }
     }
 
@@ -74,37 +80,30 @@ public class RigidBodyTest : MonoBehaviour
             running = false;
         }
     }
-    void MoveTowardPosition(Vector3 pos)
+    bool MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
-        dist.y = 0;
-        if (dist.magnitude < 1)
+        if (dist.magnitude < 0.05f)
         {
             GoToIdle();
+            return false;
         }
         else
         {
+            dist.y = 0;
             dist.Normalize();
             dist *= runSpeed;
             transform.position += dist * Time.deltaTime;
+            return true;
         }
     }
 
     public void SetTarget(Transform t)
     {
-        if(t == null)
-        {
-            GoToIdle();
-        }
-        else
-        {
-            MoveTowardPosition(t.position);
-            FaceMousePosition(t.position);
-        }
+        target = t.position;
     }
     public void SetTarget(Vector3 pos)
     {
-        MoveTowardPosition(pos);
-        FaceMousePosition(pos);
+        target = pos;
     }
 }

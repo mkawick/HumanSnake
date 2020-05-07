@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class LevelManager : MonoBehaviour
 {
-    public NavMeshSurface navMesh;
+   // public NavMeshSurface navMesh;
     public Level[] levels;
     public GameObject player;
     int currentLevel = 0;
@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
         }
         levels[currentLevel].SetupPlayerStart(player.GetComponent<RigidBodyTest>());
         levels[currentLevel].gameObject.SetActive(true);
-        navMesh.BuildNavMesh();
+       // navMesh.BuildNavMesh();
 
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;

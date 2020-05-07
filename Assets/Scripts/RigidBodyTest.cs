@@ -22,7 +22,7 @@ public class RigidBodyTest : MonoBehaviour
         if (isPlayer == true)
         {
             //if(Input.GetMouseButtonDown(1) == true) 
-            if (Input.GetMouseButton(1) == true)
+            if (Input.GetMouseButton(0) == true)
             {
                 //rb.velocity += new Vector3(0f, 0, 0.5f);
 
@@ -40,17 +40,22 @@ public class RigidBodyTest : MonoBehaviour
             {
                 GoToIdle();
             }
-            if (Input.GetMouseButtonDown(0) == true)
+            /*if (Input.GetMouseButtonDown(0) == true)
             {
                 rb.velocity += new Vector3(0f, 0, 0.5f);
-            }
+            }*/
         }
     }
 
     void FaceMousePosition(Vector3 placeToLook)
     {
-        placeToLook.y = transform.position.y;
-        transform.LookAt(placeToLook);
+        Vector3 dist = placeToLook - transform.position;// do not turn for too close
+        dist.y = 0;
+        if (dist.magnitude > 0.8)
+        {
+            placeToLook.y = transform.position.y;
+            transform.LookAt(placeToLook);
+        }
     }
 
     void StartRunning()
@@ -73,13 +78,16 @@ public class RigidBodyTest : MonoBehaviour
     {
         Vector3 dist = pos - transform.position;
         dist.y = 0;
-        if(dist.magnitude<1)
+        if (dist.magnitude < 1)
         {
             GoToIdle();
         }
-        dist.Normalize();
-        dist *= runSpeed;
-        transform.position += dist * Time.deltaTime;
+        else
+        {
+            dist.Normalize();
+            dist *= runSpeed;
+            transform.position += dist * Time.deltaTime;
+        }
     }
 
     public void SetTarget(Transform t)

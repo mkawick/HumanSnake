@@ -68,6 +68,7 @@ public class RigidBodyTest : MonoBehaviour
     void MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
+        dist.y = 0;
         if(dist.magnitude<1)
         {
             GoToIdle();

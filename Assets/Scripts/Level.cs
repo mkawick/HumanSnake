@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
         
     }
 
-    public void SetupPlayerStart(ThirdPersonCharacter go)
+    public void SetupPlayerStart(RigidBodyTest go)
     {
         Vector3 pos =( playerStartPosition.position);
         NavMeshAgent nma = go.GetComponent<NavMeshAgent>();

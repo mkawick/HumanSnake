@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
             levels[i].gameObject.SetActive(false);
 
         }
-        levels[currentLevel].SetupPlayerStart(player.GetComponent<ThirdPersonCharacter>());
+        levels[currentLevel].SetupPlayerStart(player.GetComponent<RigidBodyTest>());
         levels[currentLevel].gameObject.SetActive(true);
         navMesh.BuildNavMesh();
 

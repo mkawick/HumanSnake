@@ -24,7 +24,7 @@ public class DoorScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        var player = other.GetComponent<PlayerMouseHoldLocomotion>();
+        var player = other.GetComponent<RigidBodyTest>();
         if(player != null)
         {
             OpenDoor("OpenTrigger");

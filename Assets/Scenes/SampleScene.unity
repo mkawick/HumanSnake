@@ -2053,7 +2053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 1e440aa76a60e914b8094f15f6070f0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: 1e440aa76a60e914b8094f15f6070f0c, type: 3}
       propertyPath: m_Layer
@@ -3190,7 +3190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295592806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.89, y: -0.33, z: -9.06}
+  m_LocalPosition: {x: -5.03, y: -0.33, z: -9.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1936985989}
@@ -4535,7 +4535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: d186beb38c71ad84da8ec4a3b3927015, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: d186beb38c71ad84da8ec4a3b3927015, type: 3}
       propertyPath: m_Layer
@@ -6212,8 +6212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1936985990}
-  - {fileID: 327291602}
-  - {fileID: 1367985723}
   player: {fileID: 127301011}
   peepManager: {fileID: 1107837590}
   enableTransitionToNewLevels: 1

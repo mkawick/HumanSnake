@@ -39,6 +39,11 @@ public class DoorScript : MonoBehaviour
         }*/
     }
 
+    public void Reset()
+    {
+        OpenDoor("CloseTrigger");
+    }
+
     void OpenDoor(string direction)
     {
         if(direction == "OpenTrigger")

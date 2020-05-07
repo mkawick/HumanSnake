@@ -9,16 +9,28 @@ public class Level : MonoBehaviour
 {
     public Transform playerStartPosition;
     public Transform exitLocation;
+    public DoorScript[] doors;
     // Start is called before the first frame update
     void Start()
     {
-        
+        doors = GetComponentsInChildren<DoorScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void ResetDoors()
+    {
+        if(doors != null && doors.Length > 0)
+        {
+            foreach(var door in doors)
+            {
+                door.Reset();
+            }
+        }
     }
 
     public void SetupPlayerStart(RigidBodyTest go)

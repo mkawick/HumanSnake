@@ -6,10 +6,23 @@ public class RigidBodyTest : MonoBehaviour
 {
     Rigidbody rb;
     Animator animator;
-    bool running = false;
+    //bool running = false;
     public float runSpeed = 1;
     public bool isPlayer = false;
+    public bool isLoggingEnabled = false;
+    
+    //bool pendingAnimationStateChange = false;
     Vector3 target;
+
+    enum AnimStateChange
+    {
+        Run,
+        Idle,
+        None
+    }
+    AnimStateChange currentState = AnimStateChange.Idle, pendingStateChange = AnimStateChange.None;
+    float animationTimeGate;
+    public float animChangeLagTime = 0.25f;
 
     void Start()
     {
@@ -37,17 +50,37 @@ public class RigidBodyTest : MonoBehaviour
 
                 StartRunning();
             }
+            else
+            {
+                GoToIdle();
+            }
         }
         else
         {
             if (target == null || target == Vector3.zero)
             {
-                GoToIdle();
+                    switch(pendingStateChange)
+                    {
+                        case AnimStateChange.Run:
+                            StartRunning();
+                            break;
+                        case AnimStateChange.Idle:
+                            GoToIdle();
+                            break;
+                        case AnimStateChange.None:
+                            break;
+                    }
             }
             else
             {
                 if (MoveTowardPosition(target))
+                {
                     StartRunning();
+                }
+                else
+                {
+                    GoToIdle();
+                }
                 FaceMousePosition(target);
             }
         }
@@ -66,30 +99,62 @@ public class RigidBodyTest : MonoBehaviour
 
     void StartRunning()
     {
-        if (running == false)
+        Log("StartRunning");
+        if (animationTimeGate < Time.time)
         {
-            animator.SetTrigger("Run");
-            running = true;
+            if (currentState == AnimStateChange.Idle)
+            {
+                
+                Log("StartRunning - actual change");
+                animator.SetTrigger("Run");
+
+                animationTimeGate = Time.time + animChangeLagTime;
+                currentState = AnimStateChange.Run;
+                pendingStateChange = AnimStateChange.None;
+            }
+        }
+        else
+        {
+            pendingStateChange = AnimStateChange.Run;
         }
     }
     void GoToIdle()
     {
-        if (running == true)
+        Log("GoToIdle");
+        if (animationTimeGate < Time.time)
         {
-            animator.SetTrigger("Idle");
-            running = false;
+            if (currentState == AnimStateChange.Run)
+            {
+                Log("GoToIdle - actual change");
+                animator.SetTrigger("Idle");
+
+                animationTimeGate = Time.time + animChangeLagTime;
+                currentState = AnimStateChange.Idle;
+                pendingStateChange = AnimStateChange.None;
+            }
         }
+        else
+        {
+            pendingStateChange = AnimStateChange.Idle;
+        }
+    }
+
+    void Log(string text)
+    {
+        if (isLoggingEnabled == true)
+            Debug.Log(text + ":" + Time.time);
     }
     bool MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
         if (dist.magnitude < 0.05f)
         {
-            GoToIdle();
+            Log("MoveTowardPosition:false");
             return false;
         }
         else
         {
+            Log("MoveTowardPosition:true");
             dist.y = 0;
             dist.Normalize();
             dist *= runSpeed;

@@ -147,7 +147,7 @@ public class RigidBodyTest : MonoBehaviour
     bool MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
-        if (dist.magnitude < 0.05f)
+        if (dist.magnitude < 0.2f)
         {
             Log("MoveTowardPosition:false");
             return false;

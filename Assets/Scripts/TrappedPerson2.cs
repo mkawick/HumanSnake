@@ -152,7 +152,8 @@ public class TrappedPerson2 : MonoBehaviour
     class StateWander : TrappedState
     {
         //Time lastTimeChange;
-        float maxTimeToWaitBeforeNextLocation = 5;
+        float minTimeToWaitBeforeNextLocation = 3;
+        float randomRange = 5;
         float timeForNextChange;
 
         Transform originalLocation;
@@ -163,7 +164,8 @@ public class TrappedPerson2 : MonoBehaviour
 
             if (timeForNextChange < Time.time)
             {
-                timeForNextChange = maxTimeToWaitBeforeNextLocation + Time.time;
+                float randomTime = randomRange * Random.value - randomRange / 2;
+                timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
 
                 Vector3 position = originalLocation.position;
                 Vector3 rand = Random.onUnitSphere * 3;

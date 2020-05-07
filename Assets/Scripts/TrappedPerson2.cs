@@ -1,23 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityStandardAssets.Characters.ThirdPerson;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CapsuleCollider))]
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(ThirdPersonCharacter))]
-[RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(AICharacterControl))]
-public class TrappedPerson : MonoBehaviour
+public class TrappedPerson2 : MonoBehaviour
 {
     [SerializeField]
     internal Transform player;
     internal Vector3 originalPos;
 
-    internal AICharacterControl control;
-    internal ThirdPersonCharacter character;
+    internal RigidBodyTest control;
     public PeepManager peepManager;
 
     public Renderer mesh;
@@ -63,19 +54,19 @@ public class TrappedPerson : MonoBehaviour
             states[(int)State.FollowPLayer] = new StateFollowPlayer();
             states[(int)State.EndOfLevel] = new StateEndOfLevel();
         }
-        control = GetComponent<AICharacterControl>();
-        if(originalPos == Vector3.zero)// init
+        control = GetComponent<RigidBodyTest>();
+        if (originalPos == Vector3.zero)// init
             originalPos = transform.position;
 
-        character = GetComponent<ThirdPersonCharacter>();
+      /*  character = GetComponent<ThirdPersonCharacter>();
         if (originalForwardSpeedMultiplier == 0)
             originalForwardSpeedMultiplier = character.ForwardSpeedMultiplier;
         else
-            character.ForwardSpeedMultiplier = originalForwardSpeedMultiplier;
+            character.ForwardSpeedMultiplier = originalForwardSpeedMultiplier;*/
 
         transform.position = originalPos;
-        NavMeshAgent nma = GetComponent<NavMeshAgent>();
-        nma.Warp(originalPos);
+        //UnityEngine.AI.NavMeshAgent nma = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //nma.Warp(originalPos);
 
         currentState = State.Wandering;
         //peepManager.ChangeState(this);
@@ -92,7 +83,7 @@ public class TrappedPerson : MonoBehaviour
     }
     public bool IsExitCloseEnough()
     {
-        
+
         if ((peepManager.exitLocation.position - transform.position).magnitude < peepManager.distanceToExit)
         {
             return true;
@@ -103,11 +94,11 @@ public class TrappedPerson : MonoBehaviour
 
     public abstract class TrappedState
     {
-        public abstract bool Update(TrappedPerson tp);
+        public abstract bool Update(TrappedPerson2 tp);
     }
     public class StateFollowPlayer : TrappedState
     {
-        public override bool Update(TrappedPerson tp)
+        public override bool Update(TrappedPerson2 tp)
         {
             if (tp.IsExitCloseEnough() == true)
             {
@@ -117,9 +108,9 @@ public class TrappedPerson : MonoBehaviour
                 tp.indexInSnake = -1;
                 return false;
             }
-          //  else if (tp.IsPlayerCloseEnough() == true)
+            //  else if (tp.IsPlayerCloseEnough() == true)
             {
-                Vector3 playerPos = new Vector3(0, 0, 0); //= tp.peepManager.WhomDoIFollow(tp).position;
+                Vector3 playerPos = tp.peepManager.WhomDoIFollow(tp).position;
                 Vector3 pos = tp.transform.position;
                 Vector3 dist = (pos - playerPos);
                 if (dist.sqrMagnitude < 3)
@@ -136,21 +127,21 @@ public class TrappedPerson : MonoBehaviour
                     tp.control.SetTarget(dest);
                 }
             }
-           /* else
-            {
-                tp.currentState = State.Wandering;
-                tp.peepManager.ChangeState(tp);
-                tp.peepManager.RemoveFromSnake(tp.transform);
-                tp.indexInSnake = -1;
-                return false;
-            }*/
+            /* else
+             {
+                 tp.currentState = State.Wandering;
+                 tp.peepManager.ChangeState(tp);
+                 tp.peepManager.RemoveFromSnake(tp.transform);
+                 tp.indexInSnake = -1;
+                 return false;
+             }*/
 
             return true;
         }
     }
     public class StateEndOfLevel : TrappedState
     {
-        public override bool Update(TrappedPerson tp)
+        public override bool Update(TrappedPerson2 tp)
         {
             //Vector3 pos = tp.transform.position;
             tp.control.SetTarget(tp.peepManager.GetFinalDestination());
@@ -165,12 +156,12 @@ public class TrappedPerson : MonoBehaviour
         float timeForNextChange;
 
         Transform originalLocation;
-        public override bool Update(TrappedPerson tp)
+        public override bool Update(TrappedPerson2 tp)
         {
             if (originalLocation == null)
                 originalLocation = tp.transform;
 
-            if(timeForNextChange < Time.time)
+            if (timeForNextChange < Time.time)
             {
                 timeForNextChange = maxTimeToWaitBeforeNextLocation + Time.time;
 
@@ -181,13 +172,13 @@ public class TrappedPerson : MonoBehaviour
                 tp.control.SetTarget(position);
             }
 
-            if(tp.IsPlayerCloseEnough() == true)
+            if (tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
                 //tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
-                //tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
-                tp.character.ForwardSpeedMultiplier = tp.peepManager.followingPlayerSpeedMultipler;
+                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
+                //tp.character.ForwardSpeedMultiplier = tp.peepManager.followingPlayerSpeedMultipler;
                 //tp.control.SetTarget(tp.player.transform);
                 return false;
             }

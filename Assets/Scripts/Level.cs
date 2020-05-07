@@ -24,16 +24,18 @@ public class Level : MonoBehaviour
     public void SetupPlayerStart(RigidBodyTest go)
     {
         Vector3 pos =( playerStartPosition.position);
-        NavMeshAgent nma = go.GetComponent<NavMeshAgent>();
-        nma.Warp( pos);
+        RigidBodyTest nma = go.GetComponent<RigidBodyTest>();
+        //nma.Warp( pos);
+        nma.transform.position = pos;
+
         //Debug.Log(go.gameObject.transform.position);
     }
 
-    public List<TrappedPerson> GetTrappedPeople()
+    public List<TrappedPerson2> GetTrappedPeople()
     {
-        var listOfPeeps = GetComponentsInChildren<TrappedPerson>();
+        var listOfPeeps = GetComponentsInChildren<TrappedPerson2>();
 
-        return listOfPeeps.OfType<TrappedPerson>().ToList();
+        return listOfPeeps.OfType<TrappedPerson2>().ToList();
     }
 
     public bool IsLevelComplete()
@@ -41,7 +43,7 @@ public class Level : MonoBehaviour
         var listOfPeeps = GetTrappedPeople();
         foreach (var peep in listOfPeeps)
         {
-            if (peep.currentState != TrappedPerson.State.EndOfLevel)
+            if (peep.currentState != TrappedPerson2.State.EndOfLevel)
             {
                 return false;
             }

@@ -8,6 +8,7 @@ public class RigidBodyTest : MonoBehaviour
     Animator animator;
     bool running = false;
     public float runSpeed = 1;
+    public bool isPlayer = false;
 
     void Start()
     {
@@ -18,28 +19,31 @@ public class RigidBodyTest : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetMouseButtonDown(1) == true) 
-        if(Input.GetMouseButton(1) == true)
+        if (isPlayer == true)
         {
-            //rb.velocity += new Vector3(0f, 0, 0.5f);
-
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100))
+            //if(Input.GetMouseButtonDown(1) == true) 
+            if (Input.GetMouseButton(1) == true)
             {
-                FaceMousePosition(hit.point);
-                MoveTowardPosition(hit.point);
-            }
+                //rb.velocity += new Vector3(0f, 0, 0.5f);
 
-            StartRunning();
-        }
-        else
-        {
-            GoToIdle();
-        }
-        if (Input.GetMouseButtonDown(0) == true)
-        {
-            rb.velocity += new Vector3(0f, 0, 0.5f);
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 100))
+                {
+                    FaceMousePosition(hit.point);
+                    MoveTowardPosition(hit.point);
+                }
+
+                StartRunning();
+            }
+            else
+            {
+                GoToIdle();
+            }
+            if (Input.GetMouseButtonDown(0) == true)
+            {
+                rb.velocity += new Vector3(0f, 0, 0.5f);
+            }
         }
     }
 
@@ -76,5 +80,23 @@ public class RigidBodyTest : MonoBehaviour
         dist.Normalize();
         dist *= runSpeed;
         transform.position += dist * Time.deltaTime;
+    }
+
+    public void SetTarget(Transform t)
+    {
+        if(t == null)
+        {
+            GoToIdle();
+        }
+        else
+        {
+            MoveTowardPosition(t.position);
+            FaceMousePosition(t.position);
+        }
+    }
+    public void SetTarget(Vector3 pos)
+    {
+        MoveTowardPosition(pos);
+        FaceMousePosition(pos);
     }
 }

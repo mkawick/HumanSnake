@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PeepManager : MonoBehaviour
 {
-    List<TrappedPerson> peeps;
+    List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
     public float defaultDistanceToFollowPlayer = 2.2f;
@@ -26,10 +26,10 @@ public class PeepManager : MonoBehaviour
     }
     void Start()
     {
-        peeps = new List<TrappedPerson>();
+        peeps = new List<TrappedPerson2>();
     }
 
-    public void NewLevel(List<TrappedPerson> peepList)
+    public void NewLevel(List<TrappedPerson2> peepList)
     {
         peeps = peepList;
         foreach(var p in peeps)
@@ -44,21 +44,21 @@ public class PeepManager : MonoBehaviour
         
     }
 
-    public void ChangeState(TrappedPerson tp)
+    public void ChangeState(TrappedPerson2 tp)
     {
         switch(tp.currentState)
         {
-            case TrappedPerson.State.Wandering:
+            case TrappedPerson2.State.Wandering:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
                 }
                 break;
-            case TrappedPerson.State.FollowPLayer:
+            case TrappedPerson2.State.FollowPLayer:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
                 }
                 break;
-            case TrappedPerson.State.EndOfLevel:
+            case TrappedPerson2.State.EndOfLevel:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
                 }
@@ -76,7 +76,7 @@ public class PeepManager : MonoBehaviour
         return defaultDistanceToFollowPlayer + addedDist;
     }
 
-    public Transform WhomDoIFollow(TrappedPerson tp)
+    public Transform WhomDoIFollow(TrappedPerson2 tp)
     {
         GameObject go = snakeList[0].gameObject;
         foreach (var v in snakeList)

@@ -20,7 +20,14 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
 
             Vector3 direction = (hit.point - this.transform.position).normalized;
             var control = GetComponent<ThirdPersonCharacter>();
-            control.Move(direction, false, false);
+            if(control)
+                control.Move(direction, false, false);
+            else
+            {
+                var ctrl = GetComponent<ThirdPersonCharacter2>();
+                if (ctrl)
+                    ctrl.Move(direction, false, false);
+            }
         }
     }
 }

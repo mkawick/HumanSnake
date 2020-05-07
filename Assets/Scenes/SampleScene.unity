@@ -185,6 +185,71 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.051000003, y: 0, z: 0.101}
   m_TimeToStationary: 0.5
+--- !u!1001 &190710690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_Name
+      value: Girl
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1a465a5f848975458eb6a85298db987, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
 --- !u!1 &205089989 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: fadddc63520db414bbc9126cbf4743ad,
@@ -448,13 +513,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350246161}
-  m_LocalRotation: {x: 0.707068, y: -0.0074051423, z: 0.0074051125, w: 0.707068}
-  m_LocalPosition: {x: 0.20999998, y: -0.5033396, z: 15.190001}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.20999998, y: 0, z: 15.190001}
   m_LocalScale: {x: 4.94456, y: 4.944561, z: 4.9445605}
   m_Children: []
   m_Father: {fileID: 2089072706}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 1.2}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &350246163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1989,7 +2054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5017559, y: -0, z: -0, w: 0.8650093}
-  m_LocalPosition: {x: 0, y: 20.74, z: -11.09}
+  m_LocalPosition: {x: 0, y: 16.77, z: -9.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2446,7 +2511,7 @@ PrefabInstance:
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.18
       objectReference: {fileID: 0}
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
@@ -2488,11 +2553,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2904146110201375372, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 24.999832
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904146110201375374, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.2505074
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904146110201375384, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.659441
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904146110201375386, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.659441
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904146110201375388, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 14.405818
+      objectReference: {fileID: 0}
     - target: {fileID: 2904146110201542314, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
       propertyPath: m_Name
       value: FireMan
       objectReference: {fileID: 0}
+    - target: {fileID: 2904146110210917754, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b1a465a5f848975458eb6a85298db987, type: 2}
     - target: {fileID: 2904146111668261236, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
       propertyPath: m_Radius

@@ -1,12 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorScript : MonoBehaviour
 {
     public GameObject swingAnchor;
+    public TextMeshPro[] numberDisplays;
     private Animator animator;
     bool isOpen = false;
+    bool isTriggerEnabled = false;
+
+
 
     enum AnimClips
     {
@@ -22,8 +29,21 @@ public class DoorScript : MonoBehaviour
     {
         
     }
+
+    public void SetDoorNumber(int num)
+    {
+        if(numberDisplays == null)
+            return;
+        foreach(var display in numberDisplays)
+        {
+            display.text = num.ToString();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        if (isTriggerEnabled == false)
+            return;
+
         var player = other.GetComponent<RigidBodyTest>();
         if(player != null)
         {
@@ -39,8 +59,14 @@ public class DoorScript : MonoBehaviour
         }*/
     }
 
-    public void Reset()
+    internal void EnableTrigger()
     {
+        isTriggerEnabled = true;
+    }
+
+    internal void Reset()
+    {
+        isTriggerEnabled = false;
         OpenDoor("CloseTrigger");
     }
 

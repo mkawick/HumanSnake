@@ -4,12 +4,14 @@ using UnityEngine;
 using System.Linq;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityEngine.AI;
+using System;
 
 public class Level : MonoBehaviour
 {
     public Transform playerStartPosition;
     public Transform exitLocation;
     public DoorScript[] doors;
+    public PeepManager peepManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +21,35 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        EnableExit();
     }
 
     public void ResetDoors()
     {
-        if(doors != null && doors.Length > 0)
+        var listOfPeeps = GetComponentsInChildren<TrappedPerson2>();
+        if (doors != null && doors.Length > 0)
         {
             foreach(var door in doors)
             {
                 door.Reset();
+                door.SetDoorNumber(listOfPeeps.Length);
+            }
+        }
+    }
+
+    public void EnableExit()
+    {
+        if (peepManager == null)
+            return;
+        var listOfPeeps = GetComponentsInChildren<TrappedPerson2>();
+        if (peepManager.GetNumInSnake() == listOfPeeps.Length)
+        {
+            if (doors != null && doors.Length > 0)
+            {
+                foreach (var door in doors)
+                {
+                    door.EnableTrigger();
+                }
             }
         }
     }
@@ -61,5 +82,10 @@ public class Level : MonoBehaviour
             }
         }
         return true;
+    }
+
+    internal void SetPeepManager(PeepManager mgr)
+    {
+        peepManager = mgr;
     }
 }

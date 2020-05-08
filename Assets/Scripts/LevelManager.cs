@@ -71,7 +71,8 @@ public class LevelManager : MonoBehaviour
         levels[currentLevel].ResetDoors();
         levels[currentLevel].SetupPlayerStart(player.GetComponent<RigidBodyTest>());
         levels[currentLevel].gameObject.SetActive(true);
-       // navMesh.BuildNavMesh();
+        levels[currentLevel].SetPeepManager(peepManager);
+        // navMesh.BuildNavMesh();
 
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;

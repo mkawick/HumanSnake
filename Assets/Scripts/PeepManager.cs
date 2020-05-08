@@ -123,4 +123,10 @@ public class PeepManager : MonoBehaviour
     {
         snakeList.Remove(tp);
     }
+
+    public int GetNumInSnake(bool includePlayer = false)
+    {
+        int total = snakeList.Count;
+        return includePlayer ? total : total -1;
+    }
 }

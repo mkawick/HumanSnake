@@ -35,11 +35,12 @@ public class RigidBodyTest : MonoBehaviour
     {
         if (isPlayer == true)
         {
-            //if(Input.GetMouseButtonDown(1) == true) 
-            if (Input.GetMouseButton(0) == true)
+            if (Input.GetMouseButton(1) == true)
             {
-                //rb.velocity += new Vector3(0f, 0, 0.5f);
-
+                Wave();
+            }
+            else if (Input.GetMouseButton(0) == true)
+            {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 100))
@@ -104,7 +105,6 @@ public class RigidBodyTest : MonoBehaviour
         {
             if (currentState == AnimStateChange.Idle)
             {
-                
                 Log("StartRunning - actual change");
                 animator.SetTrigger("Run");
 
@@ -137,6 +137,11 @@ public class RigidBodyTest : MonoBehaviour
         {
             pendingStateChange = AnimStateChange.Idle;
         }
+    }
+
+    internal void Wave()
+    {
+        animator.SetTrigger("Wave");
     }
 
     void Log(string text)

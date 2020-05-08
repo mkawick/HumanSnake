@@ -24,7 +24,8 @@ public class TrappedPerson2 : MonoBehaviour
     {
         Wandering,
         FollowPLayer,
-        EndOfLevel/*,
+        EndOfLevel,
+        Wave/*,
         RunningFromFire,
         HelpingFightFire,
         NumStates*/
@@ -44,7 +45,22 @@ public class TrappedPerson2 : MonoBehaviour
         if (isActiveAndEnabled == false || states == null)
             return;
 
-        states[(int)currentState].Update(this);
+        if(states[(int)currentState].Update(this) == false)
+        {
+            if(currentState == State.Wandering || currentState == State.Wave)
+            {
+                switch(UnityEngine.Random.Range(0, 2))
+                {
+                    case 0:
+                        currentState = State.Wandering;
+                        break;
+                    case 1:
+                        currentState = State.Wave;
+                        break;
+                }
+                states[(int)currentState].Init(this);
+            }
+        }
     }
 
     //----------------------------------------------
@@ -57,6 +73,7 @@ public class TrappedPerson2 : MonoBehaviour
             states = new TrappedState[count];
             states[(int)State.Wandering] = new StateWander();
             states[(int)State.FollowPLayer] = new StateFollowPlayer();
+            states[(int)State.Wave] = new StateWave();
             states[(int)State.EndOfLevel] = new StateEndOfLevel();
         }
         control = GetComponent<RigidBodyTest>();
@@ -85,7 +102,6 @@ public class TrappedPerson2 : MonoBehaviour
     }
     public bool IsExitCloseEnough()
     {
-
         if ((peepManager.exitLocation.position - transform.position).magnitude < peepManager.distanceToExit)
         {
             return true;
@@ -96,8 +112,16 @@ public class TrappedPerson2 : MonoBehaviour
 
     public abstract class TrappedState
     {
+        protected float randomRange = 5;
+        protected float minTimeToWaitBeforeNextLocation = 3;
+        protected float timeForNextChange;
         public abstract void Init(TrappedPerson2 tp);
         public abstract bool Update(TrappedPerson2 tp);
+        protected void RandomizeTimeForNextChange()
+        {
+            float randomTime = randomRange * UnityEngine.Random.value - randomRange / 2;
+            timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
+        }
     }
     public class StateFollowPlayer : TrappedState
     {
@@ -159,28 +183,25 @@ public class TrappedPerson2 : MonoBehaviour
         }
     }
     class StateWander : TrappedState
-    {
-        //Time lastTimeChange;
-        float minTimeToWaitBeforeNextLocation = 3;
-        float randomRange = 5;
-        float timeForNextChange;
+    {        
 
         Transform originalLocation;
         public override void Init(TrappedPerson2 tp)
         {
+            if (originalLocation == null)
+                originalLocation = tp.transform;
+
             RandomizeTimeForNextChange();
         }
         public override bool Update(TrappedPerson2 tp)
         {
-            if (originalLocation == null)
-                originalLocation = tp.transform;
-
             if (timeForNextChange < Time.time)
             {
                 Vector3 randomLocation = SelectRandomLocation(tp.wanderRange);
                 randomLocation = RaycastToPreventHittingObstacles(tp.transform.position, randomLocation, tp.boundingRadius);
                 randomLocation.y = originalLocation.position.y;
                 tp.control.SetTarget(randomLocation);
+                return false;// ready for new state
             }
 
             if (tp.IsPlayerCloseEnough() == true)
@@ -205,14 +226,6 @@ public class TrappedPerson2 : MonoBehaviour
             position.z += rand.z;
             return position;
         }
-
-        void RandomizeTimeForNextChange()
-        {
-            float randomTime = randomRange * UnityEngine.Random.value - randomRange / 2;
-            timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
-        }
-
-
         Vector3 RaycastToPreventHittingObstacles(Vector3 start, Vector3 end, float boundingRadius)
         {
             Vector3 dir = end - start;
@@ -225,6 +238,31 @@ public class TrappedPerson2 : MonoBehaviour
                 return newEnd;
             }
             return end;
+        }
+    }
+    public class StateWave : TrappedState
+    {
+        public override void Init(TrappedPerson2 tp)
+        {
+            RandomizeTimeForNextChange();
+        }
+        public override bool Update(TrappedPerson2 tp)
+        {
+            if (timeForNextChange < Time.time)
+            {
+                tp.control.Wave();
+                return false;// ready for new state
+            }
+            if (tp.IsPlayerCloseEnough() == true)
+            {
+                tp.currentState = State.FollowPLayer;
+                //tp.peepManager.ChangeState(tp);
+                tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
+                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -13,6 +13,8 @@ public class TrappedPerson2 : MonoBehaviour
 
     public Renderer mesh;
 
+    public float boundingRadius = 0.5f;
+
     int indexInSnake = 0;
     float originalForwardSpeedMultiplier = 0;
 
@@ -164,14 +166,10 @@ public class TrappedPerson2 : MonoBehaviour
 
             if (timeForNextChange < Time.time)
             {
-                float randomTime = randomRange * Random.value - randomRange / 2;
-                timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
-
-                Vector3 position = originalLocation.position;
-                Vector3 rand = Random.onUnitSphere * 3;
-                position.x += rand.x;
-                position.z += rand.z;
-                tp.control.SetTarget(position);
+                Vector3 randomLocation = SelectRandomLocation();
+                randomLocation = RaycastToPreventHittingObstacles(tp.transform.position, randomLocation, tp.boundingRadius);
+                randomLocation.y = originalLocation.position.y;
+                tp.control.SetTarget(randomLocation);
             }
 
             if (tp.IsPlayerCloseEnough() == true)
@@ -180,12 +178,39 @@ public class TrappedPerson2 : MonoBehaviour
                 //tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
-                //tp.character.ForwardSpeedMultiplier = tp.peepManager.followingPlayerSpeedMultipler;
-                //tp.control.SetTarget(tp.player.transform);
                 return false;
             }
 
             return true;
+        }
+
+        Vector3 SelectRandomLocation()
+        {
+            float randomTime = randomRange * Random.value - randomRange / 2;
+            timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
+
+            Vector3 position = originalLocation.position;
+            Vector3 rand = Random.onUnitSphere * 3;
+            position.x += rand.x;
+            position.z += rand.z;
+            return position;
+        }
+
+
+        Vector3 RaycastToPreventHittingObstacles(Vector3 start, Vector3 end, float boundingRadius)
+        {
+            Vector3 dir = end - start;
+            RaycastHit hit;
+            if (Physics.Raycast(start, dir, out hit, dir.magnitude, LayerMask.GetMask("Maze")))
+            {
+                Vector3 hitLocation = hit.point;
+                Vector3 normal = hit.normal;
+
+                
+                Vector3 newEnd = hitLocation + normal * boundingRadius;//normal - Vector3.Project(-dir, normal);
+                return newEnd;
+            }
+            return end;
         }
     }
 }

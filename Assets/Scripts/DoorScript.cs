@@ -11,9 +11,9 @@ public class DoorScript : MonoBehaviour
     public TextMeshPro[] numberDisplays;
     private Animator animator;
     bool isOpen = false;
+
+    public bool blocksLevelEnd = true;
     bool isTriggerEnabled = false;
-
-
 
     enum AnimClips
     {
@@ -41,7 +41,8 @@ public class DoorScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (isTriggerEnabled == false)
+        // we don't care about enabling the trigger if we are not blocking
+        if (isTriggerEnabled == false && blocksLevelEnd == true)
             return;
 
         var player = other.GetComponent<RigidBodyTest>();

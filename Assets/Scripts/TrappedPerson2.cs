@@ -1,19 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrappedPerson2 : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     internal Transform player;
     internal Vector3 originalPos;
 
     internal RigidBodyTest control;
     public PeepManager peepManager;
 
-    public Renderer mesh;
+    //public Renderer mesh;
 
     public float boundingRadius = 0.5f;
+    public float wanderRange = 1.5f;
 
     int indexInSnake = 0;
     float originalForwardSpeedMultiplier = 0;
@@ -22,10 +24,10 @@ public class TrappedPerson2 : MonoBehaviour
     {
         Wandering,
         FollowPLayer,
-        EndOfLevel,
+        EndOfLevel/*,
         RunningFromFire,
         HelpingFightFire,
-        NumStates
+        NumStates*/
     }
 
     TrappedState[] states;
@@ -51,7 +53,8 @@ public class TrappedPerson2 : MonoBehaviour
     {
         if (states == null)
         {
-            states = new TrappedState[(int)State.NumStates];
+            var count = Enum.GetNames(typeof(State)).Length;
+            states = new TrappedState[count];
             states[(int)State.Wandering] = new StateWander();
             states[(int)State.FollowPLayer] = new StateFollowPlayer();
             states[(int)State.EndOfLevel] = new StateEndOfLevel();
@@ -60,19 +63,16 @@ public class TrappedPerson2 : MonoBehaviour
         if (originalPos == Vector3.zero)// init
             originalPos = transform.position;
 
-      /*  character = GetComponent<ThirdPersonCharacter>();
-        if (originalForwardSpeedMultiplier == 0)
-            originalForwardSpeedMultiplier = character.ForwardSpeedMultiplier;
-        else
-            character.ForwardSpeedMultiplier = originalForwardSpeedMultiplier;*/
-
         transform.position = originalPos;
-        //UnityEngine.AI.NavMeshAgent nma = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        //nma.Warp(originalPos);
 
         currentState = State.Wandering;
         //peepManager.ChangeState(this);
         player = _player;
+
+        foreach(var state in states)
+        {
+            state.Init(this);
+        }
     }
 
     public bool IsPlayerCloseEnough()
@@ -96,10 +96,14 @@ public class TrappedPerson2 : MonoBehaviour
 
     public abstract class TrappedState
     {
+        public abstract void Init(TrappedPerson2 tp);
         public abstract bool Update(TrappedPerson2 tp);
     }
     public class StateFollowPlayer : TrappedState
     {
+        public override void Init(TrappedPerson2 tp)
+        {
+        }
         public override bool Update(TrappedPerson2 tp)
         {
             if (tp.IsExitCloseEnough() == true)
@@ -143,6 +147,9 @@ public class TrappedPerson2 : MonoBehaviour
     }
     public class StateEndOfLevel : TrappedState
     {
+        public override void Init(TrappedPerson2 tp)
+        {
+        }
         public override bool Update(TrappedPerson2 tp)
         {
             //Vector3 pos = tp.transform.position;
@@ -159,6 +166,10 @@ public class TrappedPerson2 : MonoBehaviour
         float timeForNextChange;
 
         Transform originalLocation;
+        public override void Init(TrappedPerson2 tp)
+        {
+            RandomizeTimeForNextChange();
+        }
         public override bool Update(TrappedPerson2 tp)
         {
             if (originalLocation == null)
@@ -166,7 +177,7 @@ public class TrappedPerson2 : MonoBehaviour
 
             if (timeForNextChange < Time.time)
             {
-                Vector3 randomLocation = SelectRandomLocation();
+                Vector3 randomLocation = SelectRandomLocation(tp.wanderRange);
                 randomLocation = RaycastToPreventHittingObstacles(tp.transform.position, randomLocation, tp.boundingRadius);
                 randomLocation.y = originalLocation.position.y;
                 tp.control.SetTarget(randomLocation);
@@ -184,16 +195,21 @@ public class TrappedPerson2 : MonoBehaviour
             return true;
         }
 
-        Vector3 SelectRandomLocation()
+        Vector3 SelectRandomLocation(float range)
         {
-            float randomTime = randomRange * Random.value - randomRange / 2;
-            timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
+            RandomizeTimeForNextChange();
 
             Vector3 position = originalLocation.position;
-            Vector3 rand = Random.onUnitSphere * 3;
+            Vector3 rand = UnityEngine.Random.onUnitSphere * range;
             position.x += rand.x;
             position.z += rand.z;
             return position;
+        }
+
+        void RandomizeTimeForNextChange()
+        {
+            float randomTime = randomRange * UnityEngine.Random.value - randomRange / 2;
+            timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
         }
 
 
@@ -205,9 +221,7 @@ public class TrappedPerson2 : MonoBehaviour
             {
                 Vector3 hitLocation = hit.point;
                 Vector3 normal = hit.normal;
-
-                
-                Vector3 newEnd = hitLocation + normal * boundingRadius;//normal - Vector3.Project(-dir, normal);
+                Vector3 newEnd = hitLocation + normal * boundingRadius;
                 return newEnd;
             }
             return end;

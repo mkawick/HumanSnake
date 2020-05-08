@@ -513,10 +513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3e7b2e8d476e7449417fa9601c03a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   peepManager: {fileID: 1107837590}
-  mesh: {fileID: 0}
   boundingRadius: 0.5
+  wanderRange: 1.5
 --- !u!114 &357843023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,10 +852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3e7b2e8d476e7449417fa9601c03a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   peepManager: {fileID: 1107837590}
-  mesh: {fileID: 0}
   boundingRadius: 0.5
+  wanderRange: 1.5
 --- !u!65 &499460426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -868,8 +866,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.4885101, z: 1}
-  m_Center: {x: 0, y: 1.5877018, z: 0}
+  m_Size: {x: 1.4, y: 2.4885101, z: 1.4}
+  m_Center: {x: -0.00048446655, y: 1.5877018, z: -0.060537815}
 --- !u!54 &499460427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1588,10 +1586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3e7b2e8d476e7449417fa9601c03a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   peepManager: {fileID: 1107837590}
-  mesh: {fileID: 0}
   boundingRadius: 0.5
+  wanderRange: 1.5
 --- !u!65 &845059223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2146,7 +2143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1124226967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2949,10 +2946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3e7b2e8d476e7449417fa9601c03a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   peepManager: {fileID: 1107837590}
-  mesh: {fileID: 0}
   boundingRadius: 0.5
+  wanderRange: 1.5
 --- !u!65 &1863989845
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2964,7 +2960,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2807758, z: 1}
+  m_Size: {x: 1.4, y: 2.2807758, z: 11.4}
   m_Center: {x: 0, y: 1.2636191, z: 0}
 --- !u!1 &1877433445
 GameObject:
@@ -3405,5 +3401,15 @@ PrefabInstance:
       propertyPath: peepManager
       value: 
       objectReference: {fileID: 1107837590}
+    - target: {fileID: 7274700646740784857, guid: 9c3a22f009d548e4c980c7841d25e32e,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274700646740784857, guid: 9c3a22f009d548e4c980c7841d25e32e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3a22f009d548e4c980c7841d25e32e, type: 3}

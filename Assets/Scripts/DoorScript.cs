@@ -14,6 +14,7 @@ public class DoorScript : MonoBehaviour
 
     public bool blocksLevelEnd = true;
     bool isTriggerEnabled = false;
+    public bool showDoorNumber = true;
 
     enum AnimClips
     {
@@ -27,7 +28,20 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(showDoorNumber == false)
+        {
+            foreach (var display in numberDisplays)
+            {
+                display.enabled = false;
+            }
+        }
+        else
+        {
+            foreach (var display in numberDisplays)
+            {
+                display.enabled = true;
+            }
+        }
     }
 
     public void SetDoorNumber(int num)

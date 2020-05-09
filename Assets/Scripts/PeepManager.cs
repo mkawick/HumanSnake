@@ -52,9 +52,9 @@ public class PeepManager : MonoBehaviour
         
     }
 
-    public void ChangeState(TrappedPerson2 tp)
+    public void ChangeState(TrappedPerson2 tp, TrappedPerson2.State currentState)
     {
-        switch(tp.currentState)
+        switch(currentState)
         {
             case TrappedPerson2.State.Wandering:
                 {
@@ -85,6 +85,11 @@ public class PeepManager : MonoBehaviour
                     Sprite sprite = emoticons[(int)PeepStateEmoticons.WavingForHelp];
                     if (sprite != null)
                         tp.SetEmoticon(sprite);
+                }
+                break;
+            default:
+                {
+                    tp.SetEmoticon(null);
                 }
                 break;
         }

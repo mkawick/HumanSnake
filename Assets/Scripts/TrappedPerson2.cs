@@ -26,7 +26,8 @@ public class TrappedPerson2 : MonoBehaviour
         Wandering,
         FollowPLayer,
         EndOfLevel,
-        Wave/*,
+        Wave, 
+        Transitioning/*,
         RunningFromFire,
         HelpingFightFire,
         NumStates*/
@@ -67,11 +68,11 @@ public class TrappedPerson2 : MonoBehaviour
                 {
                     case 0:
                         currentState = State.Wandering;
-                        peepManager.ChangeState(this);
+                        peepManager.ChangeState(this, State.Wandering);
                         break;
                     case 1:
                         currentState = State.Wave;
-                        peepManager.ChangeState(this);
+                        peepManager.ChangeState(this, State.Wave);
                         break;
                 }
                 states[(int)currentState].Init(this);
@@ -89,7 +90,16 @@ public class TrappedPerson2 : MonoBehaviour
     {
         if (emoticon)
         {
-            emoticon.sprite = sprite;
+            if (sprite == null)
+            {
+                emoticonRoot.SetActive(false);
+            }
+            else
+            {
+                emoticonRoot.SetActive(true);
+                emoticon.sprite = sprite;
+            }
+            
         }
     }
 
@@ -105,6 +115,8 @@ public class TrappedPerson2 : MonoBehaviour
             states[(int)State.FollowPLayer] = new StateFollowPlayer();
             states[(int)State.Wave] = new StateWave();
             states[(int)State.EndOfLevel] = new StateEndOfLevel();
+            states[(int)State.Transitioning] = new StateTransitioning();
+            
         }
         control = GetComponent<RigidBodyTest>();
         if (originalPos == Vector3.zero)// init
@@ -113,7 +125,7 @@ public class TrappedPerson2 : MonoBehaviour
         transform.position = originalPos;
 
         currentState = State.Wandering;
-        peepManager.ChangeState(this);
+        peepManager.ChangeState(this, State.Transitioning);
         player = _player;
 
         foreach(var state in states)
@@ -163,7 +175,7 @@ public class TrappedPerson2 : MonoBehaviour
             if (tp.IsExitCloseEnough() == true)
             {
                 tp.currentState = State.EndOfLevel;
-                tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp, State.Transitioning);
                 tp.peepManager.RemoveFromSnake(tp.transform);
                 tp.indexInSnake = -1;
                 return false;
@@ -233,11 +245,15 @@ public class TrappedPerson2 : MonoBehaviour
                 tp.control.SetTarget(randomLocation);
                 return false;// ready for new state
             }
+            else
+            {
+                //tp.peepManager.ChangeState(tp, State.Transitioning);
+            }
 
             if (tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp, State.FollowPLayer);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 return false;
@@ -283,14 +299,31 @@ public class TrappedPerson2 : MonoBehaviour
                 tp.control.Wave();
                 return false;// ready for new state
             }
+            else
+            {
+                //tp.peepManager.ChangeState(tp, State.Transitioning);
+            }
             if (tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp, State.FollowPLayer);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 return false;
             }
+
+            return true;
+        }
+    }
+    public class StateTransitioning : TrappedState
+    {
+        public override void Init(TrappedPerson2 tp)
+        {
+            RandomizeTimeForNextChange();
+        }
+        public override bool Update(TrappedPerson2 tp)
+        {
+            //tp.peepManager.ChangeState(tp, State.Transitioning);
 
             return true;
         }

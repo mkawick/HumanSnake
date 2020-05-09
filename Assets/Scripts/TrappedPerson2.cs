@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TrappedPerson2 : MonoBehaviour
 {
-    //[SerializeField]
+    private GameObject emoticonRoot;
+    public SpriteRenderer emoticon;
     internal Transform player;
     internal Vector3 originalPos;
 
@@ -37,6 +38,19 @@ public class TrappedPerson2 : MonoBehaviour
     void Start()
     {
         //SetupInitialState();
+
+        SetupEmoticonSprite();
+    }
+    void SetupEmoticonSprite()
+    {
+        emoticonRoot = new GameObject();
+        emoticonRoot.name = "Emoticon";
+        emoticonRoot.transform.parent = transform;
+        emoticonRoot.transform.localPosition = new Vector3(0, 1.75f, 0);
+        emoticonRoot.transform.rotation.SetEulerRotation(-90, 0, 0);
+        float scale = 0.8f;
+        emoticonRoot.transform.localScale = new Vector3(scale, scale, scale);
+        emoticon = emoticonRoot.AddComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -53,13 +67,29 @@ public class TrappedPerson2 : MonoBehaviour
                 {
                     case 0:
                         currentState = State.Wandering;
+                        peepManager.ChangeState(this);
                         break;
                     case 1:
                         currentState = State.Wave;
+                        peepManager.ChangeState(this);
                         break;
                 }
                 states[(int)currentState].Init(this);
             }
+        }
+        UpdateEmoticonRotation();
+    }
+
+    void UpdateEmoticonRotation()
+    {
+        emoticonRoot.transform.forward = Camera.main.transform.forward;
+    }
+
+    public void SetEmoticon(Sprite sprite)
+    {
+        if (emoticon)
+        {
+            emoticon.sprite = sprite;
         }
     }
 
@@ -83,7 +113,7 @@ public class TrappedPerson2 : MonoBehaviour
         transform.position = originalPos;
 
         currentState = State.Wandering;
-        //peepManager.ChangeState(this);
+        peepManager.ChangeState(this);
         player = _player;
 
         foreach(var state in states)
@@ -133,7 +163,7 @@ public class TrappedPerson2 : MonoBehaviour
             if (tp.IsExitCloseEnough() == true)
             {
                 tp.currentState = State.EndOfLevel;
-                //tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp);
                 tp.peepManager.RemoveFromSnake(tp.transform);
                 tp.indexInSnake = -1;
                 return false;
@@ -207,7 +237,7 @@ public class TrappedPerson2 : MonoBehaviour
             if (tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                //tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 return false;
@@ -256,7 +286,7 @@ public class TrappedPerson2 : MonoBehaviour
             if (tp.IsPlayerCloseEnough() == true)
             {
                 tp.currentState = State.FollowPLayer;
-                //tp.peepManager.ChangeState(tp);
+                tp.peepManager.ChangeState(tp);
                 tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
                 tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
                 return false;

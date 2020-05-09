@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.75
+      value: -9.32
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 747bafc88ad6e424eaf1524fee4cf516, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2234,6 +2234,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57f473c0bea672419a7706418184022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emoticons:
+  - {fileID: 21300000, guid: 97c6daa21fb2f7a479d21f3186eb0e32, type: 3}
+  - {fileID: 21300000, guid: 09a9f2037a770e54e8dd697f56b6db48, type: 3}
+  - {fileID: 21300000, guid: 5ffca87b781e59540b468f2a79eaf530, type: 3}
+  - {fileID: 21300000, guid: 6ae70a45791975f48b1bcab0f02e2179, type: 3}
   player: {fileID: 127301019}
   defaultDistanceToFollowPlayer: 3
   increasedRangeWithEachFollower: 1

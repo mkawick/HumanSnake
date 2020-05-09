@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PeepManager : MonoBehaviour
 {
+    public Sprite[] emoticons;
     List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
@@ -21,6 +22,13 @@ public class PeepManager : MonoBehaviour
     enum PeepStateColors
     {
         WanderingScared,
+        FollowingPlayerSafe,
+        ExitedBuilding
+    }
+    enum PeepStateEmoticons
+    {
+        WanderingScared,
+        WavingForHelp,
         FollowingPlayerSafe,
         ExitedBuilding
     }
@@ -51,16 +59,32 @@ public class PeepManager : MonoBehaviour
             case TrappedPerson2.State.Wandering:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
+                    Sprite sprite = emoticons[(int)PeepStateEmoticons.WanderingScared];
+                    if(sprite != null)
+                        tp.SetEmoticon(sprite);
                 }
                 break;
             case TrappedPerson2.State.FollowPLayer:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
+                    Sprite sprite = emoticons[(int)PeepStateEmoticons.FollowingPlayerSafe];
+                    if (sprite != null)
+                        tp.SetEmoticon(sprite);
                 }
                 break;
             case TrappedPerson2.State.EndOfLevel:
                 {
                     //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
+                    Sprite sprite = emoticons[(int)PeepStateEmoticons.ExitedBuilding];
+                    if (sprite != null)
+                        tp.SetEmoticon(sprite);
+                }
+                break;
+            case TrappedPerson2.State.Wave:
+                {
+                    Sprite sprite = emoticons[(int)PeepStateEmoticons.WavingForHelp];
+                    if (sprite != null)
+                        tp.SetEmoticon(sprite);
                 }
                 break;
         }

@@ -59,11 +59,7 @@ public class RigidBodyTest : MonoBehaviour
                 if (Physics.Raycast(ray, out hit, 100))
                 {
                     SetupPlayerToMove(hit.point);
-                  /*  FaceMousePosition(hit.point);
-                    MoveTowardPosition(hit.point);*/
                 }
-
-                //StartRunning();
             }
             else
             {

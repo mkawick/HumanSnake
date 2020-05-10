@@ -31,6 +31,19 @@ public class RigidBodyTest : MonoBehaviour
         animator.SetTrigger("Idle");
     }
 
+    internal void SetupPlayerToMove(Vector3 position)
+    {
+        if ((position - transform.position).magnitude > 0.1f)
+        {
+            FaceMousePosition(position);
+            MoveTowardPosition(position);
+            StartRunning();
+        }
+    }
+    internal void SetupPlayerToStop()
+    {
+        GoToIdle();
+    }
     void Update()
     {
         if (isPlayer == true)
@@ -45,15 +58,16 @@ public class RigidBodyTest : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-                    FaceMousePosition(hit.point);
-                    MoveTowardPosition(hit.point);
+                    SetupPlayerToMove(hit.point);
+                  /*  FaceMousePosition(hit.point);
+                    MoveTowardPosition(hit.point);*/
                 }
 
-                StartRunning();
+                //StartRunning();
             }
             else
             {
-                GoToIdle();
+                SetupPlayerToStop();
             }
         }
         else

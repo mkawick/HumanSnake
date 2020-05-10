@@ -100,8 +100,8 @@ public class PeepManager : MonoBehaviour
         float addedDist = indexInSnake * increasedRangeWithEachFollower;
         if (indexInSnake < 0)
             addedDist = 0;
-        else
-            addedDist = addedDist;
+      /*  else
+            addedDist = addedDist;*/
         return defaultDistanceToFollowPlayer + addedDist;
     }
 

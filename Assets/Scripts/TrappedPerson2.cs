@@ -48,7 +48,7 @@ public class TrappedPerson2 : MonoBehaviour
         emoticonRoot.name = "Emoticon";
         emoticonRoot.transform.parent = transform;
         emoticonRoot.transform.localPosition = new Vector3(0, 1.75f, 0);
-        emoticonRoot.transform.rotation.SetEulerRotation(-90, 0, 0);
+        emoticonRoot.transform.rotation = Quaternion.Euler(-90, 0, 0);
         float scale = 0.8f;
         emoticonRoot.transform.localScale = new Vector3(scale, scale, scale);
         emoticon = emoticonRoot.AddComponent<SpriteRenderer>();

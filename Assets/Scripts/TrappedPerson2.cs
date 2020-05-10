@@ -121,12 +121,14 @@ public class TrappedPerson2 : MonoBehaviour
         control = GetComponent<RigidBodyTest>();
         if (originalPos == Vector3.zero)// init
             originalPos = transform.position;
-
+        control.SetTarget(originalPos);
         transform.position = originalPos;
 
         currentState = State.Wandering;
         peepManager.ChangeState(this, State.Transitioning);
+        
         player = _player;
+
 
         foreach(var state in states)
         {

@@ -3096,7 +3096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1525298508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3114,7 +3114,7 @@ MonoBehaviour:
   doors:
   - {fileID: 1006637481}
   - {fileID: 175698850}
-  peepManager: {fileID: 0}
+  peepManager: {fileID: 1107837590}
 --- !u!4 &1525298509
 Transform:
   m_ObjectHideFlags: 0
@@ -4093,7 +4093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1936985989
 Transform:
   m_ObjectHideFlags: 0
@@ -4130,7 +4130,7 @@ MonoBehaviour:
   exitLocation: {fileID: 350246162}
   doors:
   - {fileID: 191714708}
-  peepManager: {fileID: 0}
+  peepManager: {fileID: 1107837590}
 --- !u!4 &1998096801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 406a820c0a319d444a69a40d56b8be03,

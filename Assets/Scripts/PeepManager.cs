@@ -169,6 +169,8 @@ public class PeepManager : MonoBehaviour
 
     public int GetNumInSnake(bool includePlayer = false)
     {
+        if (snakeList == null)
+            return 0;
         int total = snakeList.Count;
         return includePlayer ? total : total -1;
     }

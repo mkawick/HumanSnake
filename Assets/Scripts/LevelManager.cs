@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     int currentLevel = 0;
     public PeepManager peepManager;
+    public GameManager gameManager;
 
     float timeWhenICanTransition = 0;
     public bool enableTransitionToNewLevels = true;
@@ -76,8 +77,8 @@ public class LevelManager : MonoBehaviour
 
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;
-        
 
+        gameManager.StartNewLevel();
         levelState = LevelState.Gameplay;
     }
 
@@ -96,6 +97,7 @@ public class LevelManager : MonoBehaviour
         
         // celebration
         levelState = LevelState.Preload;
+        gameManager.PlayEnd();
     }
 
     void FinishLevelTransitionToNewLevel()

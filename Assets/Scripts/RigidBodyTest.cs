@@ -31,7 +31,7 @@ public class RigidBodyTest : MonoBehaviour
         animator.SetTrigger("Idle");
     }
 
-    internal void SetupPlayerToMove(Vector3 position)
+    internal void MovePlayer(Vector3 position)
     {
         if ((position - transform.position).magnitude > 0.1f)
         {
@@ -40,7 +40,7 @@ public class RigidBodyTest : MonoBehaviour
             StartRunning();
         }
     }
-    internal void SetupPlayerToStop()
+    internal void StopPlayer()
     {
         GoToIdle();
     }
@@ -52,19 +52,19 @@ public class RigidBodyTest : MonoBehaviour
             {
                 Wave();
             }
-            else if (Input.GetMouseButton(0) == true)
+           /* else if (Input.GetMouseButton(0) == true)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-                    SetupPlayerToMove(hit.point);
+                    MovePlayer(hit.point);
                 }
             }
             else
             {
-                SetupPlayerToStop();
-            }
+                StopPlayer();
+            }*/
         }
         else
         {

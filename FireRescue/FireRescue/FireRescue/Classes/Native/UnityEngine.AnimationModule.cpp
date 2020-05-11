@@ -2566,8 +2566,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlayableHandle_IsPlayableOfType_TisAnima
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_Play_mD134EE8853844F098E4D1F3F734CBE4C47C9B8B4 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, int32_t ___mode0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Animation::PlayDefaultAnimation(UnityEngine.PlayMode)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_PlayDefaultAnimation_m406A78CA23531AF46EA6DEA35C436DB3CCB9CFE2 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, int32_t ___mode0, const RuntimeMethod* method);
-// System.Boolean UnityEngine.Animation::Play(System.String,UnityEngine.PlayMode)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, String_t* ___animation0, int32_t ___mode1, const RuntimeMethod* method);
 // System.Void UnityEngine.Animation/Enumerator::.ctor(UnityEngine.Animation)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator__ctor_mE90274D68218FACBF1EC2BBB177244F49E446E11 (Enumerator_t6F97AECE1A160A668D8D8798607BE29B1D8CD92C * __this, Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * ___outer0, const RuntimeMethod* method);
 // System.Void System.Object::.ctor()
@@ -2723,16 +2721,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScriptableObject__ctor_m6E2B3821A4A36155
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Boolean UnityEngine.Animation::get_isPlaying()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_get_isPlaying_m3091CFE1195B480F55212EE4128FF4452ACAC8AC (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, const RuntimeMethod* method)
-{
-	typedef bool (*Animation_get_isPlaying_m3091CFE1195B480F55212EE4128FF4452ACAC8AC_ftn) (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C *);
-	static Animation_get_isPlaying_m3091CFE1195B480F55212EE4128FF4452ACAC8AC_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Animation_get_isPlaying_m3091CFE1195B480F55212EE4128FF4452ACAC8AC_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animation::get_isPlaying()");
-	bool retVal = _il2cpp_icall_func(__this);
-	return retVal;
-}
 // System.Boolean UnityEngine.Animation::Play()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_Play_mEC9F6C1F931E11D4D69043AD44CC71698B776A51 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, const RuntimeMethod* method)
 {
@@ -2767,36 +2755,6 @@ IL_000b:
 	{
 		bool L_2 = V_0;
 		return L_2;
-	}
-}
-// System.Boolean UnityEngine.Animation::Play(System.String,UnityEngine.PlayMode)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, String_t* ___animation0, int32_t ___mode1, const RuntimeMethod* method)
-{
-	typedef bool (*Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331_ftn) (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C *, String_t*, int32_t);
-	static Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animation::Play(System.String,UnityEngine.PlayMode)");
-	bool retVal = _il2cpp_icall_func(__this, ___animation0, ___mode1);
-	return retVal;
-}
-// System.Boolean UnityEngine.Animation::Play(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Animation_Play_m743CCCF04B64977460915D9E7007B0859BDF6AE9 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, String_t* ___animation0, const RuntimeMethod* method)
-{
-	int32_t V_0 = 0;
-	bool V_1 = false;
-	{
-		V_0 = 0;
-		String_t* L_0 = ___animation0;
-		int32_t L_1 = V_0;
-		bool L_2 = Animation_Play_mE08973B841DBC7FAD198F1D2183CA7BA8AD3D331(__this, L_0, L_1, /*hidden argument*/NULL);
-		V_1 = L_2;
-		goto IL_000e;
-	}
-
-IL_000e:
-	{
-		bool L_3 = V_1;
-		return L_3;
 	}
 }
 // System.Boolean UnityEngine.Animation::PlayDefaultAnimation(UnityEngine.PlayMode)

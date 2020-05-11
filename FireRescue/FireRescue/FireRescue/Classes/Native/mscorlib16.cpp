@@ -737,6 +737,8 @@ struct TIME_ZONE_INFORMATION_tE8C6F24D5D50D01E03E52B00DDF74849F3DE9811;
 struct TimeZoneInfoU5BU5D_t3651149D75C21234FEBE23046A2E2FF4AB531D94;
 // System.TimeZoneNotFoundException
 struct TimeZoneNotFoundException_t44EC55B0AAD26AD0E0B659D308CBF90E5C81B388;
+// System.TimeoutException
+struct TimeoutException_t15A6E9A2A5819966712B5CFAF756BAEA40E3B1B7;
 // System.Type
 struct Type_t;
 // System.TypeLoadException
@@ -868,6 +870,7 @@ IL2CPP_EXTERN_C RuntimeClass* TimeType_t1E0366D2FDDE13B93F6DFD1A2FB8645B76E9DDA9
 IL2CPP_EXTERN_C RuntimeClass* TimeZoneInfo_t46EF9BAEAA787846F1A1EC419BE75CFEFAFF6777_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TimeZoneNotFoundException_t44EC55B0AAD26AD0E0B659D308CBF90E5C81B388_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TimeZone_tA2DF435DA1A379978B885F0872A93774666B7454_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TimerComparer_tC987818CFADF2F3ECEB89C0BD510600DAD816015_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Timer_t67FAB8E41573B4FA09CA56AE30725AF4297C2553_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* TransitionTime_t9958178434A0688FD45EF028B1AE9EA665C3E116_il2cpp_TypeInfo_var;
@@ -1054,6 +1057,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteralBB80988865A7C2136B3ADE9C2EB5EAE119955268
 IL2CPP_EXTERN_C String_t* _stringLiteralBC80A496F1C479B70F6EE2BF2F0C3C05463301B8;
 IL2CPP_EXTERN_C String_t* _stringLiteralBCA799238FFD9062EADADF1671BF7042DB42CF92;
 IL2CPP_EXTERN_C String_t* _stringLiteralBDFD4D8D6952777C39403B2D2E2F8A2A52BF255F;
+IL2CPP_EXTERN_C String_t* _stringLiteralBE3F306A5E0BA5DC2F76020448FB66EB734EF545;
 IL2CPP_EXTERN_C String_t* _stringLiteralBEE73CA6E75A8894DD7A547768926EDAEDCD5C1A;
 IL2CPP_EXTERN_C String_t* _stringLiteralC0EE32D825D6DDB4025AB74AF0609969ECC419C8;
 IL2CPP_EXTERN_C String_t* _stringLiteralC24595E6A7BC6D5DB68BC6759DD5BBA5D834B6DB;
@@ -1491,6 +1495,8 @@ IL2CPP_EXTERN_C const uint32_t TimeZoneNotFoundException__ctor_m13C5CB453D284282
 IL2CPP_EXTERN_C const uint32_t TimeZoneNotFoundException__ctor_m38A84B100985F5907DE77F71A3B98CD3BF1D9CD3_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t TimeZoneNotFoundException__ctor_mA8D2277188E55C2B6EA52CEB57A8AD18243CECDE_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t TimeZone__cctor_mF4FC3AB8D82A4A380D166F0F60CE193D51FA07D8_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t TimeoutException__ctor_mB870CBFE33BA657A6C7FBFAB77984096ADCA62CF_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t Timeout__cctor_m9C4BFE11D3494ED5DB59176974B66055093F26D9_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t TimerComparer_Compare_mA323B05AE75107BF3D65BCFB43976A29155A4659_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Timer_Change_m0D893D7C243B79E85CDD8E06F366F0744F6637D6_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Timer_Dispose_mAD09E4EAC3D4A4732B55911919A60CACCF8173D9_MetadataUsageId;
@@ -9730,6 +9736,31 @@ public:
 };
 
 
+// System.Threading.Timeout
+struct  Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04  : public RuntimeObject
+{
+public:
+
+public:
+};
+
+struct Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04_StaticFields
+{
+public:
+	// System.TimeSpan System.Threading.Timeout::InfiniteTimeSpan
+	TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  ___InfiniteTimeSpan_0;
+
+public:
+	inline static int32_t get_offset_of_InfiniteTimeSpan_0() { return static_cast<int32_t>(offsetof(Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04_StaticFields, ___InfiniteTimeSpan_0)); }
+	inline TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  get_InfiniteTimeSpan_0() const { return ___InfiniteTimeSpan_0; }
+	inline TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4 * get_address_of_InfiniteTimeSpan_0() { return &___InfiniteTimeSpan_0; }
+	inline void set_InfiniteTimeSpan_0(TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  value)
+	{
+		___InfiniteTimeSpan_0 = value;
+	}
+};
+
+
 // System.TimeZoneInfo
 struct  TimeZoneInfo_t46EF9BAEAA787846F1A1EC419BE75CFEFAFF6777  : public RuntimeObject
 {
@@ -10634,6 +10665,15 @@ public:
 	{
 		___m_baseUtcOffsetDelta_5 = value;
 	}
+};
+
+
+// System.TimeoutException
+struct  TimeoutException_t15A6E9A2A5819966712B5CFAF756BAEA40E3B1B7  : public SystemException_t5380468142AA850BE4A341D7AF3EAB9C78746782
+{
+public:
+
+public:
 };
 
 
@@ -20330,6 +20370,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThreadStateException__ctor_m977994CF05BB
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void System.Threading.Timeout::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Timeout__cctor_m9C4BFE11D3494ED5DB59176974B66055093F26D9 (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Timeout__cctor_m9C4BFE11D3494ED5DB59176974B66055093F26D9_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  L_0;
+		memset((&L_0), 0, sizeof(L_0));
+		TimeSpan__ctor_m310F37AF5F9F91433A98062BF6E4A248AA6C3DE5((&L_0), 0, 0, 0, 0, (-1), /*hidden argument*/NULL);
+		((Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04_StaticFields*)il2cpp_codegen_static_fields_for(Timeout_t148C37C092EAF5AFCE1D0C06481466A5F88E4C04_il2cpp_TypeInfo_var))->set_InfiniteTimeSpan_0(L_0);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // System.UInt32 System.Threading.TimeoutHelper::GetTime()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t TimeoutHelper_GetTime_m6AD4BA5DCA9E4102DC18395A59123E91EB915D98 (const RuntimeMethod* method)
 {
@@ -25223,6 +25288,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TimeSpan_op_LessThan_mF92FF63DD1E5254097
 		TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  L_2 = ___t21;
 		int64_t L_3 = L_2.get__ticks_3();
 		return (bool)((((int64_t)L_1) < ((int64_t)L_3))? 1 : 0);
+	}
+}
+// System.Boolean System.TimeSpan::op_LessThanOrEqual(System.TimeSpan,System.TimeSpan)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TimeSpan_op_LessThanOrEqual_mFFB6826BC19E5E63E62697EF3A81B84CD529E83B (TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  ___t10, TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  ___t21, const RuntimeMethod* method)
+{
+	{
+		TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  L_0 = ___t10;
+		int64_t L_1 = L_0.get__ticks_3();
+		TimeSpan_tA8069278ACE8A74D6DF7D514A9CD4432433F64C4  L_2 = ___t21;
+		int64_t L_3 = L_2.get__ticks_3();
+		return (bool)((((int32_t)((((int64_t)L_1) > ((int64_t)L_3))? 1 : 0)) == ((int32_t)0))? 1 : 0);
 	}
 }
 // System.Boolean System.TimeSpan::op_GreaterThan(System.TimeSpan,System.TimeSpan)
@@ -34884,6 +34960,50 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeZoneNotFoundException__ctor_m13C5CB4
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Exception_t_il2cpp_TypeInfo_var);
 		Exception__ctor_m5FEC89FBFACEEDCEE29CCFD44A85D72FC28EB0D1(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.TimeoutException::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutException__ctor_mB870CBFE33BA657A6C7FBFAB77984096ADCA62CF (TimeoutException_t15A6E9A2A5819966712B5CFAF756BAEA40E3B1B7 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (TimeoutException__ctor_mB870CBFE33BA657A6C7FBFAB77984096ADCA62CF_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		String_t* L_0 = Environment_GetResourceString_m2C75C2AF268F01E2BF34AD1C2E1352CF4BA51AD9(_stringLiteralBE3F306A5E0BA5DC2F76020448FB66EB734EF545, /*hidden argument*/NULL);
+		SystemException__ctor_mF67B7FA639B457BDFB2103D7C21C8059E806175A(__this, L_0, /*hidden argument*/NULL);
+		Exception_SetErrorCode_m742C1E687C82E56F445893685007EF4FC017F4A7(__this, ((int32_t)-2146233083), /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void System.TimeoutException::.ctor(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutException__ctor_mF1C60F8EDC528DD4115617C3A3ED34CB20175F1A (TimeoutException_t15A6E9A2A5819966712B5CFAF756BAEA40E3B1B7 * __this, String_t* ___message0, const RuntimeMethod* method)
+{
+	{
+		String_t* L_0 = ___message0;
+		SystemException__ctor_mF67B7FA639B457BDFB2103D7C21C8059E806175A(__this, L_0, /*hidden argument*/NULL);
+		Exception_SetErrorCode_m742C1E687C82E56F445893685007EF4FC017F4A7(__this, ((int32_t)-2146233083), /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void System.TimeoutException::.ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutException__ctor_m18609AA35D5F9E6B53E125B2B00D37EBBAB1DB65 (TimeoutException_t15A6E9A2A5819966712B5CFAF756BAEA40E3B1B7 * __this, SerializationInfo_t1BB80E9C9DEA52DBF464487234B045E2930ADA26 * ___info0, StreamingContext_t2CCDC54E0E8D078AF4A50E3A8B921B828A900034  ___context1, const RuntimeMethod* method)
+{
+	{
+		SerializationInfo_t1BB80E9C9DEA52DBF464487234B045E2930ADA26 * L_0 = ___info0;
+		StreamingContext_t2CCDC54E0E8D078AF4A50E3A8B921B828A900034  L_1 = ___context1;
+		SystemException__ctor_mB0550111A1A8D18B697B618F811A5B20C160D949(__this, L_0, L_1, /*hidden argument*/NULL);
 		return;
 	}
 }

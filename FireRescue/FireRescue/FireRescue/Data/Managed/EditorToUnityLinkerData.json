@@ -243,27 +243,18 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "MeshCollider",
-            "fullManagedTypeName": "UnityEngine.MeshCollider",
-            "moduleName": "Physics",
-            "usedInScenes": [
-                "Assets/Scenes/SampleScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "CapsuleCollider",
-            "fullManagedTypeName": "UnityEngine.CapsuleCollider",
-            "moduleName": "Physics",
-            "usedInScenes": [
-                "Assets/Scenes/SampleScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "BoxCollider",
             "fullManagedTypeName": "UnityEngine.BoxCollider",
             "moduleName": "Physics",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "RectTransform",
+            "fullManagedTypeName": "UnityEngine.RectTransform",
+            "moduleName": "Core",
             "usedInScenes": [
                 "Assets/Scenes/SampleScene.unity"
             ]
@@ -327,6 +318,15 @@
             "nativeClass": "Sprite",
             "fullManagedTypeName": "UnityEngine.Sprite",
             "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "ParticleSystem",
+            "fullManagedTypeName": "UnityEngine.ParticleSystem",
+            "moduleName": "ParticleSystem",
             "usedInScenes": [
                 "Assets/Scenes/SampleScene.unity"
             ]
@@ -405,6 +405,15 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "CGProgram",
+            "fullManagedTypeName": "UnityEngine.TextAsset",
+            "moduleName": "Core",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "Collider",
             "fullManagedTypeName": "UnityEngine.Collider",
             "moduleName": "Physics",
@@ -432,9 +441,18 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "PhysicMaterial",
-            "fullManagedTypeName": "UnityEngine.PhysicMaterial",
-            "moduleName": "Physics",
+            "nativeClass": "Font",
+            "fullManagedTypeName": "UnityEngine.Font",
+            "moduleName": "TextRendering",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "CanvasRenderer",
+            "fullManagedTypeName": "UnityEngine.CanvasRenderer",
+            "moduleName": "UI",
             "usedInScenes": [
                 "Assets/Scenes/SampleScene.unity"
             ]
@@ -461,24 +479,6 @@
             "managedAssemblyName": "",
             "nativeClass": "NavMeshSettings",
             "fullManagedTypeName": "",
-            "moduleName": "AI",
-            "usedInScenes": [
-                "Assets/Scenes/SampleScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "NavMeshAgent",
-            "fullManagedTypeName": "UnityEngine.AI.NavMeshAgent",
-            "moduleName": "AI",
-            "usedInScenes": [
-                "Assets/Scenes/SampleScene.unity"
-            ]
-        },
-        {
-            "managedAssemblyName": "UnityEngine.dll",
-            "nativeClass": "NavMeshObstacle",
-            "fullManagedTypeName": "UnityEngine.AI.NavMeshObstacle",
             "moduleName": "AI",
             "usedInScenes": [
                 "Assets/Scenes/SampleScene.unity"
@@ -530,9 +530,25 @@
             ]
         },
         {
+            "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "ParticleSystemRenderer",
+            "fullManagedTypeName": "UnityEngine.ParticleSystemRenderer",
+            "moduleName": "ParticleSystem",
+            "usedInScenes": [
+                "Assets/Scenes/SampleScene.unity"
+            ]
+        },
+        {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "DoorScript",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "GameManager",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -560,14 +576,21 @@
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "RigidBodyTest",
+            "fullManagedTypeName": "PlayerControllerWobbleMan",
             "moduleName": "",
             "usedInScenes": []
         },
         {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "TrappedPerson",
+            "fullManagedTypeName": "PlayerMouseHoldLocomotion",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Assembly-CSharp.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "RigidBodyTest",
             "moduleName": "",
             "usedInScenes": []
         },
@@ -579,23 +602,37 @@
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "Assembly-CSharp.dll",
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "UnityStandardAssets.Characters.ThirdPerson.AICharacterControl",
+            "fullManagedTypeName": "TMPro.TMP_FontAsset",
             "moduleName": "",
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "Assembly-CSharp.dll",
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter",
+            "fullManagedTypeName": "TMPro.TMP_Settings",
             "moduleName": "",
             "usedInScenes": []
         },
         {
-            "managedAssemblyName": "NavMeshComponents.dll",
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
             "nativeClass": "",
-            "fullManagedTypeName": "UnityEngine.AI.NavMeshSurface",
+            "fullManagedTypeName": "TMPro.TMP_SpriteAsset",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TMP_StyleSheet",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
+            "managedAssemblyName": "Unity.TextMeshPro.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "TMPro.TextMeshPro",
             "moduleName": "",
             "usedInScenes": []
         }

@@ -73,8 +73,16 @@ struct TypeU5BU5D_t7FE623A666B49176DE123306221193E888A12F5F;
 struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
 // UnityEngine.Animator
 struct Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A;
+// UnityEngine.AudioClip
+struct AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051;
+// UnityEngine.AudioClip/PCMReaderCallback
+struct PCMReaderCallback_t9B87AB13DCD37957B045554BF28A57697E6B8EFB;
+// UnityEngine.AudioClip/PCMSetPositionCallback
+struct PCMSetPositionCallback_t092ED33043C0279B5E4D343EBCBD516CEF260801;
 // UnityEngine.AudioSource
 struct AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C;
+// UnityEngine.AudioSource[]
+struct AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF;
 // UnityEngine.Behaviour
 struct Behaviour_tBDC7E9C3C898AD8348891B82D3E345801D920CA8;
 // UnityEngine.Camera
@@ -131,6 +139,8 @@ struct Vector3U5BU5D_tB9EC3346CC4A0EA5447D968E84A9AC1F6F372C28;
 struct WheelCollider_t92116DAF9E41154A9FB854E1BE553799E6837641;
 // UnityEngine.WheelCollider[]
 struct WheelColliderU5BU5D_t5A216A8808B21F6CFE61FF7E97DAF5A1E9687D08;
+// UnityStandardAssets.Vehicles.Car.CarAudio
+struct CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437;
 // UnityStandardAssets.Vehicles.Car.CarController
 struct CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF;
 // UnityStandardAssets.Vehicles.Car.CarSelfRighting
@@ -259,6 +269,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRigidbody_tE0A58E
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisSkybox_tCAAEF216A36B4CD9FD498E4EED256EAE7B81DDDD_mA6445D9E37F72690F67C0F4D4819BBDE49A7708D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisWaterBase_t85BC1998BDD7AC8129D4EEE02D54F83D00D84691_m23A4FE5940BA822932860B260125F367361A20D3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisWheelCollider_t92116DAF9E41154A9FB854E1BE553799E6837641_m23DA770D694E86BBEB9E3C128362B2DA5526052D_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponents_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mA7D154E22D6545361B29DD1393407EFFAC276690_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Add_mCFEFD526BD229C2D1F262015AFE589353AC06AA4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Clear_m82D1C73445F6EB09B3FA57ACA586755DC215066D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_Clear_mAD15E2F0DCFF3040401B2D59B8DAB1DAA17C72D8_RuntimeMethod_var;
@@ -273,6 +284,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_set_Item_m966DCB546B22701F1733
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m4F83D1FDB10370183D6E88219DD7F54EE32BF79B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_MoveNext_m8572BEC6FE68060F0470B2A659807F74F4542EC8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_get_Current_mE1DE7D6D1D65C4E2AE2990480580768E02C36E2F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* GameObject_AddComponent_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mF8E45BF814846E1641335B8471A4AEAA2AD83E8F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* GameObject_AddComponent_TisFlareLayer_tA6C6DE6E61EDE5E8942F12C4EB57E219EDE00D98_m6CC22A7ABE65180FB6F9AB6C0D930D633356ED5C_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* GameObject_GetComponent_TisCamera_t48B2B9ECB3CE6108A98BF949A1CECF0FE3421F34_mCF3938D33A4B2D1D9B65321455F867660E72C3FD_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* KeyValuePair_2_get_Value_m33B9B5EB74FFE5FA6B4CFD7A061AFEE9561B3BF8_RuntimeMethod_var;
@@ -288,6 +300,10 @@ IL2CPP_EXTERN_C const uint32_t CameraFollow_Awake_m87FB5E03BF16B76DDCF39E1EC6C6B
 IL2CPP_EXTERN_C const uint32_t CameraFollow_CheckXMargin_m2B2AC643A90092F153E7BF19DCBAAAEA55362539_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t CameraFollow_CheckYMargin_m8B94183412CC7C8DCDC7E96E0FAE3B8C4B0A24E2_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t CameraFollow_TrackPlayer_m8B087FDBAA5B6818590F60826536B38100409631_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t CarAudio_StartSound_m6C7E3D73ACD178D11AF61012DCAEFC029D14C451_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t CarAudio_StopSound_mF07FA45F908B61D90E1989A0977CA245DBD4A6D2_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t CarAudio_Update_m572C7EF4C539ECE7CFA57630BC18AF7909A3D003_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t CarController_AddDownForce_m696BF34EF4EFAF4361A5D5F07A2D308A3F6E0926_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t CarController_ApplyDrive_mBDFCEB305C71CF50C3A4B322242DAA479FB8A356_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t CarController_CalculateGearFactor_m4E546819912A77174BDFB322231889545DA8BC82_MetadataUsageId;
@@ -358,6 +374,7 @@ struct Exception_t_marshaled_pinvoke;
 
 struct ObjectU5BU5D_t3C9242B5C88A48B2A5BD9FDA6CD0024E792AF08A;
 struct TypeU5BU5D_t7FE623A666B49176DE123306221193E888A12F5F;
+struct AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF;
 struct Collider2DU5BU5D_tE7ADA0C1D125B4C684675B9A026E18C3857903AE;
 struct GameObjectU5BU5D_tBF9D474747511CF34A040A1697E34C74C19BB520;
 struct QuaternionU5BU5D_t26EB10EEE89DD3EF913D52E8797FAB841F6F2AA3;
@@ -2453,6 +2470,24 @@ struct WheelHit_tB120D4D2833C3F2CD61D54622570EC9BA9A803A2_marshaled_com
 	Collider_t0FEEB36760860AD21B3B1F0509C365B393EC4BDF * ___m_Collider_7;
 };
 
+// UnityStandardAssets.Vehicles.Car.CarAIControl_BrakeCondition
+struct  BrakeCondition_t2831A2ED9429849379BE7200B3D025C73672A752 
+{
+public:
+	// System.Int32 UnityStandardAssets.Vehicles.Car.CarAIControl_BrakeCondition::value__
+	int32_t ___value___2;
+
+public:
+	inline static int32_t get_offset_of_value___2() { return static_cast<int32_t>(offsetof(BrakeCondition_t2831A2ED9429849379BE7200B3D025C73672A752, ___value___2)); }
+	inline int32_t get_value___2() const { return ___value___2; }
+	inline int32_t* get_address_of_value___2() { return &___value___2; }
+	inline void set_value___2(int32_t value)
+	{
+		___value___2 = value;
+	}
+};
+
+
 // UnityStandardAssets.Vehicles.Car.CarAudio_EngineAudioOptions
 struct  EngineAudioOptions_t97E08685C7F25F949B947416A65FD4534DDD7C9F 
 {
@@ -2648,6 +2683,36 @@ public:
 	{
 		___defaultBinder_6 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___defaultBinder_6), (void*)value);
+	}
+};
+
+
+// UnityEngine.AudioClip
+struct  AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051  : public Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0
+{
+public:
+	// UnityEngine.AudioClip_PCMReaderCallback UnityEngine.AudioClip::m_PCMReaderCallback
+	PCMReaderCallback_t9B87AB13DCD37957B045554BF28A57697E6B8EFB * ___m_PCMReaderCallback_4;
+	// UnityEngine.AudioClip_PCMSetPositionCallback UnityEngine.AudioClip::m_PCMSetPositionCallback
+	PCMSetPositionCallback_t092ED33043C0279B5E4D343EBCBD516CEF260801 * ___m_PCMSetPositionCallback_5;
+
+public:
+	inline static int32_t get_offset_of_m_PCMReaderCallback_4() { return static_cast<int32_t>(offsetof(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051, ___m_PCMReaderCallback_4)); }
+	inline PCMReaderCallback_t9B87AB13DCD37957B045554BF28A57697E6B8EFB * get_m_PCMReaderCallback_4() const { return ___m_PCMReaderCallback_4; }
+	inline PCMReaderCallback_t9B87AB13DCD37957B045554BF28A57697E6B8EFB ** get_address_of_m_PCMReaderCallback_4() { return &___m_PCMReaderCallback_4; }
+	inline void set_m_PCMReaderCallback_4(PCMReaderCallback_t9B87AB13DCD37957B045554BF28A57697E6B8EFB * value)
+	{
+		___m_PCMReaderCallback_4 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_PCMReaderCallback_4), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_PCMSetPositionCallback_5() { return static_cast<int32_t>(offsetof(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051, ___m_PCMSetPositionCallback_5)); }
+	inline PCMSetPositionCallback_t092ED33043C0279B5E4D343EBCBD516CEF260801 * get_m_PCMSetPositionCallback_5() const { return ___m_PCMSetPositionCallback_5; }
+	inline PCMSetPositionCallback_t092ED33043C0279B5E4D343EBCBD516CEF260801 ** get_address_of_m_PCMSetPositionCallback_5() { return &___m_PCMSetPositionCallback_5; }
+	inline void set_m_PCMSetPositionCallback_5(PCMSetPositionCallback_t092ED33043C0279B5E4D343EBCBD516CEF260801 * value)
+	{
+		___m_PCMSetPositionCallback_5 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_PCMSetPositionCallback_5), (void*)value);
 	}
 };
 
@@ -2920,6 +2985,203 @@ struct  AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C  : public AudioBeh
 public:
 
 public:
+};
+
+
+// UnityStandardAssets.Vehicles.Car.CarAudio
+struct  CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437  : public MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429
+{
+public:
+	// UnityStandardAssets.Vehicles.Car.CarAudio_EngineAudioOptions UnityStandardAssets.Vehicles.Car.CarAudio::engineSoundStyle
+	int32_t ___engineSoundStyle_4;
+	// UnityEngine.AudioClip UnityStandardAssets.Vehicles.Car.CarAudio::lowAccelClip
+	AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___lowAccelClip_5;
+	// UnityEngine.AudioClip UnityStandardAssets.Vehicles.Car.CarAudio::lowDecelClip
+	AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___lowDecelClip_6;
+	// UnityEngine.AudioClip UnityStandardAssets.Vehicles.Car.CarAudio::highAccelClip
+	AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___highAccelClip_7;
+	// UnityEngine.AudioClip UnityStandardAssets.Vehicles.Car.CarAudio::highDecelClip
+	AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___highDecelClip_8;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::pitchMultiplier
+	float ___pitchMultiplier_9;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::lowPitchMin
+	float ___lowPitchMin_10;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::lowPitchMax
+	float ___lowPitchMax_11;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::highPitchMultiplier
+	float ___highPitchMultiplier_12;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::maxRolloffDistance
+	float ___maxRolloffDistance_13;
+	// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::dopplerLevel
+	float ___dopplerLevel_14;
+	// System.Boolean UnityStandardAssets.Vehicles.Car.CarAudio::useDoppler
+	bool ___useDoppler_15;
+	// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::m_LowAccel
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * ___m_LowAccel_16;
+	// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::m_LowDecel
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * ___m_LowDecel_17;
+	// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::m_HighAccel
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * ___m_HighAccel_18;
+	// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::m_HighDecel
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * ___m_HighDecel_19;
+	// System.Boolean UnityStandardAssets.Vehicles.Car.CarAudio::m_StartedSound
+	bool ___m_StartedSound_20;
+	// UnityStandardAssets.Vehicles.Car.CarController UnityStandardAssets.Vehicles.Car.CarAudio::m_CarController
+	CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * ___m_CarController_21;
+
+public:
+	inline static int32_t get_offset_of_engineSoundStyle_4() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___engineSoundStyle_4)); }
+	inline int32_t get_engineSoundStyle_4() const { return ___engineSoundStyle_4; }
+	inline int32_t* get_address_of_engineSoundStyle_4() { return &___engineSoundStyle_4; }
+	inline void set_engineSoundStyle_4(int32_t value)
+	{
+		___engineSoundStyle_4 = value;
+	}
+
+	inline static int32_t get_offset_of_lowAccelClip_5() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___lowAccelClip_5)); }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * get_lowAccelClip_5() const { return ___lowAccelClip_5; }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 ** get_address_of_lowAccelClip_5() { return &___lowAccelClip_5; }
+	inline void set_lowAccelClip_5(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * value)
+	{
+		___lowAccelClip_5 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___lowAccelClip_5), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_lowDecelClip_6() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___lowDecelClip_6)); }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * get_lowDecelClip_6() const { return ___lowDecelClip_6; }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 ** get_address_of_lowDecelClip_6() { return &___lowDecelClip_6; }
+	inline void set_lowDecelClip_6(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * value)
+	{
+		___lowDecelClip_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___lowDecelClip_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_highAccelClip_7() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___highAccelClip_7)); }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * get_highAccelClip_7() const { return ___highAccelClip_7; }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 ** get_address_of_highAccelClip_7() { return &___highAccelClip_7; }
+	inline void set_highAccelClip_7(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * value)
+	{
+		___highAccelClip_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___highAccelClip_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_highDecelClip_8() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___highDecelClip_8)); }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * get_highDecelClip_8() const { return ___highDecelClip_8; }
+	inline AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 ** get_address_of_highDecelClip_8() { return &___highDecelClip_8; }
+	inline void set_highDecelClip_8(AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * value)
+	{
+		___highDecelClip_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___highDecelClip_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_pitchMultiplier_9() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___pitchMultiplier_9)); }
+	inline float get_pitchMultiplier_9() const { return ___pitchMultiplier_9; }
+	inline float* get_address_of_pitchMultiplier_9() { return &___pitchMultiplier_9; }
+	inline void set_pitchMultiplier_9(float value)
+	{
+		___pitchMultiplier_9 = value;
+	}
+
+	inline static int32_t get_offset_of_lowPitchMin_10() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___lowPitchMin_10)); }
+	inline float get_lowPitchMin_10() const { return ___lowPitchMin_10; }
+	inline float* get_address_of_lowPitchMin_10() { return &___lowPitchMin_10; }
+	inline void set_lowPitchMin_10(float value)
+	{
+		___lowPitchMin_10 = value;
+	}
+
+	inline static int32_t get_offset_of_lowPitchMax_11() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___lowPitchMax_11)); }
+	inline float get_lowPitchMax_11() const { return ___lowPitchMax_11; }
+	inline float* get_address_of_lowPitchMax_11() { return &___lowPitchMax_11; }
+	inline void set_lowPitchMax_11(float value)
+	{
+		___lowPitchMax_11 = value;
+	}
+
+	inline static int32_t get_offset_of_highPitchMultiplier_12() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___highPitchMultiplier_12)); }
+	inline float get_highPitchMultiplier_12() const { return ___highPitchMultiplier_12; }
+	inline float* get_address_of_highPitchMultiplier_12() { return &___highPitchMultiplier_12; }
+	inline void set_highPitchMultiplier_12(float value)
+	{
+		___highPitchMultiplier_12 = value;
+	}
+
+	inline static int32_t get_offset_of_maxRolloffDistance_13() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___maxRolloffDistance_13)); }
+	inline float get_maxRolloffDistance_13() const { return ___maxRolloffDistance_13; }
+	inline float* get_address_of_maxRolloffDistance_13() { return &___maxRolloffDistance_13; }
+	inline void set_maxRolloffDistance_13(float value)
+	{
+		___maxRolloffDistance_13 = value;
+	}
+
+	inline static int32_t get_offset_of_dopplerLevel_14() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___dopplerLevel_14)); }
+	inline float get_dopplerLevel_14() const { return ___dopplerLevel_14; }
+	inline float* get_address_of_dopplerLevel_14() { return &___dopplerLevel_14; }
+	inline void set_dopplerLevel_14(float value)
+	{
+		___dopplerLevel_14 = value;
+	}
+
+	inline static int32_t get_offset_of_useDoppler_15() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___useDoppler_15)); }
+	inline bool get_useDoppler_15() const { return ___useDoppler_15; }
+	inline bool* get_address_of_useDoppler_15() { return &___useDoppler_15; }
+	inline void set_useDoppler_15(bool value)
+	{
+		___useDoppler_15 = value;
+	}
+
+	inline static int32_t get_offset_of_m_LowAccel_16() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_LowAccel_16)); }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * get_m_LowAccel_16() const { return ___m_LowAccel_16; }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** get_address_of_m_LowAccel_16() { return &___m_LowAccel_16; }
+	inline void set_m_LowAccel_16(AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		___m_LowAccel_16 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_LowAccel_16), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_LowDecel_17() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_LowDecel_17)); }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * get_m_LowDecel_17() const { return ___m_LowDecel_17; }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** get_address_of_m_LowDecel_17() { return &___m_LowDecel_17; }
+	inline void set_m_LowDecel_17(AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		___m_LowDecel_17 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_LowDecel_17), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_HighAccel_18() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_HighAccel_18)); }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * get_m_HighAccel_18() const { return ___m_HighAccel_18; }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** get_address_of_m_HighAccel_18() { return &___m_HighAccel_18; }
+	inline void set_m_HighAccel_18(AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		___m_HighAccel_18 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_HighAccel_18), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_HighDecel_19() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_HighDecel_19)); }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * get_m_HighDecel_19() const { return ___m_HighDecel_19; }
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** get_address_of_m_HighDecel_19() { return &___m_HighDecel_19; }
+	inline void set_m_HighDecel_19(AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		___m_HighDecel_19 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_HighDecel_19), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_StartedSound_20() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_StartedSound_20)); }
+	inline bool get_m_StartedSound_20() const { return ___m_StartedSound_20; }
+	inline bool* get_address_of_m_StartedSound_20() { return &___m_StartedSound_20; }
+	inline void set_m_StartedSound_20(bool value)
+	{
+		___m_StartedSound_20 = value;
+	}
+
+	inline static int32_t get_offset_of_m_CarController_21() { return static_cast<int32_t>(offsetof(CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437, ___m_CarController_21)); }
+	inline CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * get_m_CarController_21() const { return ___m_CarController_21; }
+	inline CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF ** get_address_of_m_CarController_21() { return &___m_CarController_21; }
+	inline void set_m_CarController_21(CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * value)
+	{
+		___m_CarController_21 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_CarController_21), (void*)value);
+	}
 };
 
 
@@ -4232,6 +4494,43 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+// UnityEngine.AudioSource[]
+struct AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF  : public RuntimeArray
+{
+public:
+	ALIGN_FIELD (8) AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * m_Items[1];
+
+public:
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C ** GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * value)
+	{
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+};
 // UnityEngine.Quaternion[]
 struct QuaternionU5BU5D_t26EB10EEE89DD3EF913D52E8797FAB841F6F2AA3  : public RuntimeArray
 {
@@ -4528,6 +4827,10 @@ public:
 
 // !!0 UnityEngine.Component::GetComponent<System.Object>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Component_GetComponent_TisRuntimeObject_m129DEF8A66683189ED44B21496135824743EF617_gshared (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
+// !!0[] UnityEngine.Component::GetComponents<System.Object>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t3C9242B5C88A48B2A5BD9FDA6CD0024E792AF08A* Component_GetComponents_TisRuntimeObject_mDC1D023FE07F73E1E8433D1E896D5F1250180C10_gshared (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
+// !!0 UnityEngine.GameObject::AddComponent<System.Object>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * GameObject_AddComponent_TisRuntimeObject_m80EDFEAC4927F588A7A702F81524EDBFA8603FE2_gshared (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * __this, const RuntimeMethod* method);
 // !!0 UnityEngine.Component::GetComponentInChildren<System.Object>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Component_GetComponentInChildren_TisRuntimeObject_m06B65DD1CC6DFB48DB4DEE2CC185788D42837D30_gshared (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
 // !!0 UnityEngine.Object::Instantiate<System.Object>(!!0)
@@ -4560,13 +4863,80 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator_Dispose_mE363888280B72ED50538
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Clear_m74771F9C8FCF4ECD25890A0025FDD9A874418CF4_gshared (Dictionary_2_t32F25F093828AA9F93CB11C2A2B4648FD62A09BA * __this, const RuntimeMethod* method);
 // System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Object>::TryGetValue(!0,!1&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_TryGetValue_m3455807C552312C60038DF52EF328C3687442DE3_gshared (Dictionary_2_t32F25F093828AA9F93CB11C2A2B4648FD62A09BA * __this, RuntimeObject * ___key0, RuntimeObject ** ___value1, const RuntimeMethod* method);
-// !!0 UnityEngine.GameObject::AddComponent<System.Object>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * GameObject_AddComponent_TisRuntimeObject_m80EDFEAC4927F588A7A702F81524EDBFA8603FE2_gshared (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * __this, const RuntimeMethod* method);
 // System.Void System.Collections.Generic.Dictionary`2<System.Object,System.Object>::set_Item(!0,!1)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_set_Item_m466D001F105E25DEB5C9BCB17837EE92A27FDE93_gshared (Dictionary_2_t32F25F093828AA9F93CB11C2A2B4648FD62A09BA * __this, RuntimeObject * ___key0, RuntimeObject * ___value1, const RuntimeMethod* method);
 // System.Void System.Collections.Generic.Dictionary`2<System.Object,System.Object>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2__ctor_m2C7E51568033239B506E15E7804A0B8658246498_gshared (Dictionary_2_t32F25F093828AA9F93CB11C2A2B4648FD62A09BA * __this, const RuntimeMethod* method);
 
+// !!0 UnityEngine.Component::GetComponent<UnityStandardAssets.Vehicles.Car.CarController>()
+inline CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * Component_GetComponent_TisCarController_t9B06DF660A91B656981CE46F2A476220009D4EAF_m49A7B0335263688150822CD006D9157087A822B8 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method)
+{
+	return ((  CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * (*) (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 *, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m129DEF8A66683189ED44B21496135824743EF617_gshared)(__this, method);
+}
+// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::SetUpEngineAudioSource(UnityEngine.AudioClip)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___clip0, const RuntimeMethod* method);
+// !!0[] UnityEngine.Component::GetComponents<UnityEngine.AudioSource>()
+inline AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* Component_GetComponents_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mA7D154E22D6545361B29DD1393407EFFAC276690 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method)
+{
+	return ((  AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* (*) (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 *, const RuntimeMethod*))Component_GetComponents_TisRuntimeObject_mDC1D023FE07F73E1E8433D1E896D5F1250180C10_gshared)(__this, method);
+}
+// System.Void UnityEngine.Object::Destroy(UnityEngine.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_Destroy_m23B4562495BA35A74266D4372D45368F8C05109A (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___obj0, const RuntimeMethod* method);
+// UnityEngine.Camera UnityEngine.Camera::get_main()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Camera_t48B2B9ECB3CE6108A98BF949A1CECF0FE3421F34 * Camera_get_main_m9256A9F84F92D7ED73F3E6C4E2694030AD8B61FA (const RuntimeMethod* method);
+// UnityEngine.Transform UnityEngine.Component::get_transform()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * Component_get_transform_m00F05BD782F920C301A7EBA480F3B7A904C07EC9 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
+// UnityEngine.Vector3 UnityEngine.Transform::get_position()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Transform_get_position_mF54C3A064F7C8E24F1C56EE128728B2E4485E294 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, const RuntimeMethod* method);
+// UnityEngine.Vector3 UnityEngine.Vector3::op_Subtraction(UnityEngine.Vector3,UnityEngine.Vector3)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Vector3_op_Subtraction_mF9846B723A5034F8B9F5F5DCB78E3D67649143D3 (Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___a0, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___b1, const RuntimeMethod* method);
+// System.Single UnityEngine.Vector3::get_sqrMagnitude()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Vector3_get_sqrMagnitude_m1C6E190B4A933A183B308736DEC0DD64B0588968 (Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720 * __this, const RuntimeMethod* method);
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::StopSound()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio_StopSound_mF07FA45F908B61D90E1989A0977CA245DBD4A6D2 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method);
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::StartSound()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio_StartSound_m6C7E3D73ACD178D11AF61012DCAEFC029D14C451 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method);
+// System.Single UnityStandardAssets.Vehicles.Car.CarController::get_Revs()
+IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_Revs_mDEEFFBC17CCAD6D40BBF80D4B65F349D5EC1C4FE_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method);
+// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::ULerp(System.Single,System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CarAudio_ULerp_mC09F309D8E6B521E14006D3B34E4C1AFA3C94082 (float ___from0, float ___to1, float ___value2, const RuntimeMethod* method);
+// System.Single UnityEngine.Mathf::Min(System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Mathf_Min_mCF9BE0E9CAC9F18D207692BB2DAC7F3E1D4E1CB7 (float ___a0, float ___b1, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_pitch(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_dopplerLevel(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_volume(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Single UnityStandardAssets.Vehicles.Car.CarController::get_AccelInput()
+IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_AccelInput_mE73AB7BDF3624BED2D55D885680B1B115B5E212B_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method);
+// System.Single UnityEngine.Mathf::InverseLerp(System.Single,System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Mathf_InverseLerp_m7054CDF25056E9B27D2467F91C95D628508F1F31 (float ___a0, float ___b1, float ___value2, const RuntimeMethod* method);
+// UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
+// !!0 UnityEngine.GameObject::AddComponent<UnityEngine.AudioSource>()
+inline AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * GameObject_AddComponent_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mF8E45BF814846E1641335B8471A4AEAA2AD83E8F (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * __this, const RuntimeMethod* method)
+{
+	return ((  AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * (*) (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F *, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m80EDFEAC4927F588A7A702F81524EDBFA8603FE2_gshared)(__this, method);
+}
+// System.Void UnityEngine.AudioSource::set_clip(UnityEngine.AudioClip)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_clip_mF574231E0B749E0167CAF9E4FCBA06BAA0F9ED9B (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_loop(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_loop_m4DEE785C31213E964D7014B633F0FFC7E98B79F4 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, bool ___value0, const RuntimeMethod* method);
+// System.Single UnityEngine.AudioClip::get_length()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AudioClip_get_length_mFF1E21363B1860453451C4DA1C1459E9B9504317 (AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * __this, const RuntimeMethod* method);
+// System.Single UnityEngine.Random::Range(System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Random_Range_m2844A4A71C86BDF83A12D97FC6DD95278E87E384 (float ___min0, float ___max1, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_time(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_time_m76B72F7AEF8B07469847BF8EFFC51991C9D695B1 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::Play()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_Play_m0BA206481892AA4AF7DB2900A0B0805076516164 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_minDistance(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_minDistance_m6BE1B716538D146E7DAFED645624204A6F49496C (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.AudioSource::set_maxDistance(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_set_maxDistance_m28ACA41DEC146D471E3E5EC0CC4EC2013D46F5E0 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, float ___value0, const RuntimeMethod* method);
+// System.Void UnityEngine.MonoBehaviour::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_mEAEC84B222C60319D593E456D769B3311DFCEF97 (MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429 * __this, const RuntimeMethod* method);
 // UnityEngine.Vector3 UnityEngine.Rigidbody::get_velocity()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Rigidbody_get_velocity_m584A6D79C3657C21AE9CAA56BEE05582B8D5A2B8 (Rigidbody_tE0A58EE5A1F7DC908EFFB4F0D795AC9552A750A5 * __this, const RuntimeMethod* method);
 // System.Single UnityEngine.Vector3::get_magnitude()
@@ -4588,8 +4958,6 @@ inline Rigidbody_tE0A58EE5A1F7DC908EFFB4F0D795AC9552A750A5 * Component_GetCompon
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CarController_get_CurrentSpeed_m814AA5516C9C598D5793B87553C802D20410B4C8 (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method);
 // System.Single UnityStandardAssets.Vehicles.Car.CarController::get_MaxSpeed()
 IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_MaxSpeed_m0FD37B92EDA02D2510C2399115883A945E0CFD38_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method);
-// System.Single UnityEngine.Mathf::InverseLerp(System.Single,System.Single,System.Single)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Mathf_InverseLerp_m7054CDF25056E9B27D2467F91C95D628508F1F31 (float ___a0, float ___b1, float ___value2, const RuntimeMethod* method);
 // System.Single UnityEngine.Time::get_deltaTime()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_deltaTime_m16F98FC9BA931581236008C288E3B25CBCB7C81E (const RuntimeMethod* method);
 // System.Single UnityEngine.Mathf::Lerp(System.Single,System.Single,System.Single)
@@ -4642,8 +5010,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody_set_velocity_m8D129E88E62AD02AB81CFC8BE694C4A5A2B2B380 (Rigidbody_tE0A58EE5A1F7DC908EFFB4F0D795AC9552A750A5 * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.WheelCollider::set_motorTorque(System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_motorTorque_m404286BB97DBB636DC13F435B94B4E009210A82C (WheelCollider_t92116DAF9E41154A9FB854E1BE553799E6837641 * __this, float ___value0, const RuntimeMethod* method);
-// UnityEngine.Transform UnityEngine.Component::get_transform()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * Component_get_transform_m00F05BD782F920C301A7EBA480F3B7A904C07EC9 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
 // UnityEngine.Vector3 UnityEngine.Transform::get_forward()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Transform_get_forward_m0BE1E88B86049ADA39391C3ACED2314A624BC67F (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, const RuntimeMethod* method);
 // System.Single UnityEngine.Vector3::Angle(UnityEngine.Vector3,UnityEngine.Vector3)
@@ -4690,23 +5056,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelEffects_StopAudio_m3F20E2E603627588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelEffects_EndSkidTrail_m92BF2EEE03F954DA9B2530C917AE1B3D67FFB905 (WheelEffects_t84C4593F7C4603BD1B0A03B7828ABE66AE7A8E23 * __this, const RuntimeMethod* method);
 // System.Void UnityStandardAssets.Vehicles.Car.CarController::AdjustTorque(System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarController_AdjustTorque_m29B9E585329AE8D6BC316016EF3756B31F45198D (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, float ___forwardSlip0, const RuntimeMethod* method);
-// System.Void UnityEngine.MonoBehaviour::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_mEAEC84B222C60319D593E456D769B3311DFCEF97 (MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429 * __this, const RuntimeMethod* method);
 // System.Single UnityEngine.Time::get_time()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_time_m7863349C8845BBA36629A2B3F8EF1C3BEA350FD8 (const RuntimeMethod* method);
 // System.Void UnityStandardAssets.Vehicles.Car.CarSelfRighting::RightCar()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarSelfRighting_RightCar_m1D1737E91268C9A0EA2A775AFD85759018EDD5D2 (CarSelfRighting_t53660AECA3A8CE3722608990B2A57AF11674A149 * __this, const RuntimeMethod* method);
-// UnityEngine.Vector3 UnityEngine.Transform::get_position()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Transform_get_position_mF54C3A064F7C8E24F1C56EE128728B2E4485E294 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, const RuntimeMethod* method);
 // UnityEngine.Vector3 UnityEngine.Vector3::op_Addition(UnityEngine.Vector3,UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Vector3_op_Addition_m929F9C17E5D11B94D50B4AFF1D730B70CB59B50E (Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___a0, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___b1, const RuntimeMethod* method);
 // UnityEngine.Quaternion UnityEngine.Quaternion::LookRotation(UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Quaternion_t319F3319A7D43FFA5D819AD6C0A98851F0095357  Quaternion_LookRotation_m465C08262650385D02ADDE78C9791AED47D2155F (Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___forward0, const RuntimeMethod* method);
-// !!0 UnityEngine.Component::GetComponent<UnityStandardAssets.Vehicles.Car.CarController>()
-inline CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * Component_GetComponent_TisCarController_t9B06DF660A91B656981CE46F2A476220009D4EAF_m49A7B0335263688150822CD006D9157087A822B8 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method)
-{
-	return ((  CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * (*) (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 *, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m129DEF8A66683189ED44B21496135824743EF617_gshared)(__this, method);
-}
 // System.Single UnityStandardAssets.CrossPlatformInput.CrossPlatformInputManager::GetAxis(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CrossPlatformInputManager_GetAxis_m797C5320CB67EAD076628817CFB1E429DD798138 (String_t* ___name0, const RuntimeMethod* method);
 // System.Void UnityStandardAssets.Vehicles.Car.CarController::Move(System.Single,System.Single,System.Single,System.Single)
@@ -4727,16 +5084,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_m925ECA5E85CA100E3FB86A4F9E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * Transform_get_parent_m8FA24E38A1FA29D90CBF3CDC9F9F017C65BB3403 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Equality_mBC2401774F3BE33E8CF6F0A8148E66C95D6CFF1C (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___x0, Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___y1, const RuntimeMethod* method);
-// UnityEngine.GameObject UnityEngine.Component::get_gameObject()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Object::Destroy(UnityEngine.Object,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_Destroy_m09F51D8BDECFD2E8C618498EF7377029B669030D (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___obj0, float ___t1, const RuntimeMethod* method);
 // System.Void System.NotSupportedException::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotSupportedException__ctor_mA121DE1CAC8F25277DEB489DC7771209D91CAE33 (NotSupportedException_tE75B318D6590A02A5D9B29FD97409B1750FA0010 * __this, const RuntimeMethod* method);
 // UnityEngine.Vector3 UnityEngine.Transform::get_localPosition()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Transform_get_localPosition_m812D43318E05BDCB78310EB7308785A13D85EFD8 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, const RuntimeMethod* method);
-// UnityEngine.Vector3 UnityEngine.Vector3::op_Subtraction(UnityEngine.Vector3,UnityEngine.Vector3)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Vector3_op_Subtraction_mF9846B723A5034F8B9F5F5DCB78E3D67649143D3 (Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___a0, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___b1, const RuntimeMethod* method);
 // System.Void UnityEngine.Transform::set_localPosition(UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_localPosition_m275F5550DD939F83AFEB5E8D681131172E2E1728 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___value0, const RuntimeMethod* method);
 // UnityEngine.Transform UnityEngine.Transform::get_root()
@@ -4774,8 +5127,6 @@ IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR bool WheelEffects_get_skidding_m630D5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WheelEffects_StartSkidTrail_m6B6FB5FEB07029AF42AB00B9D0B7BD8B5F552503 (WheelEffects_t84C4593F7C4603BD1B0A03B7828ABE66AE7A8E23 * __this, const RuntimeMethod* method);
 // UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Coroutine_tAE7DB2FC70A0AE6477F896F852057CB0754F06EC * MonoBehaviour_StartCoroutine_mBF8044CE06A35D76A69669ADD8977D05956616B7 (MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429 * __this, RuntimeObject* ___routine0, const RuntimeMethod* method);
-// System.Void UnityEngine.AudioSource::Play()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_Play_m0BA206481892AA4AF7DB2900A0B0805076516164 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.AudioSource::Stop()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AudioSource_Stop_m488F7AA7F7067DE3EC92CEE3413E86C2E5940200 (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * __this, const RuntimeMethod* method);
 // System.Void UnityStandardAssets.Vehicles.Car.WheelEffects/<StartSkidTrail>d__18::.ctor(System.Int32)
@@ -5122,8 +5473,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Shader_tE2731FF351B74AB4186897484FB01E000C116
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Shader_set_maximumLOD_mAF8E3615BB40E1381CDC4110D20D3BB866AFDC4B (Shader_tE2731FF351B74AB4186897484FB01E000C1160CA * __this, int32_t ___value0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.SystemInfo::SupportsRenderTextureFormat(UnityEngine.RenderTextureFormat)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool SystemInfo_SupportsRenderTextureFormat_m74D259714A97501D28951CA48298D9F0AE3B5907 (int32_t ___format0, const RuntimeMethod* method);
-// UnityEngine.Camera UnityEngine.Camera::get_main()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Camera_t48B2B9ECB3CE6108A98BF949A1CECF0FE3421F34 * Camera_get_main_m9256A9F84F92D7ED73F3E6C4E2694030AD8B61FA (const RuntimeMethod* method);
 // UnityEngine.DepthTextureMode UnityEngine.Camera::get_depthTextureMode()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Camera_get_depthTextureMode_m157C12D349137B72F27061C027E6954EC65D54AD (Camera_t48B2B9ECB3CE6108A98BF949A1CECF0FE3421F34 * __this, const RuntimeMethod* method);
 // System.Void UnityStandardAssets.Water.WaterBase::UpdateShader()
@@ -5223,6 +5572,586 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scene_t942E023788C2BC9FBB7EC8356B4FB0088B2CFE
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Scene_get_name_m0E63ED0F050FCC35A4216220C584BE3D3F77B0E1 (Scene_t942E023788C2BC9FBB7EC8356B4FB0088B2CFED2 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_mFC850AC783E5EA05D6154976385DFECC251CDFB9 (String_t* ___sceneName0, const RuntimeMethod* method);
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::StartSound()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio_StartSound_m6C7E3D73ACD178D11AF61012DCAEFC029D14C451 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (CarAudio_StartSound_m6C7E3D73ACD178D11AF61012DCAEFC029D14C451_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// m_CarController = GetComponent<CarController>();
+		CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * L_0 = Component_GetComponent_TisCarController_t9B06DF660A91B656981CE46F2A476220009D4EAF_m49A7B0335263688150822CD006D9157087A822B8(__this, /*hidden argument*/Component_GetComponent_TisCarController_t9B06DF660A91B656981CE46F2A476220009D4EAF_m49A7B0335263688150822CD006D9157087A822B8_RuntimeMethod_var);
+		__this->set_m_CarController_21(L_0);
+		// m_HighAccel = SetUpEngineAudioSource(highAccelClip);
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_1 = __this->get_highAccelClip_7();
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_2 = CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16(__this, L_1, /*hidden argument*/NULL);
+		__this->set_m_HighAccel_18(L_2);
+		// if (engineSoundStyle == EngineAudioOptions.FourChannel)
+		int32_t L_3 = __this->get_engineSoundStyle_4();
+		if ((!(((uint32_t)L_3) == ((uint32_t)1))))
+		{
+			goto IL_005d;
+		}
+	}
+	{
+		// m_LowAccel = SetUpEngineAudioSource(lowAccelClip);
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_4 = __this->get_lowAccelClip_5();
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_5 = CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16(__this, L_4, /*hidden argument*/NULL);
+		__this->set_m_LowAccel_16(L_5);
+		// m_LowDecel = SetUpEngineAudioSource(lowDecelClip);
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_6 = __this->get_lowDecelClip_6();
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_7 = CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16(__this, L_6, /*hidden argument*/NULL);
+		__this->set_m_LowDecel_17(L_7);
+		// m_HighDecel = SetUpEngineAudioSource(highDecelClip);
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_8 = __this->get_highDecelClip_8();
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_9 = CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16(__this, L_8, /*hidden argument*/NULL);
+		__this->set_m_HighDecel_19(L_9);
+	}
+
+IL_005d:
+	{
+		// m_StartedSound = true;
+		__this->set_m_StartedSound_20((bool)1);
+		// }
+		return;
+	}
+}
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::StopSound()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio_StopSound_mF07FA45F908B61D90E1989A0977CA245DBD4A6D2 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (CarAudio_StopSound_mF07FA45F908B61D90E1989A0977CA245DBD4A6D2_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* V_0 = NULL;
+	int32_t V_1 = 0;
+	{
+		// foreach (var source in GetComponents<AudioSource>())
+		AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* L_0 = Component_GetComponents_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mA7D154E22D6545361B29DD1393407EFFAC276690(__this, /*hidden argument*/Component_GetComponents_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mA7D154E22D6545361B29DD1393407EFFAC276690_RuntimeMethod_var);
+		V_0 = L_0;
+		V_1 = 0;
+		goto IL_0017;
+	}
+
+IL_000b:
+	{
+		// foreach (var source in GetComponents<AudioSource>())
+		AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* L_1 = V_0;
+		int32_t L_2 = V_1;
+		NullCheck(L_1);
+		int32_t L_3 = L_2;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
+		// Destroy(source);
+		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
+		Object_Destroy_m23B4562495BA35A74266D4372D45368F8C05109A(L_4, /*hidden argument*/NULL);
+		int32_t L_5 = V_1;
+		V_1 = ((int32_t)il2cpp_codegen_add((int32_t)L_5, (int32_t)1));
+	}
+
+IL_0017:
+	{
+		// foreach (var source in GetComponents<AudioSource>())
+		int32_t L_6 = V_1;
+		AudioSourceU5BU5D_t82A9EDBE30FC15D21E12BC1B17BFCEEA6A23ABBF* L_7 = V_0;
+		NullCheck(L_7);
+		if ((((int32_t)L_6) < ((int32_t)(((int32_t)((int32_t)(((RuntimeArray*)L_7)->max_length)))))))
+		{
+			goto IL_000b;
+		}
+	}
+	{
+		// m_StartedSound = false;
+		__this->set_m_StartedSound_20((bool)0);
+		// }
+		return;
+	}
+}
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio_Update_m572C7EF4C539ECE7CFA57630BC18AF7909A3D003 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (CarAudio_Update_m572C7EF4C539ECE7CFA57630BC18AF7909A3D003_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	float V_0 = 0.0f;
+	Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	float V_2 = 0.0f;
+	float V_3 = 0.0f;
+	float V_4 = 0.0f;
+	float V_5 = 0.0f;
+	float V_6 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B10_0 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B9_0 = NULL;
+	float G_B11_0 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B11_1 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B14_0 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B13_0 = NULL;
+	float G_B15_0 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B15_1 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B17_0 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B16_0 = NULL;
+	float G_B18_0 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B18_1 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B20_0 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B19_0 = NULL;
+	float G_B21_0 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B21_1 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B23_0 = NULL;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B22_0 = NULL;
+	float G_B24_0 = 0.0f;
+	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * G_B24_1 = NULL;
+	{
+		// float camDist = (Camera.main.transform.position - transform.position).sqrMagnitude;
+		Camera_t48B2B9ECB3CE6108A98BF949A1CECF0FE3421F34 * L_0 = Camera_get_main_m9256A9F84F92D7ED73F3E6C4E2694030AD8B61FA(/*hidden argument*/NULL);
+		NullCheck(L_0);
+		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_1 = Component_get_transform_m00F05BD782F920C301A7EBA480F3B7A904C07EC9(L_0, /*hidden argument*/NULL);
+		NullCheck(L_1);
+		Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  L_2 = Transform_get_position_mF54C3A064F7C8E24F1C56EE128728B2E4485E294(L_1, /*hidden argument*/NULL);
+		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_3 = Component_get_transform_m00F05BD782F920C301A7EBA480F3B7A904C07EC9(__this, /*hidden argument*/NULL);
+		NullCheck(L_3);
+		Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  L_4 = Transform_get_position_mF54C3A064F7C8E24F1C56EE128728B2E4485E294(L_3, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_il2cpp_TypeInfo_var);
+		Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  L_5 = Vector3_op_Subtraction_mF9846B723A5034F8B9F5F5DCB78E3D67649143D3(L_2, L_4, /*hidden argument*/NULL);
+		V_1 = L_5;
+		float L_6 = Vector3_get_sqrMagnitude_m1C6E190B4A933A183B308736DEC0DD64B0588968((Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720 *)(&V_1), /*hidden argument*/NULL);
+		V_0 = L_6;
+		// if (m_StartedSound && camDist > maxRolloffDistance*maxRolloffDistance)
+		bool L_7 = __this->get_m_StartedSound_20();
+		if (!L_7)
+		{
+			goto IL_0046;
+		}
+	}
+	{
+		float L_8 = V_0;
+		float L_9 = __this->get_maxRolloffDistance_13();
+		float L_10 = __this->get_maxRolloffDistance_13();
+		if ((!(((float)L_8) > ((float)((float)il2cpp_codegen_multiply((float)L_9, (float)L_10))))))
+		{
+			goto IL_0046;
+		}
+	}
+	{
+		// StopSound();
+		CarAudio_StopSound_mF07FA45F908B61D90E1989A0977CA245DBD4A6D2(__this, /*hidden argument*/NULL);
+	}
+
+IL_0046:
+	{
+		// if (!m_StartedSound && camDist < maxRolloffDistance*maxRolloffDistance)
+		bool L_11 = __this->get_m_StartedSound_20();
+		if (L_11)
+		{
+			goto IL_0064;
+		}
+	}
+	{
+		float L_12 = V_0;
+		float L_13 = __this->get_maxRolloffDistance_13();
+		float L_14 = __this->get_maxRolloffDistance_13();
+		if ((!(((float)L_12) < ((float)((float)il2cpp_codegen_multiply((float)L_13, (float)L_14))))))
+		{
+			goto IL_0064;
+		}
+	}
+	{
+		// StartSound();
+		CarAudio_StartSound_m6C7E3D73ACD178D11AF61012DCAEFC029D14C451(__this, /*hidden argument*/NULL);
+	}
+
+IL_0064:
+	{
+		// if (m_StartedSound)
+		bool L_15 = __this->get_m_StartedSound_20();
+		if (!L_15)
+		{
+			goto IL_02a5;
+		}
+	}
+	{
+		// float pitch = ULerp(lowPitchMin, lowPitchMax, m_CarController.Revs);
+		float L_16 = __this->get_lowPitchMin_10();
+		float L_17 = __this->get_lowPitchMax_11();
+		CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * L_18 = __this->get_m_CarController_21();
+		NullCheck(L_18);
+		float L_19 = CarController_get_Revs_mDEEFFBC17CCAD6D40BBF80D4B65F349D5EC1C4FE_inline(L_18, /*hidden argument*/NULL);
+		float L_20 = CarAudio_ULerp_mC09F309D8E6B521E14006D3B34E4C1AFA3C94082(L_16, L_17, L_19, /*hidden argument*/NULL);
+		V_2 = L_20;
+		// pitch = Mathf.Min(lowPitchMax, pitch);
+		float L_21 = __this->get_lowPitchMax_11();
+		float L_22 = V_2;
+		IL2CPP_RUNTIME_CLASS_INIT(Mathf_tFBDE6467D269BFE410605C7D806FD9991D4A89CB_il2cpp_TypeInfo_var);
+		float L_23 = Mathf_Min_mCF9BE0E9CAC9F18D207692BB2DAC7F3E1D4E1CB7(L_21, L_22, /*hidden argument*/NULL);
+		V_2 = L_23;
+		// if (engineSoundStyle == EngineAudioOptions.Simple)
+		int32_t L_24 = __this->get_engineSoundStyle_4();
+		if (L_24)
+		{
+			goto IL_00ec;
+		}
+	}
+	{
+		// m_HighAccel.pitch = pitch*pitchMultiplier*highPitchMultiplier;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_25 = __this->get_m_HighAccel_18();
+		float L_26 = V_2;
+		float L_27 = __this->get_pitchMultiplier_9();
+		float L_28 = __this->get_highPitchMultiplier_12();
+		NullCheck(L_25);
+		AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0(L_25, ((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_multiply((float)L_26, (float)L_27)), (float)L_28)), /*hidden argument*/NULL);
+		// m_HighAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_29 = __this->get_m_HighAccel_18();
+		bool L_30 = __this->get_useDoppler_15();
+		G_B9_0 = L_29;
+		if (L_30)
+		{
+			G_B10_0 = L_29;
+			goto IL_00d0;
+		}
+	}
+	{
+		G_B11_0 = (0.0f);
+		G_B11_1 = G_B9_0;
+		goto IL_00d6;
+	}
+
+IL_00d0:
+	{
+		float L_31 = __this->get_dopplerLevel_14();
+		G_B11_0 = L_31;
+		G_B11_1 = G_B10_0;
+	}
+
+IL_00d6:
+	{
+		NullCheck(G_B11_1);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(G_B11_1, G_B11_0, /*hidden argument*/NULL);
+		// m_HighAccel.volume = 1;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_32 = __this->get_m_HighAccel_18();
+		NullCheck(L_32);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_32, (1.0f), /*hidden argument*/NULL);
+		// }
+		return;
+	}
+
+IL_00ec:
+	{
+		// m_LowAccel.pitch = pitch*pitchMultiplier;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_33 = __this->get_m_LowAccel_16();
+		float L_34 = V_2;
+		float L_35 = __this->get_pitchMultiplier_9();
+		NullCheck(L_33);
+		AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0(L_33, ((float)il2cpp_codegen_multiply((float)L_34, (float)L_35)), /*hidden argument*/NULL);
+		// m_LowDecel.pitch = pitch*pitchMultiplier;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_36 = __this->get_m_LowDecel_17();
+		float L_37 = V_2;
+		float L_38 = __this->get_pitchMultiplier_9();
+		NullCheck(L_36);
+		AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0(L_36, ((float)il2cpp_codegen_multiply((float)L_37, (float)L_38)), /*hidden argument*/NULL);
+		// m_HighAccel.pitch = pitch*highPitchMultiplier*pitchMultiplier;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_39 = __this->get_m_HighAccel_18();
+		float L_40 = V_2;
+		float L_41 = __this->get_highPitchMultiplier_12();
+		float L_42 = __this->get_pitchMultiplier_9();
+		NullCheck(L_39);
+		AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0(L_39, ((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_multiply((float)L_40, (float)L_41)), (float)L_42)), /*hidden argument*/NULL);
+		// m_HighDecel.pitch = pitch*highPitchMultiplier*pitchMultiplier;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_43 = __this->get_m_HighDecel_19();
+		float L_44 = V_2;
+		float L_45 = __this->get_highPitchMultiplier_12();
+		float L_46 = __this->get_pitchMultiplier_9();
+		NullCheck(L_43);
+		AudioSource_set_pitch_mAB8F8CDB21A3139D3471784FEE9DBFA4CEDEE2E0(L_43, ((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_multiply((float)L_44, (float)L_45)), (float)L_46)), /*hidden argument*/NULL);
+		// float accFade = Mathf.Abs(m_CarController.AccelInput);
+		CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * L_47 = __this->get_m_CarController_21();
+		NullCheck(L_47);
+		float L_48 = CarController_get_AccelInput_mE73AB7BDF3624BED2D55D885680B1B115B5E212B_inline(L_47, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Mathf_tFBDE6467D269BFE410605C7D806FD9991D4A89CB_il2cpp_TypeInfo_var);
+		float L_49 = fabsf(L_48);
+		V_3 = L_49;
+		// float decFade = 1 - accFade;
+		float L_50 = V_3;
+		V_4 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_50));
+		// float highFade = Mathf.InverseLerp(0.2f, 0.8f, m_CarController.Revs);
+		CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * L_51 = __this->get_m_CarController_21();
+		NullCheck(L_51);
+		float L_52 = CarController_get_Revs_mDEEFFBC17CCAD6D40BBF80D4B65F349D5EC1C4FE_inline(L_51, /*hidden argument*/NULL);
+		float L_53 = Mathf_InverseLerp_m7054CDF25056E9B27D2467F91C95D628508F1F31((0.2f), (0.8f), L_52, /*hidden argument*/NULL);
+		V_5 = L_53;
+		// float lowFade = 1 - highFade;
+		float L_54 = V_5;
+		V_6 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_54));
+		// highFade = 1 - ((1 - highFade)*(1 - highFade));
+		float L_55 = V_5;
+		float L_56 = V_5;
+		V_5 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_55)), (float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_56))))));
+		// lowFade = 1 - ((1 - lowFade)*(1 - lowFade));
+		float L_57 = V_6;
+		float L_58 = V_6;
+		V_6 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_57)), (float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_58))))));
+		// accFade = 1 - ((1 - accFade)*(1 - accFade));
+		float L_59 = V_3;
+		float L_60 = V_3;
+		V_3 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_59)), (float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_60))))));
+		// decFade = 1 - ((1 - decFade)*(1 - decFade));
+		float L_61 = V_4;
+		float L_62 = V_4;
+		V_4 = ((float)il2cpp_codegen_subtract((float)(1.0f), (float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_61)), (float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_62))))));
+		// m_LowAccel.volume = lowFade*accFade;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_63 = __this->get_m_LowAccel_16();
+		float L_64 = V_6;
+		float L_65 = V_3;
+		NullCheck(L_63);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_63, ((float)il2cpp_codegen_multiply((float)L_64, (float)L_65)), /*hidden argument*/NULL);
+		// m_LowDecel.volume = lowFade*decFade;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_66 = __this->get_m_LowDecel_17();
+		float L_67 = V_6;
+		float L_68 = V_4;
+		NullCheck(L_66);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_66, ((float)il2cpp_codegen_multiply((float)L_67, (float)L_68)), /*hidden argument*/NULL);
+		// m_HighAccel.volume = highFade*accFade;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_69 = __this->get_m_HighAccel_18();
+		float L_70 = V_5;
+		float L_71 = V_3;
+		NullCheck(L_69);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_69, ((float)il2cpp_codegen_multiply((float)L_70, (float)L_71)), /*hidden argument*/NULL);
+		// m_HighDecel.volume = highFade*decFade;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_72 = __this->get_m_HighDecel_19();
+		float L_73 = V_5;
+		float L_74 = V_4;
+		NullCheck(L_72);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_72, ((float)il2cpp_codegen_multiply((float)L_73, (float)L_74)), /*hidden argument*/NULL);
+		// m_HighAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_75 = __this->get_m_HighAccel_18();
+		bool L_76 = __this->get_useDoppler_15();
+		G_B13_0 = L_75;
+		if (L_76)
+		{
+			G_B14_0 = L_75;
+			goto IL_023a;
+		}
+	}
+	{
+		G_B15_0 = (0.0f);
+		G_B15_1 = G_B13_0;
+		goto IL_0240;
+	}
+
+IL_023a:
+	{
+		float L_77 = __this->get_dopplerLevel_14();
+		G_B15_0 = L_77;
+		G_B15_1 = G_B14_0;
+	}
+
+IL_0240:
+	{
+		NullCheck(G_B15_1);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(G_B15_1, G_B15_0, /*hidden argument*/NULL);
+		// m_LowAccel.dopplerLevel = useDoppler ? dopplerLevel : 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_78 = __this->get_m_LowAccel_16();
+		bool L_79 = __this->get_useDoppler_15();
+		G_B16_0 = L_78;
+		if (L_79)
+		{
+			G_B17_0 = L_78;
+			goto IL_025a;
+		}
+	}
+	{
+		G_B18_0 = (0.0f);
+		G_B18_1 = G_B16_0;
+		goto IL_0260;
+	}
+
+IL_025a:
+	{
+		float L_80 = __this->get_dopplerLevel_14();
+		G_B18_0 = L_80;
+		G_B18_1 = G_B17_0;
+	}
+
+IL_0260:
+	{
+		NullCheck(G_B18_1);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(G_B18_1, G_B18_0, /*hidden argument*/NULL);
+		// m_HighDecel.dopplerLevel = useDoppler ? dopplerLevel : 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_81 = __this->get_m_HighDecel_19();
+		bool L_82 = __this->get_useDoppler_15();
+		G_B19_0 = L_81;
+		if (L_82)
+		{
+			G_B20_0 = L_81;
+			goto IL_027a;
+		}
+	}
+	{
+		G_B21_0 = (0.0f);
+		G_B21_1 = G_B19_0;
+		goto IL_0280;
+	}
+
+IL_027a:
+	{
+		float L_83 = __this->get_dopplerLevel_14();
+		G_B21_0 = L_83;
+		G_B21_1 = G_B20_0;
+	}
+
+IL_0280:
+	{
+		NullCheck(G_B21_1);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(G_B21_1, G_B21_0, /*hidden argument*/NULL);
+		// m_LowDecel.dopplerLevel = useDoppler ? dopplerLevel : 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_84 = __this->get_m_LowDecel_17();
+		bool L_85 = __this->get_useDoppler_15();
+		G_B22_0 = L_84;
+		if (L_85)
+		{
+			G_B23_0 = L_84;
+			goto IL_029a;
+		}
+	}
+	{
+		G_B24_0 = (0.0f);
+		G_B24_1 = G_B22_0;
+		goto IL_02a0;
+	}
+
+IL_029a:
+	{
+		float L_86 = __this->get_dopplerLevel_14();
+		G_B24_0 = L_86;
+		G_B24_1 = G_B23_0;
+	}
+
+IL_02a0:
+	{
+		NullCheck(G_B24_1);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(G_B24_1, G_B24_0, /*hidden argument*/NULL);
+	}
+
+IL_02a5:
+	{
+		// }
+		return;
+	}
+}
+// UnityEngine.AudioSource UnityStandardAssets.Vehicles.Car.CarAudio::SetUpEngineAudioSource(UnityEngine.AudioClip)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * ___clip0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (CarAudio_SetUpEngineAudioSource_mC6C1F638833FE7BBB117AB37A17175F2ADF93A16_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// AudioSource source = gameObject.AddComponent<AudioSource>();
+		GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * L_0 = Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C(__this, /*hidden argument*/NULL);
+		NullCheck(L_0);
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_1 = GameObject_AddComponent_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mF8E45BF814846E1641335B8471A4AEAA2AD83E8F(L_0, /*hidden argument*/GameObject_AddComponent_TisAudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C_mF8E45BF814846E1641335B8471A4AEAA2AD83E8F_RuntimeMethod_var);
+		// source.clip = clip;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_2 = L_1;
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_3 = ___clip0;
+		NullCheck(L_2);
+		AudioSource_set_clip_mF574231E0B749E0167CAF9E4FCBA06BAA0F9ED9B(L_2, L_3, /*hidden argument*/NULL);
+		// source.volume = 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_4 = L_2;
+		NullCheck(L_4);
+		AudioSource_set_volume_mF1757D70EE113871724334D13F70EF1ED033BA06(L_4, (0.0f), /*hidden argument*/NULL);
+		// source.loop = true;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_5 = L_4;
+		NullCheck(L_5);
+		AudioSource_set_loop_m4DEE785C31213E964D7014B633F0FFC7E98B79F4(L_5, (bool)1, /*hidden argument*/NULL);
+		// source.time = Random.Range(0f, clip.length);
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_6 = L_5;
+		AudioClip_tCC3C35F579203CE2601243585AB3D6953C3BA051 * L_7 = ___clip0;
+		NullCheck(L_7);
+		float L_8 = AudioClip_get_length_mFF1E21363B1860453451C4DA1C1459E9B9504317(L_7, /*hidden argument*/NULL);
+		float L_9 = Random_Range_m2844A4A71C86BDF83A12D97FC6DD95278E87E384((0.0f), L_8, /*hidden argument*/NULL);
+		NullCheck(L_6);
+		AudioSource_set_time_m76B72F7AEF8B07469847BF8EFFC51991C9D695B1(L_6, L_9, /*hidden argument*/NULL);
+		// source.Play();
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_10 = L_6;
+		NullCheck(L_10);
+		AudioSource_Play_m0BA206481892AA4AF7DB2900A0B0805076516164(L_10, /*hidden argument*/NULL);
+		// source.minDistance = 5;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_11 = L_10;
+		NullCheck(L_11);
+		AudioSource_set_minDistance_m6BE1B716538D146E7DAFED645624204A6F49496C(L_11, (5.0f), /*hidden argument*/NULL);
+		// source.maxDistance = maxRolloffDistance;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_12 = L_11;
+		float L_13 = __this->get_maxRolloffDistance_13();
+		NullCheck(L_12);
+		AudioSource_set_maxDistance_m28ACA41DEC146D471E3E5EC0CC4EC2013D46F5E0(L_12, L_13, /*hidden argument*/NULL);
+		// source.dopplerLevel = 0;
+		AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C * L_14 = L_12;
+		NullCheck(L_14);
+		AudioSource_set_dopplerLevel_mA90937913103AB595C891B72B4B5724F8F54AB86(L_14, (0.0f), /*hidden argument*/NULL);
+		// return source;
+		return L_14;
+	}
+}
+// System.Single UnityStandardAssets.Vehicles.Car.CarAudio::ULerp(System.Single,System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float CarAudio_ULerp_mC09F309D8E6B521E14006D3B34E4C1AFA3C94082 (float ___from0, float ___to1, float ___value2, const RuntimeMethod* method)
+{
+	{
+		// return (1.0f - value)*from + value*to;
+		float L_0 = ___value2;
+		float L_1 = ___from0;
+		float L_2 = ___value2;
+		float L_3 = ___to1;
+		return ((float)il2cpp_codegen_add((float)((float)il2cpp_codegen_multiply((float)((float)il2cpp_codegen_subtract((float)(1.0f), (float)L_0)), (float)L_1)), (float)((float)il2cpp_codegen_multiply((float)L_2, (float)L_3))));
+	}
+}
+// System.Void UnityStandardAssets.Vehicles.Car.CarAudio::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CarAudio__ctor_mB447E374FFDE1F22CB1AF0E0563416DECBD41C78 (CarAudio_t97A66FDAD6229EF66CAEF0DDE8D17FA4C4993437 * __this, const RuntimeMethod* method)
+{
+	{
+		// public EngineAudioOptions engineSoundStyle = EngineAudioOptions.FourChannel;// Set the default audio options to be four channel
+		__this->set_engineSoundStyle_4(1);
+		// public float pitchMultiplier = 1f;                                          // Used for altering the pitch of audio clips
+		__this->set_pitchMultiplier_9((1.0f));
+		// public float lowPitchMin = 1f;                                              // The lowest possible pitch for the low sounds
+		__this->set_lowPitchMin_10((1.0f));
+		// public float lowPitchMax = 6f;                                              // The highest possible pitch for the low sounds
+		__this->set_lowPitchMax_11((6.0f));
+		// public float highPitchMultiplier = 0.25f;                                   // Used for altering the pitch of high sounds
+		__this->set_highPitchMultiplier_12((0.25f));
+		// public float maxRolloffDistance = 500;                                      // The maximum distance where rollof starts to take place
+		__this->set_maxRolloffDistance_13((500.0f));
+		// public float dopplerLevel = 1;                                              // The mount of doppler effect used in the audio
+		__this->set_dopplerLevel_14((1.0f));
+		// public bool useDoppler = true;                                              // Toggle for using doppler
+		__this->set_useDoppler_15((bool)1);
+		MonoBehaviour__ctor_mEAEC84B222C60319D593E456D769B3311DFCEF97(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -12004,6 +12933,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Restarter__ctor_mB034707D90A32200EF0D0E1
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_Revs_mDEEFFBC17CCAD6D40BBF80D4B65F349D5EC1C4FE_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method)
+{
+	{
+		// public float Revs { get; private set; }
+		float L_0 = __this->get_U3CRevsU3Ek__BackingField_34();
+		return L_0;
+	}
+}
+IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_AccelInput_mE73AB7BDF3624BED2D55D885680B1B115B5E212B_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method)
+{
+	{
+		// public float AccelInput { get; private set; }
+		float L_0 = __this->get_U3CAccelInputU3Ek__BackingField_35();
+		return L_0;
+	}
+}
 IL2CPP_EXTERN_C inline  IL2CPP_METHOD_ATTR float CarController_get_MaxSpeed_m0FD37B92EDA02D2510C2399115883A945E0CFD38_inline (CarController_t9B06DF660A91B656981CE46F2A476220009D4EAF * __this, const RuntimeMethod* method)
 {
 	{

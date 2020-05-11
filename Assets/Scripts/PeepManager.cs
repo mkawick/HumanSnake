@@ -5,6 +5,10 @@ using UnityEngine;
 public class PeepManager : MonoBehaviour
 {
     public Sprite[] emoticons;
+    [SerializeField]
+    bool showEmoticons;
+    [SerializeField]
+    float oddsOfSettingEmoticon = 1.0f;
     List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
@@ -54,44 +58,54 @@ public class PeepManager : MonoBehaviour
 
     public void ChangeState(TrappedPerson2 tp, TrappedPerson2.State currentState)
     {
-        switch(currentState)
+        if (showEmoticons == false)
+            return;
+        if (Random.value < oddsOfSettingEmoticon)
         {
-            case TrappedPerson2.State.Wandering:
-                {
-                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
-                    Sprite sprite = emoticons[(int)PeepStateEmoticons.WanderingScared];
-                    if(sprite != null)
-                        tp.SetEmoticon(sprite);
-                }
-                break;
-            case TrappedPerson2.State.FollowPLayer:
-                {
-                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
-                    Sprite sprite = emoticons[(int)PeepStateEmoticons.FollowingPlayerSafe];
-                    if (sprite != null)
-                        tp.SetEmoticon(sprite);
-                }
-                break;
-            case TrappedPerson2.State.EndOfLevel:
-                {
-                    //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
-                    Sprite sprite = emoticons[(int)PeepStateEmoticons.ExitedBuilding];
-                    if (sprite != null)
-                        tp.SetEmoticon(sprite);
-                }
-                break;
-            case TrappedPerson2.State.Wave:
-                {
-                    Sprite sprite = emoticons[(int)PeepStateEmoticons.WavingForHelp];
-                    if (sprite != null)
-                        tp.SetEmoticon(sprite);
-                }
-                break;
-            default:
-                {
-                    tp.SetEmoticon(null);
-                }
-                break;
+            switch (currentState)
+            {
+                case TrappedPerson2.State.Wandering:
+                    {
+                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
+                        Sprite sprite = emoticons[(int)PeepStateEmoticons.WanderingScared];
+                        if (sprite != null)
+                            tp.SetEmoticon(sprite);
+                    }
+                    break;
+                case TrappedPerson2.State.FollowPLayer:
+                    {
+                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
+                        Sprite sprite = emoticons[(int)PeepStateEmoticons.FollowingPlayerSafe];
+                        if (sprite != null)
+                            tp.SetEmoticon(sprite);
+                    }
+                    break;
+                case TrappedPerson2.State.EndOfLevel:
+                    {
+                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
+                        Sprite sprite = emoticons[(int)PeepStateEmoticons.ExitedBuilding];
+                        if (sprite != null)
+                            tp.SetEmoticon(sprite);
+                    }
+                    break;
+                case TrappedPerson2.State.Wave:
+                    {
+                        Sprite sprite = emoticons[(int)PeepStateEmoticons.WavingForHelp];
+                        if (sprite != null)
+                            tp.SetEmoticon(sprite);
+                    }
+                    break;
+                default:
+                    {
+                        tp.SetEmoticon(null);
+                    }
+                    break;
+            }
+            
+        }
+        else
+        {
+            tp.SetEmoticon(null);
         }
     }
 

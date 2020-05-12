@@ -7549,14 +7549,30 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8052111, y: 0.42004302, z: 1}
-  m_Center: {x: -0.06617719, y: 0.032102544, z: 0}
+  m_Size: {x: 0.96242654, y: 0.49899366, z: 0.48576093}
+  m_Center: {x: 0.012430489, y: -0.007372812, z: 0.25711954}
 --- !u!4 &1215623008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7cd4ce41d004a7c4f9fda3a3ae2e9bf3,
     type: 3}
   m_PrefabInstance: {fileID: 779834746}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1215623009
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215623006}
+  serializedVersion: 2
+  m_Mass: 0.25
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1241091726
 PrefabInstance:
   m_ObjectHideFlags: 0

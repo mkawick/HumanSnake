@@ -67,7 +67,7 @@ namespace Animmal.AP
         public Button Death;
 
         int CurrentItemID = 0;
-        int CurrentSkinID = 0;
+        //int CurrentSkinID = 0;
 
         AssetsObject AssetsItem1;
         AssetsObject AssetsItem2;

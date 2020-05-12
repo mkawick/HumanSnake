@@ -19,7 +19,7 @@ public class TrappedPerson2 : MonoBehaviour
     public float wanderRange = 1.5f;
 
     int indexInSnake = 0;
-    float originalForwardSpeedMultiplier = 0;
+    //float originalForwardSpeedMultiplier = 0;
 
     public enum State
     {
@@ -38,8 +38,7 @@ public class TrappedPerson2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SetupInitialState();
-        control = GetComponent<RigidBodyTest>();
+        GrabAnimConroller();
         SetupEmoticonSprite();
         SetupStateTree();
     }
@@ -75,9 +74,15 @@ public class TrappedPerson2 : MonoBehaviour
         {
             CreateStateTree();
         }
-        
+        GrabAnimConroller();
+
         currentState = State.Wandering;
         peepManager.ChangeState(this, State.Transitioning);
+    }
+
+    void GrabAnimConroller()
+    {
+        control = GetComponent<RigidBodyTest>();
     }
 
     // Update is called once per frame
@@ -175,7 +180,7 @@ public class TrappedPerson2 : MonoBehaviour
         {
             float randomTime = randomRange * UnityEngine.Random.value - randomRange / 2;
             timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
-            if(person)
+            if(person.control != null)
                 person.control.Log("TimePlannedForChange:" + timeForNextChange + ", CT: " + Time.time);
         }
     }

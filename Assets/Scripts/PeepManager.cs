@@ -6,7 +6,7 @@ public class PeepManager : MonoBehaviour
 {
     public Sprite[] emoticons;
     [SerializeField]
-    bool showEmoticons;
+    bool showEmoticons = false;
     [SerializeField]
     float oddsOfSettingEmoticon = 1.0f;
     List<TrappedPerson2> peeps;

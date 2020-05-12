@@ -39,8 +39,9 @@ public class TrappedPerson2 : MonoBehaviour
     void Start()
     {
         //SetupInitialState();
-
+        control = GetComponent<RigidBodyTest>();
         SetupEmoticonSprite();
+        SetupStateTree();
     }
     void SetupEmoticonSprite()
     {
@@ -54,13 +55,38 @@ public class TrappedPerson2 : MonoBehaviour
         emoticon = emoticonRoot.AddComponent<SpriteRenderer>();
     }
 
+    void CreateStateTree()
+    {
+        var count = Enum.GetNames(typeof(State)).Length;
+        states = new TrappedState[count];
+        states[(int)State.Wandering] = new StateWander();
+        states[(int)State.FollowPLayer] = new StateFollowPlayer();
+        states[(int)State.Wave] = new StateWave();
+        states[(int)State.EndOfLevel] = new StateEndOfLevel();
+        states[(int)State.Transitioning] = new StateTransitioning();
+        foreach (var state in states)
+        {
+            state.Init(this);
+        }
+    }
+    void SetupStateTree()
+    {
+        if (states == null)
+        {
+            CreateStateTree();
+        }
+        
+        currentState = State.Wandering;
+        peepManager.ChangeState(this, State.Transitioning);
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (isActiveAndEnabled == false || states == null)
             return;
 
-        if(states[(int)currentState].Update(this) == false)
+        if(states[(int)currentState].Update() == false)
         {
             if(currentState == State.Wandering || currentState == State.Wave)
             {
@@ -107,37 +133,20 @@ public class TrappedPerson2 : MonoBehaviour
 
     public void SetupInitialState(Transform _player)
     {
-        if (states == null)
-        {
-            var count = Enum.GetNames(typeof(State)).Length;
-            states = new TrappedState[count];
-            states[(int)State.Wandering] = new StateWander();
-            states[(int)State.FollowPLayer] = new StateFollowPlayer();
-            states[(int)State.Wave] = new StateWave();
-            states[(int)State.EndOfLevel] = new StateEndOfLevel();
-            states[(int)State.Transitioning] = new StateTransitioning();
-            
-        }
+        SetupStateTree();
         control = GetComponent<RigidBodyTest>();
         if (originalPos == Vector3.zero)// init
             originalPos = transform.position;
         control.SetTarget(originalPos);
         transform.position = originalPos;
-
-        currentState = State.Wandering;
-        peepManager.ChangeState(this, State.Transitioning);
         
         player = _player;
-
-
-        foreach(var state in states)
-        {
-            state.Init(this);
-        }
     }
 
     public bool IsPlayerCloseEnough()
     {
+        if (player == null || peepManager == null)
+            return false;
         if ((player.position - transform.position).magnitude < peepManager.DistanceToPlayer(indexInSnake))
         {
             return true;
@@ -159,37 +168,41 @@ public class TrappedPerson2 : MonoBehaviour
         protected float randomRange = 5;
         protected float minTimeToWaitBeforeNextLocation = 3;
         protected float timeForNextChange;
+        protected TrappedPerson2 person;
         public abstract void Init(TrappedPerson2 tp);
-        public abstract bool Update(TrappedPerson2 tp);
+        public abstract bool Update();
         protected void RandomizeTimeForNextChange()
         {
             float randomTime = randomRange * UnityEngine.Random.value - randomRange / 2;
             timeForNextChange = minTimeToWaitBeforeNextLocation + Time.time + randomTime;
+            if(person)
+                person.control.Log("TimePlannedForChange:" + timeForNextChange + ", CT: " + Time.time);
         }
     }
     public class StateFollowPlayer : TrappedState
     {
         public override void Init(TrappedPerson2 tp)
         {
+            person = tp;
         }
-        public override bool Update(TrappedPerson2 tp)
+        public override bool Update()
         {
-            if (tp.IsExitCloseEnough() == true)
+            if (person.IsExitCloseEnough() == true)
             {
-                tp.currentState = State.EndOfLevel;
-                tp.peepManager.ChangeState(tp, State.Transitioning);
-                tp.peepManager.RemoveFromSnake(tp.transform);
-                tp.indexInSnake = -1;
+                person.currentState = State.EndOfLevel;
+                person.peepManager.ChangeState(person, State.Transitioning);
+                person.peepManager.RemoveFromSnake(person.transform);
+                person.indexInSnake = -1;
                 return false;
             }
-            //  else if (tp.IsPlayerCloseEnough() == true)
+            //  else if (person.IsPlayerCloseEnough() == true)
             {
-                Vector3 playerPos = tp.peepManager.WhomDoIFollow(tp).position;
-                Vector3 pos = tp.transform.position;
+                Vector3 playerPos = person.peepManager.WhomDoIFollow(person).position;
+                Vector3 pos = person.transform.position;
                 Vector3 dist = (pos - playerPos);
                 if (dist.sqrMagnitude < 3)
                 {
-                    tp.control.SetTarget(pos);
+                    person.control.SetTarget(pos);
                     return true;
                 }
                 else
@@ -198,15 +211,15 @@ public class TrappedPerson2 : MonoBehaviour
                     Vector3 dir = (dist).normalized;
                     dir.y = 0;
                     Vector3 dest = playerPos - dir;
-                    tp.control.SetTarget(dest);
+                    person.control.SetTarget(dest);
                 }
             }
             /* else
              {
-                 tp.currentState = State.Wandering;
-                 tp.peepManager.ChangeState(tp);
-                 tp.peepManager.RemoveFromSnake(tp.transform);
-                 tp.indexInSnake = -1;
+                 person.currentState = State.Wandering;
+                 person.peepManager.ChangeState(tp);
+                 person.peepManager.RemoveFromSnake(person.transform);
+                 person.indexInSnake = -1;
                  return false;
              }*/
 
@@ -217,11 +230,12 @@ public class TrappedPerson2 : MonoBehaviour
     {
         public override void Init(TrappedPerson2 tp)
         {
+            person = tp;
         }
-        public override bool Update(TrappedPerson2 tp)
+        public override bool Update()
         {
-            //Vector3 pos = tp.transform.position;
-            tp.control.SetTarget(tp.peepManager.GetFinalDestination());
+            //Vector3 pos = person.transform.position;
+            person.control.SetTarget(person.peepManager.GetFinalDestination());
 
             return true;
         }
@@ -231,33 +245,34 @@ public class TrappedPerson2 : MonoBehaviour
         Transform startingLocation;
         public override void Init(TrappedPerson2 tp)
         {
-            if (startingLocation == null)
-                startingLocation = tp.transform;
+            person = tp;
 
+            if (startingLocation == null)
+                startingLocation = person.transform;
             RandomizeTimeForNextChange();
         }
-        public override bool Update(TrappedPerson2 tp)
+        public override bool Update()
         {
             if (timeForNextChange < Time.time)
             {
-                Vector3 randomLocation = SelectRandomLocation(tp.wanderRange);
-                randomLocation = RaycastToPreventHittingObstacles(tp.transform.position, randomLocation, tp.boundingRadius);
+                Vector3 randomLocation = SelectRandomLocation(person.wanderRange);
+                randomLocation = RaycastToPreventHittingObstacles(person.transform.position, randomLocation, person.boundingRadius);
                 randomLocation.y = startingLocation.position.y;
-                tp.control.SetTarget(randomLocation);
+                person.control.SetTarget(randomLocation);
                 return false;// ready for new state
             }
             else
             {
-                //tp.peepManager.ChangeState(tp, State.Transitioning);
-                //tp.control.ta
+                //person.peepManager.ChangeState(tp, State.Transitioning);
+                //person.control.ta
             }
 
-            if (tp.IsPlayerCloseEnough() == true)
+            if (person.IsPlayerCloseEnough() == true)
             {
-                tp.currentState = State.FollowPLayer;
-                tp.peepManager.ChangeState(tp, State.FollowPLayer);
-                tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
-                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
+                person.currentState = State.FollowPLayer;
+                person.peepManager.ChangeState(person, State.FollowPLayer);
+                person.indexInSnake = person.peepManager.AddToSnake(person.transform);
+                person.control.SetTarget(person.peepManager.WhomDoIFollow(person).position);
                 return false;
             }
 
@@ -292,25 +307,26 @@ public class TrappedPerson2 : MonoBehaviour
     {
         public override void Init(TrappedPerson2 tp)
         {
+            person = tp;
             RandomizeTimeForNextChange();
         }
-        public override bool Update(TrappedPerson2 tp)
+        public override bool Update()
         {
             if (timeForNextChange < Time.time)
             {
-                tp.control.Wave();
+                person.control.Wave();
                 return false;// ready for new state
             }
             else
             {
-                //tp.peepManager.ChangeState(tp, State.Transitioning);
+                //person.peepManager.ChangeState(tp, State.Transitioning);
             }
-            if (tp.IsPlayerCloseEnough() == true)
+            if (person.IsPlayerCloseEnough() == true)
             {
-                tp.currentState = State.FollowPLayer;
-                tp.peepManager.ChangeState(tp, State.FollowPLayer);
-                tp.indexInSnake = tp.peepManager.AddToSnake(tp.transform);
-                tp.control.SetTarget(tp.peepManager.WhomDoIFollow(tp).position);
+                person.currentState = State.FollowPLayer;
+                person.peepManager.ChangeState(person, State.FollowPLayer);
+                person.indexInSnake = person.peepManager.AddToSnake(person.transform);
+                person.control.SetTarget(person.peepManager.WhomDoIFollow(person).position);
                 return false;
             }
 
@@ -321,11 +337,12 @@ public class TrappedPerson2 : MonoBehaviour
     {
         public override void Init(TrappedPerson2 tp)
         {
+            person = tp;
             RandomizeTimeForNextChange();
         }
-        public override bool Update(TrappedPerson2 tp)
+        public override bool Update()
         {
-            //tp.peepManager.ChangeState(tp, State.Transitioning);
+            //person.peepManager.ChangeState(tp, State.Transitioning);
 
             return true;
         }

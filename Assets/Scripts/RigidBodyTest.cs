@@ -50,7 +50,8 @@ public class RigidBodyTest : MonoBehaviour
         {
             if (target == null || target == Vector3.zero)
             {
-                switch(pendingStateChange)
+                Log("Update: target == null");
+                switch (pendingStateChange)
                 {
                     case AnimStateChange.Run:
                         StartRunning();
@@ -64,6 +65,7 @@ public class RigidBodyTest : MonoBehaviour
             }
             else
             {
+                Log("Update: target is not null");
                 if (MoveTowardPosition(target))
                 {
                     StartRunning();
@@ -131,10 +133,11 @@ public class RigidBodyTest : MonoBehaviour
 
     internal void Wave()
     {
+        Log("Wave");
         animator.SetTrigger("Wave");
     }
 
-    void Log(string text)
+    internal void Log(string text)
     {
         if (isLoggingEnabled == true)
             Debug.Log(text + ":" + Time.time);
@@ -142,6 +145,7 @@ public class RigidBodyTest : MonoBehaviour
     bool MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
+        dist.y = 0;// a lot of times, the pos is random and the y is not in the plane
         if (dist.magnitude < 0.4f)
         {
             Log("MoveTowardPosition:false");
@@ -149,21 +153,24 @@ public class RigidBodyTest : MonoBehaviour
         }
         else
         {
-            Log("MoveTowardPosition:true");
-            dist.y = 0;
+            //Log("MoveTowardPosition:true");
+            //Log("MoveTowardPosition:true dist1 = " + dist);
             dist.Normalize();
             dist *= runSpeed;
             transform.position += dist * Time.deltaTime;
+            Log("MoveTowardPosition:true dist2 = " + dist);
             return true;
         }
     }
         
     public void SetTarget(Transform t)
     {
+        Log("SetTarget:Transform");
         target = t.position;
     }
     public void SetTarget(Vector3 pos)
     {
+        Log("SetTarget:pos");
         target = pos;
     }
 }

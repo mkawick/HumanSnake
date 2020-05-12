@@ -35,7 +35,7 @@ public class RigidBodyTest : MonoBehaviour
     {
         if ((position - transform.position).magnitude > 0.1f)
         {
-            FaceMousePosition(position);
+            FacePosition(position);
             MoveTowardPosition(position);
             StartRunning();
         }
@@ -46,41 +46,21 @@ public class RigidBodyTest : MonoBehaviour
     }
     void Update()
     {
-        if (isPlayer == true)
-        {
-            if (Input.GetMouseButton(1) == true)
-            {
-                Wave();
-            }
-           /* else if (Input.GetMouseButton(0) == true)
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, 100))
-                {
-                    MovePlayer(hit.point);
-                }
-            }
-            else
-            {
-                StopPlayer();
-            }*/
-        }
-        else
+        if (isPlayer == false)
         {
             if (target == null || target == Vector3.zero)
             {
-                    switch(pendingStateChange)
-                    {
-                        case AnimStateChange.Run:
-                            StartRunning();
-                            break;
-                        case AnimStateChange.Idle:
-                            GoToIdle();
-                            break;
-                        case AnimStateChange.None:
-                            break;
-                    }
+                switch(pendingStateChange)
+                {
+                    case AnimStateChange.Run:
+                        StartRunning();
+                        break;
+                    case AnimStateChange.Idle:
+                        GoToIdle();
+                        break;
+                    case AnimStateChange.None:
+                        break;
+                }
             }
             else
             {
@@ -92,12 +72,12 @@ public class RigidBodyTest : MonoBehaviour
                 {
                     GoToIdle();
                 }
-                FaceMousePosition(target);
+                FacePosition(target);
             }
         }
     }
 
-    void FaceMousePosition(Vector3 placeToLook)
+    void FacePosition(Vector3 placeToLook)
     {
         Vector3 dist = placeToLook - transform.position;// do not turn for too close
         dist.y = 0;
@@ -162,7 +142,7 @@ public class RigidBodyTest : MonoBehaviour
     bool MoveTowardPosition(Vector3 pos)
     {
         Vector3 dist = pos - transform.position;
-        if (dist.magnitude < 0.2f)
+        if (dist.magnitude < 0.4f)
         {
             Log("MoveTowardPosition:false");
             return false;
@@ -177,7 +157,7 @@ public class RigidBodyTest : MonoBehaviour
             return true;
         }
     }
-
+        
     public void SetTarget(Transform t)
     {
         target = t.position;

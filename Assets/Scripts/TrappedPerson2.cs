@@ -227,13 +227,12 @@ public class TrappedPerson2 : MonoBehaviour
         }
     }
     class StateWander : TrappedState
-    {        
-
-        Transform originalLocation;
+    {
+        Transform startingLocation;
         public override void Init(TrappedPerson2 tp)
         {
-            if (originalLocation == null)
-                originalLocation = tp.transform;
+            if (startingLocation == null)
+                startingLocation = tp.transform;
 
             RandomizeTimeForNextChange();
         }
@@ -243,13 +242,14 @@ public class TrappedPerson2 : MonoBehaviour
             {
                 Vector3 randomLocation = SelectRandomLocation(tp.wanderRange);
                 randomLocation = RaycastToPreventHittingObstacles(tp.transform.position, randomLocation, tp.boundingRadius);
-                randomLocation.y = originalLocation.position.y;
+                randomLocation.y = startingLocation.position.y;
                 tp.control.SetTarget(randomLocation);
                 return false;// ready for new state
             }
             else
             {
                 //tp.peepManager.ChangeState(tp, State.Transitioning);
+                //tp.control.ta
             }
 
             if (tp.IsPlayerCloseEnough() == true)
@@ -268,7 +268,7 @@ public class TrappedPerson2 : MonoBehaviour
         {
             RandomizeTimeForNextChange();
 
-            Vector3 position = originalLocation.position;
+            Vector3 position = startingLocation.position;
             Vector3 rand = UnityEngine.Random.onUnitSphere * range;
             position.x += rand.x;
             position.z += rand.z;

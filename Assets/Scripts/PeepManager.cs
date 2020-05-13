@@ -14,7 +14,7 @@ public class PeepManager : MonoBehaviour
     public Transform player;
     public float defaultDistanceToFollowPlayer = 2.2f;
     public float increasedRangeWithEachFollower = 0.9f;
-    
+
     public float followingPlayerSpeedMultipler = 1.1f;
 
     internal Transform exitLocation;
@@ -22,6 +22,7 @@ public class PeepManager : MonoBehaviour
 
     public Material[] materialsForPeeps;
     internal LevelManager levelManager;
+
 
     enum PeepStateColors
     {
@@ -39,6 +40,12 @@ public class PeepManager : MonoBehaviour
     void Start()
     {
         peeps = new List<TrappedPerson2>();
+    }
+
+    public TrappedPerson2 GetRandomPeep()
+    {
+        int index = Random.Range(0, peeps.Count);
+        return peeps[index];
     }
 
     public void NewLevel(List<TrappedPerson2> peepList)

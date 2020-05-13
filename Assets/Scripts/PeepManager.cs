@@ -12,6 +12,7 @@ public class PeepManager : MonoBehaviour
     List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
+    public GameManager gameManager;
     public float defaultDistanceToFollowPlayer = 2.2f;
     public float increasedRangeWithEachFollower = 0.9f;
 
@@ -61,6 +62,11 @@ public class PeepManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void IDied(TrappedPerson2 person)
+    {
+        gameManager.PlayFail(person);
     }
 
     public void ChangeState(TrappedPerson2 tp, TrappedPerson2.State currentState)

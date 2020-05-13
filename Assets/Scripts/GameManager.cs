@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Transform runAroundPosition, runAroundStartPosition;
 
     TrappedPerson2 peepForFailure;
+    private Vector3 normalCameraPosition;
+    LevelManager levelManager;
+    float isWaitingForSequenceGateTime;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isWaitingForSequenceGateTime != 0)
+        {
+            if (isWaitingForSequenceGateTime > Time.time)
+            {
+                isWaitingForSequenceGateTime = 0;
+                EndOfPlayFail();
+                return;
+            }
+            //if
+        }
     }
 
     public void PlayEnd()
@@ -45,11 +57,16 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void PlayFail()
+    public void PlayFail(TrappedPerson2 peep)
     {
-
-        // select random peep
-        peepForFailure = peepManager.GetRandomPeep();
+        if (peep != null)
+        {
+            peepForFailure = peep;
+        }
+        else
+        {
+            peepForFailure = peepManager.GetRandomPeep();
+        }
 
         // move peep to location
         peepForFailure.transform.position = runAroundStartPosition.position;
@@ -71,11 +88,14 @@ public class GameManager : MonoBehaviour
         }
         // slight delay
         // zoom camera
+        normalCameraPosition = Camera.main.transform.position;
         // play for 8 seconds
+        isWaitingForSequenceGateTime = Time.time + 8;
+
         // reset level
     }
 
-    void EndPlayFail()
+    void EndOfPlayFail()
     {
         foreach(var ps in psBadEnding)
         {
@@ -84,5 +104,8 @@ public class GameManager : MonoBehaviour
         }
         var raic = peepForFailure.GetComponent<RunPersonInCircle>();
         Destroy(raic);
+
+        levelManager.ResetLevel();
+        Camera.main.transform.position = normalCameraPosition;
     }
 }

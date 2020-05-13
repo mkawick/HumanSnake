@@ -89,6 +89,10 @@ public class LevelManager : MonoBehaviour
             levelState = LevelState.EndLevel;
         }
     }
+    public void ResetLevel()
+    {
+        levelState = LevelState.Start;
+    }
 
     void FinishLevel()
     {

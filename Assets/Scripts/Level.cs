@@ -58,10 +58,7 @@ public class Level : MonoBehaviour
     {
         Vector3 pos =( playerStartPosition.position);
         RigidBodyTest nma = go.GetComponent<RigidBodyTest>();
-        //nma.Warp( pos);
         nma.transform.position = pos;
-
-        //Debug.Log(go.gameObject.transform.position);
     }
 
     public List<TrappedPerson2> GetTrappedPeople()

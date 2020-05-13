@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
 
     TrappedPerson2 peepForFailure;
     private Vector3 normalCameraPosition;
-    LevelManager levelManager;
+    public LevelManager levelManager;
     float isWaitingForSequenceGateTime;
+
+    public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if (isWaitingForSequenceGateTime != 0)
         {
-            if (isWaitingForSequenceGateTime > Time.time)
+            if (isWaitingForSequenceGateTime < Time.time)
             {
                 isWaitingForSequenceGateTime = 0;
                 EndOfPlayFail();
@@ -85,10 +87,11 @@ public class GameManager : MonoBehaviour
         foreach (var ps in psBadEnding)
         {
             raic.AttachParticlEffect(ps);
-        }
+        } 
         // slight delay
         // zoom camera
         normalCameraPosition = Camera.main.transform.position;
+        Camera.main.transform.position = raic.pointAround.position - cameraOffsetToPlayFail;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + 8;
 

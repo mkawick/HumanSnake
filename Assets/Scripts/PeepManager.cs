@@ -61,7 +61,10 @@ public class PeepManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonUp(1) == true)
+        {
+            gameManager.PlayFail(GetRandomPeep());
+        }
     }
 
     public void IDied(TrappedPerson2 person)

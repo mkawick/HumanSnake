@@ -79,9 +79,9 @@ public class GameManager : MonoBehaviour
         {
             raic = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
         }
-
-        // set peep run around position
+        
         raic.pointAround = runAroundPosition;
+        raic.InitForRunning();
 
         // AttachParticlEffect
         foreach (var ps in psBadEnding)
@@ -100,13 +100,14 @@ public class GameManager : MonoBehaviour
 
     void EndOfPlayFail()
     {
-        foreach(var ps in psBadEnding)
+        /*foreach(var ps in psBadEnding)
         {
             ps.gameObject.transform.parent = null;
             ps.Stop();
-        }
+        }*/
         var raic = peepForFailure.GetComponent<RunPersonInCircle>();
-        Destroy(raic);
+        //Destroy(raic);
+        raic.RemoveAllParticleEffects();
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;

@@ -20,9 +20,14 @@ public class RunPersonInCircle : MonoBehaviour
     void Start()
     {
         dist = (pointAround.position - transform.position).magnitude;
-        timeToStart = Time.time + 0.2f;
+        InitForRunning();
     }
 
+    public void InitForRunning()
+    {
+        timeToStart = Time.time + 0.2f;
+        SetupBumPosition();
+    }
     void SetupBumPosition()
     {
         if(bum != null)
@@ -57,8 +62,22 @@ public class RunPersonInCircle : MonoBehaviour
 
     internal void AttachParticlEffect(ParticleSystem ps)
     {
-        ps.gameObject.transform.parent = bum.transform;
-        ps.Play();
+        ParticleSystem newPs = Instantiate(ps, new Vector3(0, 0, 0), Quaternion.identity);
+        newPs.gameObject.transform.parent = bum.transform;
+        newPs.Play();
+    }
+
+    internal void RemoveAllParticleEffects()
+    {
+        var o = bum.gameObject.GetComponentsInChildren<ParticleSystem>();
+        foreach(var ps in o)
+        {
+            Destroy(ps);
+        }
+       /* for (int i= num - 1; i>-1; i--)
+        {
+            Destroy(bum.gameObject.GetChild(i));
+        }*/
     }
 
 

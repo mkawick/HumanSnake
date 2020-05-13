@@ -29,6 +29,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         else
         {
             isMouseHeld = false;
+            StopInPlace();
         }
     }
 
@@ -59,6 +60,13 @@ public class PlayerControllerWobbleMan : MonoBehaviour
             return originalClick;
         }
         return hit.point;
+    }
+
+    void StopInPlace()
+    {
+        var control = GetComponent<RigidBodyTest>();
+        if (control != null)
+            control.StopPlayer();
     }
 
 }

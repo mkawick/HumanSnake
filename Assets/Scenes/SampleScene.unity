@@ -13684,7 +13684,7 @@ PrefabInstance:
     - target: {fileID: 615867487030789394, guid: 56f0f87d31067354694334d57bbab90c,
         type: 3}
       propertyPath: wanderRange
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 615867487030789399, guid: 56f0f87d31067354694334d57bbab90c,
         type: 3}
@@ -13778,7 +13778,7 @@ PrefabInstance:
     - target: {fileID: 7274700646740784855, guid: 9c3a22f009d548e4c980c7841d25e32e,
         type: 3}
       propertyPath: wanderRange
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3a22f009d548e4c980c7841d25e32e, type: 3}
@@ -13862,7 +13862,7 @@ PrefabInstance:
     - target: {fileID: 7722621022002190695, guid: 673640e10f378f94aa44913f2e4f22f4,
         type: 3}
       propertyPath: wanderRange
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7722621022002190717, guid: 673640e10f378f94aa44913f2e4f22f4,
         type: 3}

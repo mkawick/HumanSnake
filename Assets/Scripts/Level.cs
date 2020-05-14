@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     void Start()
     {
         doors = GetComponentsInChildren<DoorScript>();
+        SetupTraps();
     }
 
     // Update is called once per frame
@@ -84,5 +85,23 @@ public class Level : MonoBehaviour
     internal void SetPeepManager(PeepManager mgr)
     {
         peepManager = mgr;
+    }
+
+    void SetupTraps()
+    {
+        var trapsNode = Utils.GetChildWithName(this.gameObject, "Traps");
+        if (trapsNode == null)
+            return;
+
+        var listOfTraps = trapsNode.GetComponentsInChildren<DeadlyTrap>();
+        foreach(var trap in listOfTraps)
+        {
+            trap.SetLevel(this);
+        }
+    }
+
+    internal void PersonDied(TrappedPerson2 person)
+    {
+        peepManager.PersonDied(person);
     }
 }

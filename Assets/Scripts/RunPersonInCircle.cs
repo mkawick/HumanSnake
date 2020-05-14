@@ -37,12 +37,12 @@ public class RunPersonInCircle : MonoBehaviour
         {
             return;
         }
-        if(GetChildWithName(transform.gameObject, "Bum") != null)
+        if(Utils.GetChildWithName(transform.gameObject, "Bum") != null)
         {
             return;
         }
-        root = GetChildWithName(transform.gameObject, "Root");
-        bum = GetChildWithName(root, "Bum");
+        root = Utils.GetChildWithName(transform.gameObject, "Root");
+        bum = Utils.GetChildWithName(root, "Bum");
         //bum = root;
         if (bum != null)
         {
@@ -53,20 +53,6 @@ public class RunPersonInCircle : MonoBehaviour
         bum.transform.parent = root.transform;
         bum.name = "Bum";
         bum.transform.position = new Vector3(0, 0.45f, -0.3f);
-    }
-
-    GameObject GetChildWithName(GameObject obj, string name)
-    {
-        Transform trans = obj.transform;
-        Transform childTrans = trans.Find(name);
-        if (childTrans != null)
-        {
-            return childTrans.gameObject;
-        }
-        else
-        {
-            return null;
-        }
     }
 
     internal void AttachParticleEffect(ParticleSystem ps)

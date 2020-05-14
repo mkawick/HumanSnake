@@ -67,7 +67,7 @@ public class PeepManager : MonoBehaviour
         }
     }
 
-    public void IDied(TrappedPerson2 person)
+    public void PersonDied(TrappedPerson2 person)
     {
         gameManager.PlayFail(person);
     }

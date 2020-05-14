@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 110987882}
   - component: {fileID: 110987881}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: SuccessFanfare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7125,8 +7125,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1276927562}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &717279532
 GameObject:
@@ -8824,7 +8824,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1107837590
 MonoBehaviour:
@@ -9275,8 +9275,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1703184637}
+  - {fileID: 705507995}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1276927563
 MonoBehaviour:
@@ -9290,16 +9291,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e432baf09a3c52143a059fceb4aa80d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 110987882}
   WellDone: {fileID: 1703184636}
-  psBadEnding:
-  - {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
-  - {fileID: 19800000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
   peepManager: {fileID: 1107837590}
+  levelManager: {fileID: 2082543149}
+  psFailEnding:
+  - {fileID: 19800000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
+  - {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
+  successFanfare: {fileID: 110987882}
+  cameraOffsetToPlayFail: {x: 0, y: -5.5, z: 5.5}
   runAroundPosition: {fileID: 1882574190}
   runAroundStartPosition: {fileID: 922364437}
-  levelManager: {fileID: 2082543149}
-  cameraOffsetToPlayFail: {x: 0, y: -5.5, z: 5.5}
 --- !u!1 &1280178795
 GameObject:
   m_ObjectHideFlags: 0
@@ -13534,7 +13535,7 @@ Transform:
   - {fileID: 229136559}
   - {fileID: 1525298509}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2082543149
 MonoBehaviour:

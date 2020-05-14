@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public ParticleSystem ps;
-    public GameObject WellDone;
-    public ParticleSystem[] psBadEnding;
     public PeepManager peepManager;
-    public Transform runAroundPosition, runAroundStartPosition;
-
     TrappedPerson2 peepForFailure;
     private Vector3 normalCameraPosition;
     public LevelManager levelManager;
     float isWaitingForSequenceGateTime;
 
+    [Header("End Game FX")]
+    public GameObject WellDone;
+    public ParticleSystem[] psFailEnding;
+    public ParticleSystem successFanfare;
     public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
+    public Transform runAroundPosition, runAroundStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -41,21 +41,21 @@ public class GameManager : MonoBehaviour
 
     public void PlayEnd()
     {
-        var main = ps.main;
+        var main = successFanfare.main;
         main.duration = 1.0f;
-        ps.enableEmission = true;
+        successFanfare.enableEmission = true;
         WellDone.gameObject.SetActive(true);
         //ps.MainModule.Duration = 2.0f;
-        ps.Play();
+        successFanfare.Play();
     }
 
     public void StartNewLevel()
     {
-        var main = ps.main;
-        ps.enableEmission = false;
+        var main = successFanfare.main;
+        successFanfare.enableEmission = false;
         main.playOnAwake = false;
         WellDone.gameObject.SetActive(false);
-        ps.Stop();
+        successFanfare.Stop();
     }
 
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         raic.InitForRunning();
 
         // AttachParticlEffect
-        foreach (var ps in psBadEnding)
+        foreach (var ps in psFailEnding)
         {
             raic.AttachParticlEffect(ps);
         } 
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     void EndOfPlayFail()
     {
-        /*foreach(var ps in psBadEnding)
+        /*foreach(var ps in psFailEnding)
         {
             ps.gameObject.transform.parent = null;
             ps.Stop();

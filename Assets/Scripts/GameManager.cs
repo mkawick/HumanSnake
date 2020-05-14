@@ -79,8 +79,15 @@ public class GameManager : MonoBehaviour
         {
             raic = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
         }
-        
-        raic.pointAround = runAroundPosition;
+        raic.enabled = true;
+        peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = false;
+       /* var trapped = peepForFailure.GetComponent<TrappedPerson2>();
+        if (raic == null)
+        {
+
+        }*/
+
+            raic.pointAround = runAroundPosition;
         raic.InitForRunning();
 
         // AttachParticlEffect
@@ -105,9 +112,11 @@ public class GameManager : MonoBehaviour
             ps.gameObject.transform.parent = null;
             ps.Stop();
         }*/
+        peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = true;
         var raic = peepForFailure.GetComponent<RunPersonInCircle>();
         //Destroy(raic);
         raic.RemoveAllParticleEffects();
+        raic.enabled = false;
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;

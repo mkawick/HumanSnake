@@ -17,10 +17,13 @@ public class RunPersonInCircle : MonoBehaviour
 
     GameObject root;
     GameObject bum;
+    List<ParticleSystem> particleList;
     void Start()
     {
         dist = (pointAround.position - transform.position).magnitude;
         InitForRunning();
+        particleList = new List<ParticleSystem>();
+
     }
 
     public void InitForRunning()
@@ -39,6 +42,12 @@ public class RunPersonInCircle : MonoBehaviour
             return;
         }
         root = GetChildWithName(transform.gameObject, "Root");
+        bum = GetChildWithName(root, "Bum");
+        bum = root;
+        if (bum != null)
+        {
+            return;
+        }
         Debug.Assert(root != null);
         bum = new GameObject();
         bum.transform.parent = root.transform;
@@ -65,6 +74,10 @@ public class RunPersonInCircle : MonoBehaviour
         ParticleSystem newPs = Instantiate(ps, new Vector3(0, 0, 0), Quaternion.identity);
         newPs.gameObject.transform.parent = bum.transform;
         newPs.Play();
+        if (particleList == null)
+            particleList = new List<ParticleSystem>();
+                
+        particleList.Add(newPs);
     }
 
     internal void RemoveAllParticleEffects()
@@ -72,8 +85,13 @@ public class RunPersonInCircle : MonoBehaviour
         var o = bum.gameObject.GetComponentsInChildren<ParticleSystem>();
         foreach(var ps in o)
         {
-            Destroy(ps);
+            Destroy(ps.gameObject);
         }
+        foreach(var p in particleList)
+        {
+            GameObject.Destroy(p.gameObject);
+        }
+        particleList.Clear();
        /* for (int i= num - 1; i>-1; i--)
         {
             Destroy(bum.gameObject.GetChild(i));

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private Vector3 normalCameraPosition;
     //public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
     public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
+    bool isRunningPeepAPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -80,9 +81,13 @@ public class GameManager : MonoBehaviour
     internal void PlayFail(RunPersonInCircle person)
     {
         peepForFailure = person;
+        isRunningPeepAPlayer = peepForFailure.GetComponent<RigidBodyTest>().isPlayer;
+        peepForFailure.GetComponent<RigidBodyTest>().isPlayer = false;
         peepForFailure.EnableControllerComponents(false);
+
         // move peep to location
         peepForFailure.transform.position = runAroundStartPosition.position;
+        peepForFailure.transform.rotation = runAroundStartPosition.rotation;
 
         // add component (remember to remove it)
 
@@ -106,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     void EndOfPlayFail()
     {
+        peepForFailure.GetComponent<RigidBodyTest>().isPlayer = isRunningPeepAPlayer;
         peepForFailure.EnableControllerComponents(true);
 
         peepForFailure.RemoveAllParticleEffects();

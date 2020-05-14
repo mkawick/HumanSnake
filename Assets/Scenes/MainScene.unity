@@ -6368,7 +6368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558710258}
   m_Layer: 0
-  m_Name: PointForFlamingPeepToRunAround
+  m_Name: FlamingSceneRunAroundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6382,10 +6382,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558710257}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.86, y: 0, z: 0}
+  m_LocalPosition: {x: -54, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1936463525}
+  - {fileID: 1914223246}
   m_Father: {fileID: 2082543148}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9420,9 +9421,9 @@ MonoBehaviour:
   - {fileID: 19800000, guid: 756d99540142b5e4a8d174e18a6310d9, type: 3}
   - {fileID: 19800000, guid: ab1112643ee572748b01dede71158272, type: 3}
   successFanfare: {fileID: 110987882}
-  cameraOffsetToPlayFail: {x: 0, y: -5.5, z: 5.5}
   runAroundPosition: {fileID: 558710258}
   runAroundStartPosition: {fileID: 1936463525}
+  cameraOffsetToPlayFail: {fileID: 1914223246}
 --- !u!1 &1280178795
 GameObject:
   m_ObjectHideFlags: 0
@@ -12819,6 +12820,36 @@ Transform:
   m_Father: {fileID: 229136559}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1914223245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1914223246}
+  m_Layer: 0
+  m_Name: FlamingSceneCameraSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1914223246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914223245}
+  m_LocalRotation: {x: 0.19051059, y: -0, z: -0, w: 0.98168516}
+  m_LocalPosition: {x: 0, y: 7.4, z: -10.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 558710258}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 21.965, y: 0, z: 0}
 --- !u!1001 &1922711865
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public ParticleSystem[] psFailEnding;
     public ParticleSystem successFanfare;
     private Vector3 normalCameraPosition;
-    public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
-    public Transform runAroundPosition, runAroundStartPosition;
+    //public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
+    public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         // slight delay
         // zoom camera
         normalCameraPosition = Camera.main.transform.position;
-        Camera.main.transform.position = person.pointAround.position - cameraOffsetToPlayFail;
+        Camera.main.transform.position = cameraOffsetToPlayFail.position;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + 8;
     }

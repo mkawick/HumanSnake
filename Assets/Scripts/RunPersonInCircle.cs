@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RigidBodyTest))]
 public class RunPersonInCircle : MonoBehaviour
 {
     [SerializeField]
@@ -20,18 +21,43 @@ public class RunPersonInCircle : MonoBehaviour
     List<ParticleSystem> particleList;
     bool wasWobblemanControllerEnabled = false;
     bool wasPlayerMouseControllerEnabled = false;
+    bool isRunningPeepAPlayer;
     void Start()
     {
         dist = (pointAround.position - transform.position).magnitude;
-        InitForRunning();
+        //SetupBumPosition();InitForRunning();
         particleList = new List<ParticleSystem>();
 
     }
 
-    public void InitForRunning()
+    public void InitForRunning(Transform pivot, Transform initialDirection, List<ParticleSystem>  psFailEnding)
     {
         timeToStart = Time.time + 0.2f;
+
+        this.transform.position = initialDirection.position;
+        this.transform.rotation = initialDirection.rotation;
+
+        this.EnableControllerComponents(false);
+        this.enabled = true;
+
+        this.pointAround = pivot;
+        isRunningPeepAPlayer = this.GetComponent<RigidBodyTest>().isPlayer;
+        this.GetComponent<RigidBodyTest>().isPlayer = false;
+
         SetupBumPosition();
+        foreach (var ps in psFailEnding)
+        {
+            this.AttachParticleEffect(ps);
+        }
+    }
+
+    public void RestoreAfterRunning()
+    {
+        this.GetComponent<RigidBodyTest>().isPlayer = isRunningPeepAPlayer;
+        this.EnableControllerComponents(true);
+
+        this.RemoveAllParticleEffects();
+        this.enabled = false;
     }
 
     internal void EnableControllerComponents(bool enable)

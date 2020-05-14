@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RunningInCirclesTester : MonoBehaviour
@@ -42,7 +43,7 @@ public class RunningInCirclesTester : MonoBehaviour
         peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = false;
 
         raic.pointAround = runAroundPosition;
-        raic.InitForRunning();
+        raic.InitForRunning(runAroundPosition, runAroundStartPosition, effectsToAttach.ToList());
 
         // AttachParticlEffect
         foreach (var ps in effectsToAttach)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,13 +13,13 @@ public class GameManager : MonoBehaviour
     float isWaitingForSequenceGateTime;
 
     [Header("End Game FX")]
+    public float playFailTime = 3.0f;
     public GameObject WellDone;
     public ParticleSystem[] psFailEnding;
     public ParticleSystem successFanfare;
     private Vector3 normalCameraPosition;
-    //public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
+
     public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
-    bool isRunningPeepAPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -81,41 +82,19 @@ public class GameManager : MonoBehaviour
     internal void PlayFail(RunPersonInCircle person)
     {
         peepForFailure = person;
-        isRunningPeepAPlayer = peepForFailure.GetComponent<RigidBodyTest>().isPlayer;
-        peepForFailure.GetComponent<RigidBodyTest>().isPlayer = false;
-        peepForFailure.EnableControllerComponents(false);
+        person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
 
-        // move peep to location
-        peepForFailure.transform.position = runAroundStartPosition.position;
-        peepForFailure.transform.rotation = runAroundStartPosition.rotation;
-
-        // add component (remember to remove it)
-
-        person.enabled = true;
-
-        person.pointAround = runAroundPosition;
-        person.InitForRunning();
-
-        // AttachParticlEffect
-        foreach (var ps in psFailEnding)
-        {
-            person.AttachParticleEffect(ps);
-        }
         // slight delay
         // zoom camera
         normalCameraPosition = Camera.main.transform.position;
         Camera.main.transform.position = cameraOffsetToPlayFail.position;
         // play for 8 seconds
-        isWaitingForSequenceGateTime = Time.time + 8;
+        isWaitingForSequenceGateTime = Time.time + playFailTime;
     }
 
     void EndOfPlayFail()
     {
-        peepForFailure.GetComponent<RigidBodyTest>().isPlayer = isRunningPeepAPlayer;
-        peepForFailure.EnableControllerComponents(true);
-
-        peepForFailure.RemoveAllParticleEffects();
-        peepForFailure.enabled = false;
+        peepForFailure.RestoreAfterRunning();
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;

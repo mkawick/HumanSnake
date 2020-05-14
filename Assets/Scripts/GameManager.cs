@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public PeepManager peepManager;
-    TrappedPerson2 peepForFailure;
+    RunPersonInCircle peepForFailure;
     
     public LevelManager levelManager;
     float isWaitingForSequenceGateTime;
@@ -59,59 +59,57 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void PlayFail(TrappedPerson2 peep)
+    internal void PlayFail(TrappedPerson2 peep)
     {
-        if (peep != null)
+        RunPersonInCircle person;
+        TrappedPerson2 temp = peep;//.GetComponent<TrappedPerson2>();
+        if (temp == null)
         {
-            peepForFailure = peep;
-        }
-        else
-        {
-            peepForFailure = peepManager.GetRandomPeep();
+            temp = peepManager.GetRandomPeep();
         }
 
+        person = temp.GetComponent<RunPersonInCircle>();
+        if (person == null)
+        {
+            person = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
+        }
+
+        PlayFail(person);
+    }
+
+    internal void PlayFail(RunPersonInCircle person)
+    {
+        peepForFailure = person;
+        peepForFailure.EnableControllerComponents(false);
         // move peep to location
         peepForFailure.transform.position = runAroundStartPosition.position;
 
         // add component (remember to remove it)
-        var raic = peepForFailure.GetComponent<RunPersonInCircle>();
-        if (raic == null)
-        {
-            raic = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
-        }
-        raic.enabled = true;
-        peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = false;
 
-        raic.pointAround = runAroundPosition;
-        raic.InitForRunning();
+        person.enabled = true;
+
+        person.pointAround = runAroundPosition;
+        person.InitForRunning();
 
         // AttachParticlEffect
         foreach (var ps in psFailEnding)
         {
-            raic.AttachParticleEffect(ps);
-        } 
+            person.AttachParticleEffect(ps);
+        }
         // slight delay
         // zoom camera
         normalCameraPosition = Camera.main.transform.position;
-        Camera.main.transform.position = raic.pointAround.position - cameraOffsetToPlayFail;
+        Camera.main.transform.position = person.pointAround.position - cameraOffsetToPlayFail;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + 8;
-
-        // reset level
     }
 
     void EndOfPlayFail()
     {
-        /*foreach(var ps in psFailEnding)
-        {
-            ps.gameObject.transform.parent = null;
-            ps.Stop();
-        }*/
-        peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = true;
-        var raic = peepForFailure.GetComponent<RunPersonInCircle>();
-        //Destroy(raic);
-        raic.RemoveAllParticleEffects();
-        raic.enabled = false;
+        peepForFailure.EnableControllerComponents(true);
+
+        peepForFailure.RemoveAllParticleEffects();
+        peepForFailure.enabled = false;
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;

@@ -104,4 +104,8 @@ public class Level : MonoBehaviour
     {
         peepManager.PersonDied(person);
     }
+    internal void PersonDied(RunPersonInCircle person)
+    {
+        peepManager.gameManager.PlayFail(person);
+    }
 }

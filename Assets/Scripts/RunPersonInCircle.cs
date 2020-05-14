@@ -18,6 +18,8 @@ public class RunPersonInCircle : MonoBehaviour
     GameObject root;
     GameObject bum;
     List<ParticleSystem> particleList;
+    bool wasWobblemanControllerEnabled = false;
+    bool wasPlayerMouseControllerEnabled = false;
     void Start()
     {
         dist = (pointAround.position - transform.position).magnitude;
@@ -30,6 +32,35 @@ public class RunPersonInCircle : MonoBehaviour
     {
         timeToStart = Time.time + 0.2f;
         SetupBumPosition();
+    }
+
+    internal void EnableControllerComponents(bool enable)
+    {
+        var tp = gameObject.GetComponent<TrappedPerson2>();
+        if (tp != null)
+            tp.enabled = enable;
+        var pcwm = gameObject.GetComponent<PlayerControllerWobbleMan>();
+        if (pcwm != null)
+        {
+            if(pcwm.enabled == true)
+                wasWobblemanControllerEnabled = true;
+
+            if (enable == true)
+                pcwm.enabled = wasWobblemanControllerEnabled;
+            else
+                pcwm.enabled = enable;
+        }
+        var pmhl = gameObject.GetComponent<PlayerMouseHoldLocomotion>();
+        if (pmhl != null)
+        {
+            if (pmhl.enabled == true)
+                wasPlayerMouseControllerEnabled = true;
+
+            if (enable == true)
+                pmhl.enabled = wasPlayerMouseControllerEnabled;
+            else
+                pmhl.enabled = enable;
+        }
     }
     void SetupBumPosition()
     {

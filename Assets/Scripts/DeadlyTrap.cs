@@ -13,8 +13,12 @@ public class DeadlyTrap : MonoBehaviour
         var person = hit.gameObject.GetComponent<TrappedPerson2>();
         if(levelThatOwnsMe != null && person != null)
         {
-            //gameManager.peepManager.IDied(person);
             levelThatOwnsMe.PersonDied(person);
+        }
+        var circlePerson = hit.gameObject.GetComponent<RunPersonInCircle>();
+        if (levelThatOwnsMe != null && circlePerson != null)
+        {
+            levelThatOwnsMe.PersonDied(circlePerson);
         }
     }
 

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public PeepManager peepManager;
     TrappedPerson2 peepForFailure;
-    private Vector3 normalCameraPosition;
+    
     public LevelManager levelManager;
     float isWaitingForSequenceGateTime;
 
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject WellDone;
     public ParticleSystem[] psFailEnding;
     public ParticleSystem successFanfare;
+    private Vector3 normalCameraPosition;
     public Vector3 cameraOffsetToPlayFail = new Vector3(0, 5.5f, 4.9f);
     public Transform runAroundPosition, runAroundStartPosition;
 
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
                 EndOfPlayFail();
                 return;
             }
-            //if
         }
     }
 
@@ -81,19 +81,14 @@ public class GameManager : MonoBehaviour
         }
         raic.enabled = true;
         peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = false;
-       /* var trapped = peepForFailure.GetComponent<TrappedPerson2>();
-        if (raic == null)
-        {
 
-        }*/
-
-            raic.pointAround = runAroundPosition;
+        raic.pointAround = runAroundPosition;
         raic.InitForRunning();
 
         // AttachParticlEffect
         foreach (var ps in psFailEnding)
         {
-            raic.AttachParticlEffect(ps);
+            raic.AttachParticleEffect(ps);
         } 
         // slight delay
         // zoom camera

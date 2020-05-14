@@ -43,7 +43,7 @@ public class RunPersonInCircle : MonoBehaviour
         }
         root = GetChildWithName(transform.gameObject, "Root");
         bum = GetChildWithName(root, "Bum");
-        bum = root;
+        //bum = root;
         if (bum != null)
         {
             return;
@@ -69,9 +69,9 @@ public class RunPersonInCircle : MonoBehaviour
         }
     }
 
-    internal void AttachParticlEffect(ParticleSystem ps)
+    internal void AttachParticleEffect(ParticleSystem ps)
     {
-        ParticleSystem newPs = Instantiate(ps, new Vector3(0, 0, 0), Quaternion.identity);
+        ParticleSystem newPs = Instantiate(ps, bum.transform.position, bum.transform.rotation);
         newPs.gameObject.transform.parent = bum.transform;
         newPs.Play();
         if (particleList == null)

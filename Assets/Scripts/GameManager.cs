@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
 
+    public GameObject failureText, successText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         WellDone.gameObject.SetActive(true);
         //ps.MainModule.Duration = 2.0f;
         successFanfare.Play();
+        successText.gameObject.SetActive(true);
     }
 
     public void StartNewLevel()
@@ -58,6 +61,9 @@ public class GameManager : MonoBehaviour
         main.playOnAwake = false;
         WellDone.gameObject.SetActive(false);
         successFanfare.Stop();
+
+        failureText.gameObject.SetActive(false);
+        successText.gameObject.SetActive(false);
     }
 
 
@@ -81,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     internal void PlayFail(RunPersonInCircle person)
     {
+        failureText.gameObject.SetActive(true);
         peepForFailure = person;
         person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
 

@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class BasicPeepAnimController : MonoBehaviour
 {
-    Rigidbody rb;
     Animator animator;
     //bool running = false;
     public float runSpeed = 1;
@@ -46,7 +45,6 @@ public class BasicPeepAnimController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         animator.SetTrigger("Idle");
     }

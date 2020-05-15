@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7005435339379793219}
   m_Layer: 0
   m_Name: RiotCop
-  m_TagString: Untagged
+  m_TagString: Peep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

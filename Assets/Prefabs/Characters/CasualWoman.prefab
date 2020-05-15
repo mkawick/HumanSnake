@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 428089442502373415}
   m_Layer: 8
   m_Name: CasualWoman
-  m_TagString: Untagged
+  m_TagString: Peep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

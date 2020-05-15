@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 1421179640191259468}
   m_Layer: 0
   m_Name: OldWoman
-  m_TagString: Untagged
+  m_TagString: Peep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,3 +575,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b89f70f58970d4c82990f136b15b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeMinInState: 0.25
+  timeMaxInState: 0.75

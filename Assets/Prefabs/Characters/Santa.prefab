@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 8653414020700365819}
   m_Layer: 0
   m_Name: Santa
-  m_TagString: Untagged
+  m_TagString: Peep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

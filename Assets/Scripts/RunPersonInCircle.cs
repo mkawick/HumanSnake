@@ -8,6 +8,9 @@ public class RunPersonInCircle : MonoBehaviour
 {
     [SerializeField]
     public Transform pointAround;
+    //private Quaternion originalRotation;
+    //private Vector3 originalForward;
+    private Vector3 curl;
 
     int  shouldSetTarget = 1000;
     //ParticleEffect;
@@ -36,6 +39,9 @@ public class RunPersonInCircle : MonoBehaviour
 
         this.transform.position = initialDirection.position;
         this.transform.rotation = initialDirection.rotation;
+        //originalRotation = initialDirection.rotation;
+        //originalForward = initialDirection.forward;
+        curl = Vector3.Cross(this.transform.position-pivot.position, initialDirection.forward);
 
         this.EnableControllerComponents(false);
         this.enabled = true;
@@ -157,13 +163,16 @@ public class RunPersonInCircle : MonoBehaviour
             return;
 
         Vector3 centerPoint = pointAround.position;
-        centerPoint.y = transform.position.y;
+        centerPoint.y = transform.position.y;// ignoring up/down
 
-        Vector3 vectToCenter = (centerPoint - transform.position);
+        Vector3 vectToCenter = (transform.position - centerPoint);
+        vectToCenter.Normalize();
         Vector3 perpVector = new Vector3(-vectToCenter.z, 0, vectToCenter.x);// swap x/z
-        perpVector.Normalize();
+        //perpVector.Normalize();
 
-        if (Vector3.Dot(perpVector, transform.forward) < 0)// we would run in the opposite direction from facing
+        Vector3 tempCurl = Vector3.Cross(vectToCenter, perpVector);
+        // we would run in the opposite direction from facing
+        if (Vector3.Dot(curl, tempCurl) < 0)
         {
             perpVector = -perpVector;
         }
@@ -177,13 +186,10 @@ public class RunPersonInCircle : MonoBehaviour
         rangedVector.y = transform.position.y;
         Vector3 actualRangedPosition = (rangedVector).normalized * dist + centerPoint;
 
-        //float len = rangedVector.magnitude;
-        //float len2 = actualRangedPosition.magnitude;
-        //sif (shouldSetTarget)
-        {
-            var rbt = GetComponent<RigidBodyTest>();
-            rbt.SetTarget(actualRangedPosition);
-        }
+
+        var rbt = GetComponent<RigidBodyTest>();
+        rbt.SetTarget(actualRangedPosition);
+
 
         if (showDebugLines)
         {

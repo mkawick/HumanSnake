@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RunningInCirclesTester : MonoBehaviour
 {
-    public TrappedPerson2 peepForFailure;
+    public RigidBodyTest peepForFailure;
 
     public ParticleSystem[] effectsToAttach;
     private Vector3 normalCameraPosition;
@@ -40,7 +40,9 @@ public class RunningInCirclesTester : MonoBehaviour
             raic = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
         }
         raic.enabled = true;
-        peepForFailure.gameObject.GetComponent<TrappedPerson2>().enabled = false;
+        var tp = peepForFailure.GetComponent<TrappedPerson2>();
+        if(tp != null)
+            tp.enabled = false;
 
         raic.pointAround = runAroundPosition;
         raic.InitForRunning(runAroundPosition, runAroundStartPosition, effectsToAttach.ToList());

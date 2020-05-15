@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 6147311811112112593}
   - component: {fileID: 6147311811112112592}
   - component: {fileID: 1069110260}
+  - component: {fileID: 8478189551898055330}
   m_Layer: 8
   m_Name: OldMan
   m_TagString: Peep
@@ -593,3 +594,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointAround: {fileID: 0}
+--- !u!114 &8478189551898055330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147311810219465820}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b89f70f58970d4c82990f136b15b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeMinInState: 0.25
+  timeMaxInState: 0.75

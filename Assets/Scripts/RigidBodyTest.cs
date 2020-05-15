@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BoxCollider))]
 public class RigidBodyTest : MonoBehaviour
 {
     Rigidbody rb;
@@ -10,7 +12,7 @@ public class RigidBodyTest : MonoBehaviour
     public float runSpeed = 1;
     public bool isPlayer = false;
     public bool isLoggingEnabled = false;
-    
+
     //bool pendingAnimationStateChange = false;
     Vector3 target;
 
@@ -20,6 +22,19 @@ public class RigidBodyTest : MonoBehaviour
         Idle,
         None
     }
+    public enum AnimationPlay
+    {
+        Walk, 
+        Hit, 
+        Attack, 
+        Jump,
+        Falling,
+        RunJumpL,
+        RunJumpR,
+        Wave,
+        Run
+    }
+
     AnimStateChange currentState = AnimStateChange.Idle, pendingStateChange = AnimStateChange.None;
     float animationTimeGate;
     public float animChangeLagTime = 0.25f;
@@ -79,6 +94,40 @@ public class RigidBodyTest : MonoBehaviour
         }
     }
 
+    internal void PlayAnim(AnimationPlay clip)
+    {
+        switch(clip)
+        {
+            case AnimationPlay.Walk:
+                animator.SetTrigger("Walk");
+                break;
+            case AnimationPlay.Hit:
+                animator.SetTrigger("Hit");
+                break;
+            case AnimationPlay.Attack:
+                animator.SetTrigger("Attack");
+                break;
+            case AnimationPlay.Jump:
+                animator.SetTrigger("Jump");
+                break;
+            case AnimationPlay.Falling:
+                animator.SetTrigger("Falling");
+                break;
+            case AnimationPlay.RunJumpL:
+                animator.SetTrigger("RunJumpL");
+                break;
+            case AnimationPlay.RunJumpR:
+                animator.SetTrigger("RunJumpR");
+                break;
+            case AnimationPlay.Wave:
+                animator.SetTrigger("Wave");
+                break;
+            case AnimationPlay.Run:
+                animator.SetTrigger("Run");
+                break;
+                break;
+        }
+    }
     void FacePosition(Vector3 placeToLook)
     {
         Vector3 dist = placeToLook - transform.position;// do not turn for too close

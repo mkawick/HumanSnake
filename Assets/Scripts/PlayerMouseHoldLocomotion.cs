@@ -11,7 +11,7 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            var control = GetComponent<RigidBodyTest>();
+            var control = GetComponent<BasicPeepAnimController>();
             if (!Physics.Raycast(ray, out hit))
             {
                 if (control != null) 

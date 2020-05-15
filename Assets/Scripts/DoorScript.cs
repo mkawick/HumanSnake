@@ -59,7 +59,7 @@ public class DoorScript : MonoBehaviour
         if (isTriggerEnabled == false && blocksLevelEnd == true)
             return;
 
-        var player = other.GetComponent<RigidBodyTest>();
+        var player = other.GetComponent<BasicPeepAnimController>();
         if(player != null)
         {
             OpenDoor("OpenTrigger");

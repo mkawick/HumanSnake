@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
-public class RigidBodyTest : MonoBehaviour
+public class BasicPeepAnimController : MonoBehaviour
 {
     Rigidbody rb;
     Animator animator;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RigidBodyTest))]
+[RequireComponent(typeof(BasicPeepAnimController))]
 public class DancingController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,18 +22,18 @@ public class DancingController : MonoBehaviour
     }
     public void StopDancing()
     {
-        GetComponent<RigidBodyTest>().PlayAnim(RigidBodyTest.AnimationPlay.Idle);
+        GetComponent<BasicPeepAnimController>().PlayAnim(BasicPeepAnimController.AnimationPlay.Idle);
     }
     // Update is called once per frame
     void Update()
     {
         if(timeUntilStateChange < Time.time)
         {
-            Array values = Enum.GetValues(typeof(RigidBodyTest.AnimationPlay));
+            Array values = Enum.GetValues(typeof(BasicPeepAnimController.AnimationPlay));
             int choice = (int)(UnityEngine.Random.value * (float)values.Length);
-            RigidBodyTest.AnimationPlay randomBar = (RigidBodyTest.AnimationPlay)values.GetValue(choice);
+            BasicPeepAnimController.AnimationPlay randomBar = (BasicPeepAnimController.AnimationPlay)values.GetValue(choice);
 
-            GetComponent<RigidBodyTest>().PlayAnim(randomBar);
+            GetComponent<BasicPeepAnimController>().PlayAnim(randomBar);
 
             float range = timeMaxInState - timeMinInState;
             timeUntilStateChange = Time.time + UnityEngine.Random.value * range + timeMinInState;

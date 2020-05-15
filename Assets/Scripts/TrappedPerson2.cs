@@ -10,7 +10,7 @@ public class TrappedPerson2 : MonoBehaviour
     internal Transform player;
     internal Vector3 originalPos;
 
-    internal RigidBodyTest control;
+    internal BasicPeepAnimController control;
     public PeepManager peepManager;
 
     //public Renderer mesh;
@@ -78,7 +78,7 @@ public class TrappedPerson2 : MonoBehaviour
 
     void GrabAnimConroller()
     {
-        control = GetComponent<RigidBodyTest>();
+        control = GetComponent<BasicPeepAnimController>();
     }
 
     // Update is called once per frame
@@ -137,7 +137,7 @@ public class TrappedPerson2 : MonoBehaviour
     public void SetupInitialState(Transform _player)
     {
         SetupStateTree();
-        control = GetComponent<RigidBodyTest>();
+        control = GetComponent<BasicPeepAnimController>();
         if (originalPos == Vector3.zero)// init
             originalPos = transform.position;
         control.SetTarget(originalPos);

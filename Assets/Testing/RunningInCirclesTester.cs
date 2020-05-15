@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RunningInCirclesTester : MonoBehaviour
 {
-    public RigidBodyTest peepForFailure;
+    public BasicPeepAnimController peepForFailure;
 
     public ParticleSystem[] effectsToAttach;
     private Vector3 normalCameraPosition;

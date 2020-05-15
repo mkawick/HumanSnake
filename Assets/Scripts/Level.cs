@@ -55,10 +55,10 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void SetupPlayerStart(RigidBodyTest go)
+    public void SetupPlayerStart(BasicPeepAnimController go)
     {
         Vector3 pos =( playerStartPosition.position);
-        RigidBodyTest nma = go.GetComponent<RigidBodyTest>();
+        BasicPeepAnimController nma = go.GetComponent<BasicPeepAnimController>();
         nma.transform.position = pos;
     }
 

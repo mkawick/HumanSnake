@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         {
             temp = peepManager.GetRandomPeep();
         }
-        temp.GetComponent<RigidBodyTest>().EnableControllerComponents(false);
+        temp.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
 
         person = temp.GetComponent<RunPersonInCircle>();
 

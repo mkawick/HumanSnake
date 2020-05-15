@@ -36,7 +36,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
     void MoveInDirection()
     {
         Vector3 vect = GetClickPosition();
-        var control = GetComponent<RigidBodyTest>();
+        var control = GetComponent<BasicPeepAnimController>();
         if (vect == originalClick)
         {
             if (control != null)
@@ -64,7 +64,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
 
     void StopInPlace()
     {
-        var control = GetComponent<RigidBodyTest>();
+        var control = GetComponent<BasicPeepAnimController>();
         if (control != null)
             control.StopPlayer();
     }

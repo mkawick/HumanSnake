@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RigidBodyTest))]
+[RequireComponent(typeof(BasicPeepAnimController))]
 public class RunPersonInCircle : MonoBehaviour
 {
     [SerializeField]
@@ -45,8 +45,8 @@ public class RunPersonInCircle : MonoBehaviour
         this.enabled = true;
 
         this.pointAround = pivot;
-        isRunningPeepAPlayer = this.GetComponent<RigidBodyTest>().isPlayer;
-        this.GetComponent<RigidBodyTest>().isPlayer = false;
+        isRunningPeepAPlayer = this.GetComponent<BasicPeepAnimController>().isPlayer;
+        this.GetComponent<BasicPeepAnimController>().isPlayer = false;
 
         SetupBumPosition();
         foreach (var ps in psFailEnding)
@@ -57,8 +57,8 @@ public class RunPersonInCircle : MonoBehaviour
 
     public void RestoreAfterRunning()
     {
-        this.GetComponent<RigidBodyTest>().isPlayer = isRunningPeepAPlayer;
-        this.GetComponent<RigidBodyTest>().EnableControllerComponents(true);
+        this.GetComponent<BasicPeepAnimController>().isPlayer = isRunningPeepAPlayer;
+        this.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
 
         this.RemoveAllParticleEffects();
         this.enabled = false;
@@ -196,7 +196,7 @@ public class RunPersonInCircle : MonoBehaviour
         Vector3 actualRangedPosition = (rangedVector).normalized * dist + centerPoint;
 
 
-        var rbt = GetComponent<RigidBodyTest>();
+        var rbt = GetComponent<BasicPeepAnimController>();
         rbt.SetTarget(actualRangedPosition);
 
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RigidBodyTest))]
+[RequireComponent(typeof(BasicPeepAnimController))]
 public class DancingManagerTest : MonoBehaviour
 {
-    public RigidBodyTest[] dancers;
+    public BasicPeepAnimController[] dancers;
     public Transform centerPoint;
 
     void Start()

@@ -14968,6 +14968,11 @@ PrefabInstance:
       propertyPath: peepManager
       value: 
       objectReference: {fileID: 1107837590}
+    - target: {fileID: 615867487030789394, guid: 56f0f87d31067354694334d57bbab90c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f0f87d31067354694334d57bbab90c, type: 3}
 --- !u!1001 &6147311811954507687
@@ -15116,5 +15121,10 @@ PrefabInstance:
       propertyPath: peepManager
       value: 
       objectReference: {fileID: 1107837590}
+    - target: {fileID: 7722621022002190695, guid: 673640e10f378f94aa44913f2e4f22f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673640e10f378f94aa44913f2e4f22f4, type: 3}

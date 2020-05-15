@@ -45,13 +45,15 @@ public class GameManager : MonoBehaviour
 
     public void PlayEnd()
     {
+        /*
         var main = successFanfare.main;
         main.duration = 1.0f;
         successFanfare.enableEmission = true;
-        WellDone.gameObject.SetActive(true);
+        //WellDone.gameObject.SetActive(true);
         //ps.MainModule.Duration = 2.0f;
-        successFanfare.Play();
+        //successFanfare.Play();
         successText.gameObject.SetActive(true);
+        */
     }
 
     public void StartNewLevel()

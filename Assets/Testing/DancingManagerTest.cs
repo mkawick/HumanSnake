@@ -26,6 +26,7 @@ public class DancingManagerTest : MonoBehaviour
 
             dancer.GetComponent<DancingController>().StartDancing();
 
+            /*
             dancer.transform.forward = centerPoint.forward;
             float range = 15;
             dancer.transform.Rotate(Vector3.up, Random.Range(-range, range));
@@ -33,6 +34,7 @@ public class DancingManagerTest : MonoBehaviour
             Vector3 randomOffset = Random.onUnitSphere; randomOffset.y = 0;
 
             dancer.transform.position = centerPoint.position + randomOffset*Random.Range(1, 9);
+            */
         }
     }
     void EndDancing()

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartNewLevel();
+        normalCameraPosition = Camera.main.transform.position;
     }
 
     // Update is called once per frame
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
 
         // slight delay
         // zoom camera
-        normalCameraPosition = Camera.main.transform.position;
+        
         Camera.main.transform.position = cameraOffsetToPlayFail.position;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + playFailTime;

@@ -29,7 +29,6 @@ public class RunningInCirclesTester : MonoBehaviour
 
     public void PlayFail()
     {
-
         // move peep to location
         peepForFailure.transform.position = runAroundStartPosition.position;
 
@@ -40,7 +39,7 @@ public class RunningInCirclesTester : MonoBehaviour
             raic = peepForFailure.gameObject.AddComponent<RunPersonInCircle>();
         }
         raic.enabled = true;
-        var tp = peepForFailure.GetComponent<TrappedPerson2>();
+        var tp = peepForFailure.GetComponent<TrappedPerson2>();// todo, disable lots of components
         if(tp != null)
             tp.enabled = false;
 

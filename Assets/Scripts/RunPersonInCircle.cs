@@ -24,6 +24,7 @@ public class RunPersonInCircle : MonoBehaviour
     List<ParticleSystem> particleList;
     bool wasWobblemanControllerEnabled = false;
     bool wasPlayerMouseControllerEnabled = false;
+    bool wasDancerEnabled = false;
     bool isRunningPeepAPlayer;
     void Start()
     {
@@ -92,6 +93,17 @@ public class RunPersonInCircle : MonoBehaviour
                 pmhl.enabled = wasPlayerMouseControllerEnabled;
             else
                 pmhl.enabled = enable;
+        }
+        var dancer = gameObject.GetComponent<DancingController>();
+        if (dancer != null)
+        {
+            if (dancer.enabled == true)
+                wasDancerEnabled = true;
+
+            if (enable == true)
+                dancer.enabled = wasDancerEnabled;
+            else
+                dancer.enabled = enable;
         }
     }
     void SetupBumPosition()

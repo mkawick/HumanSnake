@@ -15,21 +15,28 @@ public class DancingController : MonoBehaviour
         
     }
 
+    public void StartDancing()
+    {
+        float range = timeMaxInState - timeMinInState;
+        timeUntilStateChange = Time.time + UnityEngine.Random.value * range + timeMinInState;
+    }
+    public void StopDancing()
+    {
+        GetComponent<RigidBodyTest>().PlayAnim(RigidBodyTest.AnimationPlay.Idle);
+    }
     // Update is called once per frame
     void Update()
     {
         if(timeUntilStateChange < Time.time)
         {
             Array values = Enum.GetValues(typeof(RigidBodyTest.AnimationPlay));
-            System.Random random = new System.Random();
-            int choice = random.Next(values.Length);
+            int choice = (int)(UnityEngine.Random.value * (float)values.Length);
             RigidBodyTest.AnimationPlay randomBar = (RigidBodyTest.AnimationPlay)values.GetValue(choice);
 
             GetComponent<RigidBodyTest>().PlayAnim(randomBar);
 
             float range = timeMaxInState - timeMinInState;
-            timeUntilStateChange = Time.time;
-            timeUntilStateChange += ((float)random.NextDouble()) * range + timeMinInState;
+            timeUntilStateChange = Time.time + UnityEngine.Random.value * range + timeMinInState;
         }
     }
 }

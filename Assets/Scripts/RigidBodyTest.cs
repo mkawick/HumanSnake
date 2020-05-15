@@ -32,7 +32,8 @@ public class RigidBodyTest : MonoBehaviour
         RunJumpL,
         RunJumpR,
         Wave,
-        Run
+        Run,
+        Idle
     }
 
     AnimStateChange currentState = AnimStateChange.Idle, pendingStateChange = AnimStateChange.None;
@@ -125,6 +126,8 @@ public class RigidBodyTest : MonoBehaviour
             case AnimationPlay.Run:
                 animator.SetTrigger("Run");
                 break;
+            case AnimationPlay.Idle:
+                animator.SetTrigger("Idle");
                 break;
         }
     }

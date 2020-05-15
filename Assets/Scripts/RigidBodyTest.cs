@@ -12,6 +12,10 @@ public class RigidBodyTest : MonoBehaviour
     public float runSpeed = 1;
     public bool isPlayer = false;
     public bool isLoggingEnabled = false;
+    bool wasWobblemanControllerEnabled = false;
+    bool wasPlayerMouseControllerEnabled = false;
+    bool wasDancerEnabled = false;
+    bool wasTrappedPersonEnabled = false;
 
     //bool pendingAnimationStateChange = false;
     Vector3 target;
@@ -59,6 +63,53 @@ public class RigidBodyTest : MonoBehaviour
     internal void StopPlayer()
     {
         GoToIdle();
+    }
+    internal void EnableControllerComponents(bool enable)
+    {
+        var tp = gameObject.GetComponent<TrappedPerson2>();
+        if (tp != null)
+        {
+            if (tp.enabled == true)
+                wasTrappedPersonEnabled = true;
+
+            if (enable == true)
+                tp.enabled = wasTrappedPersonEnabled;
+            else
+                tp.enabled = enable;
+        }
+        var pcwm = gameObject.GetComponent<PlayerControllerWobbleMan>();
+        if (pcwm != null)
+        {
+            if (pcwm.enabled == true)
+                wasWobblemanControllerEnabled = true;
+
+            if (enable == true)
+                pcwm.enabled = wasWobblemanControllerEnabled;
+            else
+                pcwm.enabled = enable;
+        }
+        var pmhl = gameObject.GetComponent<PlayerMouseHoldLocomotion>();
+        if (pmhl != null)
+        {
+            if (pmhl.enabled == true)
+                wasPlayerMouseControllerEnabled = true;
+
+            if (enable == true)
+                pmhl.enabled = wasPlayerMouseControllerEnabled;
+            else
+                pmhl.enabled = enable;
+        }
+        var dancer = gameObject.GetComponent<DancingController>();
+        if (dancer != null)
+        {
+            if (dancer.enabled == true)
+                wasDancerEnabled = true;
+
+            if (enable == true)
+                dancer.enabled = wasDancerEnabled;
+            else
+                dancer.enabled = enable;
+        }
     }
     void Update()
     {

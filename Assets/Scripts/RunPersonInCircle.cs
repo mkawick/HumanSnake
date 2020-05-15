@@ -22,9 +22,7 @@ public class RunPersonInCircle : MonoBehaviour
     GameObject root;
     GameObject bum;
     List<ParticleSystem> particleList;
-    bool wasWobblemanControllerEnabled = false;
-    bool wasPlayerMouseControllerEnabled = false;
-    bool wasDancerEnabled = false;
+    
     bool isRunningPeepAPlayer;
     void Start()
     {
@@ -44,7 +42,6 @@ public class RunPersonInCircle : MonoBehaviour
         //originalForward = initialDirection.forward;
         curl = Vector3.Cross(this.transform.position-pivot.position, initialDirection.forward);
 
-        this.EnableControllerComponents(false);
         this.enabled = true;
 
         this.pointAround = pivot;
@@ -61,13 +58,13 @@ public class RunPersonInCircle : MonoBehaviour
     public void RestoreAfterRunning()
     {
         this.GetComponent<RigidBodyTest>().isPlayer = isRunningPeepAPlayer;
-        this.EnableControllerComponents(true);
+        this.GetComponent<RigidBodyTest>().EnableControllerComponents(true);
 
         this.RemoveAllParticleEffects();
         this.enabled = false;
     }
 
-    internal void EnableControllerComponents(bool enable)
+   /* internal void EnableControllerComponents(bool enable)
     {
         var tp = gameObject.GetComponent<TrappedPerson2>();
         if (tp != null)
@@ -105,7 +102,7 @@ public class RunPersonInCircle : MonoBehaviour
             else
                 dancer.enabled = enable;
         }
-    }
+    }*/
     void SetupBumPosition()
     {
         if(bum != null)

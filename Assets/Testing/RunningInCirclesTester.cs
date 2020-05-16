@@ -53,8 +53,8 @@ public class RunningInCirclesTester : MonoBehaviour
         }
         // slight delay
         // zoom camera
-        normalCameraPosition = Camera.main.transform.position;
-        Camera.main.transform.position = runAroundPosition.position + cameraOffsetToPlayFail;
+        //normalCameraPosition = Camera.main.transform.position;
+        //Camera.main.transform.position = runAroundPosition.position + cameraOffsetToPlayFail;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + 8;
 

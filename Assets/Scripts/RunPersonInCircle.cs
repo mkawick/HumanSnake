@@ -181,7 +181,7 @@ public class RunPersonInCircle : MonoBehaviour
 
         Vector3 tempCurl = Vector3.Cross(vectToCenter, perpVector);
         // we would run in the opposite direction from facing
-        if (Vector3.Dot(curl, tempCurl) < 0)
+        if (Vector3.Dot(curl, tempCurl) <= 0)
         {
             perpVector = -perpVector;
         }

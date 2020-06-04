@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerMouseHoldLocomotion : MonoBehaviour
+public class PlayerControllerChangeRootPerFrame : MonoBehaviour
 {
     BasicPeepAnimController control;
     private void Start()
@@ -27,7 +27,6 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
             control.StopPlayer();
         }
     }
-
     Vector3 GetFingerPosition(Vector3 currentPosition)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -39,3 +38,4 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
         return hit.point;
     }
 }
+

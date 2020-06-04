@@ -22,7 +22,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
             }
             else
             {
-                originalClick = GetClickPosition();
+                originalClick = GetFingerPosition();
                 isMouseHeld = true;
             }
         }
@@ -35,7 +35,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
 
     void MoveInDirection()
     {
-        Vector3 vect = GetClickPosition();
+        Vector3 vect = GetFingerPosition();
         var control = GetComponent<BasicPeepAnimController>();
         if (vect == originalClick)
         {
@@ -51,7 +51,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         }
     }
 
-    Vector3 GetClickPosition()
+    Vector3 GetFingerPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

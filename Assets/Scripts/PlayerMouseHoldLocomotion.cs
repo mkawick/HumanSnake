@@ -9,10 +9,10 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
 
         if (isButtonHeld)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
             var control = GetComponent<BasicPeepAnimController>();
-            if (!Physics.Raycast(ray, out hit))
+            Vector3 currentPosition = this.transform.position;
+            Vector3 newPosition = GetClickPosition(currentPosition);
+            if (currentPosition == newPosition)
             {
                 if (control != null) 
                     control.StopPlayer();
@@ -20,7 +20,17 @@ public class PlayerMouseHoldLocomotion : MonoBehaviour
                 return;
             }
             if(control != null)
-                control.MovePlayer(hit.point);
+                control.MovePlayer(newPosition);
         }
+    }
+    Vector3 GetClickPosition(Vector3 currentPosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (!Physics.Raycast(ray, out hit))
+        {
+            return currentPosition;
+        }
+        return hit.point;
     }
 }

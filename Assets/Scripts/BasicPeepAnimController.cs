@@ -10,6 +10,7 @@ public class BasicPeepAnimController : MonoBehaviour
     //bool running = false;
     public float runSpeed = 1;
     public float minimumMoveRange = 0.1f;
+    public float maximumRotationPerFrame = 0.01f;
     public bool isPlayer = false;
     public bool isLoggingEnabled = false;
     bool wasWobblemanControllerEnabled = false;
@@ -196,13 +197,17 @@ public class BasicPeepAnimController : MonoBehaviour
     }
     void FacePosition(Vector3 placeToLook)
     {
+        Quaternion lookOnLook =
+                Quaternion.LookRotation(placeToLook - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * maximumRotationPerFrame);
+        /*
         Vector3 dist = placeToLook - transform.position;// do not turn for too close
         dist.y = 0;
         if (dist.magnitude > 0.8)
         {
             placeToLook.y = transform.position.y;
             transform.LookAt(placeToLook);
-        }
+        }*/
     }
 
     void StartRunning()

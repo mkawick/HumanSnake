@@ -5332,11 +5332,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127301011}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6848409460956574396c11a7f1ecd3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimalRangeCheckToMove: 0.06
 --- !u!114 &127301016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5344,7 +5345,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127301011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fda30133583854a4dbe0dfc4d68df5d4, type: 3}
   m_Name: 
@@ -5368,6 +5369,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1241091726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &127301022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127301011}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ab9f5cf9689c34c82126531b1eab06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136206428
 GameObject:
   m_ObjectHideFlags: 0
@@ -11054,6 +11067,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
+      propertyPath: runSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
+      propertyPath: animChangeLagTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
       propertyPath: m_LocalPosition.x

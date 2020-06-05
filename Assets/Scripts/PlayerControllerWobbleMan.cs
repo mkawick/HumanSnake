@@ -26,7 +26,6 @@ public class PlayerControllerWobbleMan : MonoBehaviour
             {
                 Vector3 vect = GetFingerPosition();
                 MoveInDirection(vect);
-                lastFingerPosition = vect;
             }
             else
             {
@@ -45,16 +44,13 @@ public class PlayerControllerWobbleMan : MonoBehaviour
     {
         if ((vect - lastFingerPosition).magnitude < minimalRangeCheckToMove) // todo, turn into a range check... slow moving or small movements should be ignored
         {
-            if (control != null)
-                control.StopPlayer();
+            StopInPlace();
 
             return;
         }
-        if (control != null)
-        {
-            Vector3 dir = (vect - lastFingerPosition).normalized;
-            control.MovePlayer(transform.position + dir*2);
-        }
+        Vector3 dir = (vect - lastFingerPosition).normalized;
+        control.MovePlayer(transform.position + dir*2);
+        lastFingerPosition = vect;
     }
 
     Vector3 GetFingerPosition()
@@ -70,9 +66,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
 
     void StopInPlace()
     {
-        var control = GetComponent<BasicPeepAnimController>();
-        if (control != null)
-            control.StopPlayer();
+        control.StopPlayer();
     }
 
 }

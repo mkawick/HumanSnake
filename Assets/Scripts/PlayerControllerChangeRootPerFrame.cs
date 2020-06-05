@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerControllerChangeRootPerFrame : MonoBehaviour
 {
+    Vector3 originalClick;
+    bool isMouseHeld = false;
     BasicPeepAnimController control;
+
     private void Start()
     {
         control = GetComponent<BasicPeepAnimController>();
@@ -12,30 +15,59 @@ public class PlayerControllerChangeRootPerFrame : MonoBehaviour
     {
         bool isButtonHeld = Input.GetMouseButton(0);
 
-        if (control != null)
+        if (isButtonHeld == true)
         {
-            if (isButtonHeld)
+            if (isMouseHeld == true)
             {
-                Vector3 currentPosition = this.transform.position;
-                Vector3 newPosition = GetFingerPosition(currentPosition);
-                if (currentPosition != newPosition)
-                {
-                    control.MovePlayer(newPosition);
-                    return;
-                }
+                MoveInDirection();
             }
-            control.StopPlayer();
+            else
+            {
+                originalClick = GetFingerPosition();
+                isMouseHeld = true;
+            }
+        }
+        else
+        {
+            isMouseHeld = false;
+            StopInPlace();
         }
     }
-    Vector3 GetFingerPosition(Vector3 currentPosition)
+
+    void MoveInDirection()
+    {
+        Vector3 vect = GetFingerPosition();
+        
+        if (vect == originalClick)
+        {
+            if (control != null)
+                control.StopPlayer();
+
+            return;
+        }
+        if (control != null)
+        {
+            Vector3 dir = (vect - originalClick).normalized;
+            control.MovePlayer(transform.position + dir * 2);
+        }
+    }
+
+    Vector3 GetFingerPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (!Physics.Raycast(ray, out hit))
         {
-            return currentPosition;
+            return originalClick;
         }
         return hit.point;
+    }
+
+    void StopInPlace()
+    {
+        var control = GetComponent<BasicPeepAnimController>();
+        if (control != null)
+            control.StopPlayer();
     }
 }
 

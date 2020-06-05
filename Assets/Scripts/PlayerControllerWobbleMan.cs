@@ -8,21 +8,29 @@ using UnityEngine;
 
 public class PlayerControllerWobbleMan : MonoBehaviour
 {
-    Vector3 originalClick;
+    Vector3 lastFingerPosition;
     bool isMouseHeld = false;
+    BasicPeepAnimController control;
+    public float minimalRangeCheckToMove = 0.01f;
+    private void Start()
+    {
+        control = GetComponent<BasicPeepAnimController>();
+    }
     private void Update()
     {
         bool isButtonHeld = Input.GetMouseButton(0);
 
         if (isButtonHeld == true)
         {
-            if(isMouseHeld == true)
+            if (isMouseHeld == true)
             {
-                MoveInDirection();
+                Vector3 vect = GetFingerPosition();
+                MoveInDirection(vect);
+                lastFingerPosition = vect;
             }
             else
             {
-                originalClick = GetFingerPosition();
+                lastFingerPosition = GetFingerPosition();
                 isMouseHeld = true;
             }
         }
@@ -33,11 +41,9 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         }
     }
 
-    void MoveInDirection()
+    void MoveInDirection(Vector3 vect)
     {
-        Vector3 vect = GetFingerPosition();
-        var control = GetComponent<BasicPeepAnimController>();
-        if (vect == originalClick)
+        if ((vect - lastFingerPosition).magnitude < minimalRangeCheckToMove) // todo, turn into a range check... slow moving or small movements should be ignored
         {
             if (control != null)
                 control.StopPlayer();
@@ -46,7 +52,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         }
         if (control != null)
         {
-            Vector3 dir = (vect - originalClick).normalized;
+            Vector3 dir = (vect - lastFingerPosition).normalized;
             control.MovePlayer(transform.position + dir*2);
         }
     }
@@ -57,7 +63,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         RaycastHit hit;
         if (!Physics.Raycast(ray, out hit))
         {
-            return originalClick;
+            return lastFingerPosition;
         }
         return hit.point;
     }

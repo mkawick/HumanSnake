@@ -9,10 +9,12 @@ public class BasicPeepAnimController : MonoBehaviour
     Animator animator;
     //bool running = false;
     public float runSpeed = 1;
+    public float minimumMoveRange = 0.1f;
     public bool isPlayer = false;
     public bool isLoggingEnabled = false;
     bool wasWobblemanControllerEnabled = false;
     bool wasPlayerMouseControllerEnabled = false;
+    bool wasRootPerFrameEnabled = false;
     bool wasDancerEnabled = false;
     bool wasTrappedPersonEnabled = false;
 
@@ -97,6 +99,18 @@ public class BasicPeepAnimController : MonoBehaviour
             else
                 pmhl.enabled = enable;
         }
+        var pccr = gameObject.GetComponent<PlayerControllerChangeRootPerFrame>();
+        if (pccr != null)
+        {
+            if (pccr.enabled == true)
+                wasRootPerFrameEnabled = true;
+
+            if (enable == true)
+                pccr.enabled = wasRootPerFrameEnabled;
+            else
+                pccr.enabled = enable;
+        }
+        
         var dancer = gameObject.GetComponent<DancingController>();
         if (dancer != null)
         {

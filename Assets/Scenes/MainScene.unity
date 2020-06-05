@@ -5337,7 +5337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6848409460956574396c11a7f1ecd3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimalRangeCheckToMove: 0.06
+  minimalRangeCheckToMove: 0.08
 --- !u!114 &127301016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11073,7 +11073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
       propertyPath: animChangeLagTime
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
@@ -11149,6 +11149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904146111668261233, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}

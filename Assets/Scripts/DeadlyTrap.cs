@@ -6,6 +6,7 @@ public class DeadlyTrap : MonoBehaviour
 {
     //public GameManager gameManager;
     public Level levelThatOwnsMe;
+    public GameObject trapCircle;
 
     private void OnCollisionEnter(Collision hit)
     {
@@ -25,5 +26,27 @@ public class DeadlyTrap : MonoBehaviour
     internal void SetLevel(Level level)
     {
         levelThatOwnsMe = level;
+    }
+
+    private void Update()
+    {
+        UpdateTrapCircle();
+    }
+    void UpdateTrapCircle()
+    {
+        if (trapCircle == null)
+            return;
+
+        Vector3 position = this.transform.position;
+        RaycastHit hitInfo = new RaycastHit();
+        if (Physics.Raycast(position, Vector3.down, out hitInfo))
+        {
+            Vector3 hit = hitInfo.point;
+            hit.y += 0.1f;
+            trapCircle.transform.position = hit;
+
+            trapCircle.transform.rotation = Quaternion.LookRotation(hitInfo.normal);
+        }
+        
     }
 }

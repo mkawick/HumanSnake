@@ -14193,6 +14193,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693210178}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1697847077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1456252003, guid: 1e17348c78d7292499bd4167edb3f2c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1856938196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1697847080
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697847077}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1701481412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1e9483dbe68479d4889166e292e99aee,
@@ -15564,6 +15586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 645280174}
     m_Modifications:
+    - target: {fileID: 1456252005, guid: 1e17348c78d7292499bd4167edb3f2c1, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1782960901, guid: 1e17348c78d7292499bd4167edb3f2c1, type: 3}
       propertyPath: m_Size.z
       value: 0.635181
@@ -17783,6 +17809,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 615867487030789399, guid: 56f0f87d31067354694334d57bbab90c,
+        type: 3}
+      propertyPath: slowRotation
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f0f87d31067354694334d57bbab90c, type: 3}
 --- !u!1001 &6147311811954507687
@@ -17857,6 +17888,11 @@ PrefabInstance:
       propertyPath: peepManager
       value: 
       objectReference: {fileID: 1107837590}
+    - target: {fileID: 6147311811112112593, guid: 1c4f7d0247a55024690130a94a4fa000,
+        type: 3}
+      propertyPath: slowRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6147311811112112597, guid: 1c4f7d0247a55024690130a94a4fa000,
         type: 3}
       propertyPath: m_Constraints
@@ -17935,6 +17971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CasualMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722621022002190688, guid: 673640e10f378f94aa44913f2e4f22f4,
+        type: 3}
+      propertyPath: slowRotation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7722621022002190695, guid: 673640e10f378f94aa44913f2e4f22f4,
         type: 3}

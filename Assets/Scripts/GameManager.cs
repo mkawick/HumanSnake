@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public PeepManager peepManager;
-    RunPersonInCircle peepForFailure;
+    List<RunPersonInCircle> peepsForFailure;
     
     public LevelManager levelManager;
     float isWaitingForSequenceGateTime;
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     {
         StartNewLevel();
         normalCameraPosition = Camera.main.transform.position;
+        peepsForFailure = new List<RunPersonInCircle>();
     }
 
     // Update is called once per frame
@@ -78,8 +79,6 @@ public class GameManager : MonoBehaviour
         {
             temp = peepManager.GetRandomPeep();
         }
-        temp.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
-
         person = temp.GetComponent<RunPersonInCircle>();
 
         PlayFail(person);
@@ -88,12 +87,13 @@ public class GameManager : MonoBehaviour
     internal void PlayFail(RunPersonInCircle person)
     {
         failureText.gameObject.SetActive(true);
-        peepForFailure = person;
+        peepsForFailure.Add(person);
         person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
+        person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
 
         // slight delay
         // zoom camera
-        
+
         Camera.main.transform.position = cameraOffsetToPlayFail.position;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + playFailTime;
@@ -101,7 +101,11 @@ public class GameManager : MonoBehaviour
 
     void EndOfPlayFail()
     {
-        peepForFailure.RestoreAfterRunning();
+        foreach (var peep in peepsForFailure)
+        {
+            peep.RestoreAfterRunning();
+        }
+        peepsForFailure.Clear();
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;

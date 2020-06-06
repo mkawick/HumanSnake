@@ -13,12 +13,13 @@ public class BasicPeepAnimController : MonoBehaviour
     public float maximumRotationPerFrame = 0.01f;
     public bool isPlayer = false;
     public bool isLoggingEnabled = false;
-    public bool freeRotation = true;
+    public bool slowRotation = true;
     bool wasWobblemanControllerEnabled = false;
     bool wasPlayerMouseControllerEnabled = false;
     bool wasRootPerFrameEnabled = false;
     bool wasDancerEnabled = false;
     bool wasTrappedPersonEnabled = false;
+    bool hadSlowedRotation = false;
 
     //bool pendingAnimationStateChange = false;
     Vector3 target;
@@ -51,6 +52,7 @@ public class BasicPeepAnimController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetTrigger("Idle");
+        SaveInitialState();
     }
 
     internal void MovePlayer(Vector3 position)
@@ -62,6 +64,41 @@ public class BasicPeepAnimController : MonoBehaviour
             StartRunning();
         }
     }
+
+    void SaveInitialState()
+    {
+        var tp = gameObject.GetComponent<TrappedPerson2>();
+        if (tp != null)
+        {
+            wasTrappedPersonEnabled = tp.enabled;
+        }
+        var bpac = gameObject.GetComponent<BasicPeepAnimController>();
+        if (bpac != null)
+        {
+            hadSlowedRotation = bpac.slowRotation;
+        }
+        var pcwm = gameObject.GetComponent<PlayerControllerWobbleMan>();
+        if (pcwm != null)
+        {
+            wasWobblemanControllerEnabled = pcwm.enabled;
+        }
+        var pmhl = gameObject.GetComponent<PlayerMouseHoldLocomotion>();
+        if (pmhl != null)
+        {
+            wasPlayerMouseControllerEnabled = pmhl.enabled;
+        }
+        var pccr = gameObject.GetComponent<PlayerControllerChangeRootPerFrame>();
+        if (pccr != null)
+        {
+            wasRootPerFrameEnabled = pccr.enabled;
+        }
+
+        var dancer = gameObject.GetComponent<DancingController>();
+        if (dancer != null)
+        {
+            wasDancerEnabled = dancer.enabled;
+        }
+    }
     internal void StopPlayer()
     {
         GoToIdle();
@@ -71,20 +108,22 @@ public class BasicPeepAnimController : MonoBehaviour
         var tp = gameObject.GetComponent<TrappedPerson2>();
         if (tp != null)
         {
-            if (tp.enabled == true)
-                wasTrappedPersonEnabled = true;
-
             if (enable == true)
                 tp.enabled = wasTrappedPersonEnabled;
             else
                 tp.enabled = enable;
         }
+        var bpac = gameObject.GetComponent<BasicPeepAnimController>();
+        if (bpac != null)
+        {
+            if (enable == true)
+                bpac.slowRotation = hadSlowedRotation; 
+            else
+                bpac.slowRotation = enable;
+        }
         var pcwm = gameObject.GetComponent<PlayerControllerWobbleMan>();
         if (pcwm != null)
         {
-            if (pcwm.enabled == true)
-                wasWobblemanControllerEnabled = true;
-
             if (enable == true)
                 pcwm.enabled = wasWobblemanControllerEnabled;
             else
@@ -93,9 +132,6 @@ public class BasicPeepAnimController : MonoBehaviour
         var pmhl = gameObject.GetComponent<PlayerMouseHoldLocomotion>();
         if (pmhl != null)
         {
-            if (pmhl.enabled == true)
-                wasPlayerMouseControllerEnabled = true;
-
             if (enable == true)
                 pmhl.enabled = wasPlayerMouseControllerEnabled;
             else
@@ -104,9 +140,6 @@ public class BasicPeepAnimController : MonoBehaviour
         var pccr = gameObject.GetComponent<PlayerControllerChangeRootPerFrame>();
         if (pccr != null)
         {
-            if (pccr.enabled == true)
-                wasRootPerFrameEnabled = true;
-
             if (enable == true)
                 pccr.enabled = wasRootPerFrameEnabled;
             else
@@ -116,9 +149,6 @@ public class BasicPeepAnimController : MonoBehaviour
         var dancer = gameObject.GetComponent<DancingController>();
         if (dancer != null)
         {
-            if (dancer.enabled == true)
-                wasDancerEnabled = true;
-
             if (enable == true)
                 dancer.enabled = wasDancerEnabled;
             else
@@ -198,7 +228,13 @@ public class BasicPeepAnimController : MonoBehaviour
     }
     void FacePosition(Vector3 placeToLook)
     {
-        if(freeRotation)
+        if(slowRotation)
+        {
+            Quaternion lookOnLook =
+                    Quaternion.LookRotation(placeToLook - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * maximumRotationPerFrame);
+        }
+        else
         {
             Vector3 dist = placeToLook - transform.position;// do not turn for too close
             dist.y = 0;
@@ -207,12 +243,6 @@ public class BasicPeepAnimController : MonoBehaviour
                 placeToLook.y = transform.position.y;
                 transform.LookAt(placeToLook);
             }
-        }
-        else
-        {
-            Quaternion lookOnLook =
-                    Quaternion.LookRotation(placeToLook - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * maximumRotationPerFrame);
         }
     }
 

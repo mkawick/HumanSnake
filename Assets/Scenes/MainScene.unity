@@ -11079,6 +11079,14 @@ PrefabInstance:
       propertyPath: maximumRotationPerFrame
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
+      propertyPath: freeRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
+      propertyPath: minimumMoveRange
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17760,6 +17768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasualWoman
       objectReference: {fileID: 0}
+    - target: {fileID: 615867487030789392, guid: 56f0f87d31067354694334d57bbab90c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 615867487030789394, guid: 56f0f87d31067354694334d57bbab90c,
         type: 3}
       propertyPath: peepManager
@@ -17844,6 +17857,11 @@ PrefabInstance:
       propertyPath: peepManager
       value: 
       objectReference: {fileID: 1107837590}
+    - target: {fileID: 6147311811112112597, guid: 1c4f7d0247a55024690130a94a4fa000,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c4f7d0247a55024690130a94a4fa000, type: 3}
 --- !u!1001 &7722621022288847667
@@ -17927,6 +17945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722621022002190717, guid: 673640e10f378f94aa44913f2e4f22f4,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673640e10f378f94aa44913f2e4f22f4, type: 3}

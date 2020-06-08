@@ -6,6 +6,7 @@ public class Route2Follower : MonoBehaviour
 {
     Route2.TrackingValues tracking = new Route2.TrackingValues();
     public Route2 routeToFollow;
+    public float speed = 1;
     void Start()
     {
         //tracking.needsInit = true;
@@ -16,6 +17,7 @@ public class Route2Follower : MonoBehaviour
     {
         if(routeToFollow != null)
         {
+            tracking.speed = speed;
             Vector3 newPos = routeToFollow.GetNext(ref tracking, this.transform.position);
             this.transform.position = newPos;
         }

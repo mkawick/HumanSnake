@@ -81,15 +81,41 @@ public class Route2 : MonoBehaviour
             tv.t >= 1.0f)
         {
             // have we reached the end of the loop?
-            int temp = tv.destWaypoint;
-            tv.destWaypoint = tv.lastWaypoint;
-            tv.lastWaypoint = temp;
+            /* int temp = tv.destWaypoint;
+             tv.destWaypoint = tv.lastWaypoint;
+             tv.lastWaypoint = temp;*/
+            int temp = tv.lastWaypoint;
+            tv.lastWaypoint = tv.destWaypoint;
+            if(pathType == PathType.Loop)
+            {
+                tv.destWaypoint += tv.dir;
+                if (tv.destWaypoint >= controlPoints.Length)
+                    tv.destWaypoint = 0;
+            }
+            else if(pathType == PathType.Patrol)
+            {
+                tv.destWaypoint += tv.dir;
+                if (tv.destWaypoint >= controlPoints.Length)
+                {
+                    tv.destWaypoint = temp;
+                    tv.dir = -tv.dir;
+                }
+                else if (tv.destWaypoint < 0)
+                {
+                    tv.destWaypoint = 1;
+                    tv.dir = -tv.dir;
+                }
+                //else
+                    //tv.destWaypoint = temp;
+                    
+            }
+            
             tv.t = 0;
         }
 
         Vector3 dir = (controlPoints[tv.destWaypoint].position - controlPoints[tv.lastWaypoint].position);
         float length = dir.magnitude;
-        tv.t += (length / tv.speed) * Time.deltaTime;
+        tv.t += (tv.speed / length) * Time.deltaTime;
         //tv.t += 0.02f;
         dir *= tv.t;
         //dir *= tv.speed * Time.deltaTime;

@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78168636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.39, y: 1, z: 0}
+  m_LocalPosition: {x: 0.58, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1030064197}
@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 141861772}
   - component: {fileID: 141861771}
   - component: {fileID: 141861775}
+  - component: {fileID: 141861776}
   m_Layer: 0
   m_Name: Moving Fire
   m_TagString: Untagged
@@ -262,6 +263,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelThatOwnsMe: {fileID: 0}
   trapCircle: {fileID: 894298972}
+--- !u!114 &141861776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141861770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312304f39fd4e414f817210c37fdfd77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  routeToFollow: {fileID: 1978243022}
 --- !u!1 &150488510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179835437}
   m_LocalRotation: {x: -0, y: -0.68503773, z: -0, w: 0.7285076}
-  m_LocalPosition: {x: -2.26, y: 1, z: -1.52}
+  m_LocalPosition: {x: -3.19, y: 1, z: -1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1030064197}

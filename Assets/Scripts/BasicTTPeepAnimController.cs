@@ -27,7 +27,7 @@ public class BasicTTPeepAnimController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            animator.SetTrigger("IdleA");
+            animator.SetTrigger("Idle");
         }
         else if (Input.GetKey(KeyCode.V))
         {

@@ -8,6 +8,20 @@ public class DeadlyTrap : MonoBehaviour
     public Level levelThatOwnsMe;
     public GameObject trapCircle;
 
+    [SerializeField]
+    bool showMesh = true;
+
+    private void Start()
+    {
+        if (GetComponent<MeshRenderer>())
+        {
+            GetComponent<MeshRenderer>().enabled = showMesh;
+        }
+        foreach(var mr in GetComponentsInChildren<MeshRenderer>())
+        {
+            mr.enabled = showMesh;
+        }
+    }
     private void OnCollisionEnter(Collision hit)
     {
         //Debug.Log("entered");

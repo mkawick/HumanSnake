@@ -83,46 +83,50 @@ public class Route2 : MonoBehaviour
             }
         }
     }
-    public Vector3 GetNext(ref TrackingValues tv, Vector3 currentPos)
-    { 
 
-        if ((controlPoints[tv.destWaypoint].position - currentPos).magnitude < 0.1f ||
-            tv.t >= 1.0f)
+    public void UpdateDestination(ref TrackingValues tv)
+    {
+        int temp = tv.lastWaypoint;
+        tv.lastWaypoint = tv.destWaypoint;
+        if (pathType == PathType.Loop)
         {
-            int temp = tv.lastWaypoint;
-            tv.lastWaypoint = tv.destWaypoint;
-            if(pathType == PathType.Loop)
+            tv.destWaypoint += tv.dir;
+            if (tv.destWaypoint >= controlPoints.Length)
+                tv.destWaypoint = 0;
+            else if (tv.destWaypoint < 0)
             {
-                tv.destWaypoint += tv.dir;
-                if (tv.destWaypoint >= controlPoints.Length)
-                    tv.destWaypoint = 0;
-                else if (tv.destWaypoint < 0)
-                {
-                    tv.destWaypoint = controlPoints.Length - 1;
-                }
+                tv.destWaypoint = controlPoints.Length - 1;
             }
-            else if(pathType == PathType.Patrol)
+        }
+        else if (pathType == PathType.Patrol)
+        {
+            tv.destWaypoint += tv.dir;
+            if (tv.destWaypoint >= controlPoints.Length)
             {
-                tv.destWaypoint += tv.dir;
-                if (tv.destWaypoint >= controlPoints.Length)
-                {
-                    tv.destWaypoint = temp;
-                    tv.dir = -tv.dir;
-                }
-                else if (tv.destWaypoint < 0)
-                {
-                    tv.destWaypoint = 1;
-                    tv.dir = -tv.dir;
-                }
+                tv.destWaypoint = temp;
+                tv.dir = -tv.dir;
             }
-            
-            tv.t = 0;
+            else if (tv.destWaypoint < 0)
+            {
+                tv.destWaypoint = 1;
+                tv.dir = -tv.dir;
+            }
         }
 
-        Vector3 dir = (controlPoints[tv.destWaypoint].position - controlPoints[tv.lastWaypoint].position);
+        tv.t = 0;
+    }
+    public Vector3 GetNext(ref TrackingValues tv, Vector3 currentPos)
+    { 
+        if (tv.t >= 1.0f || (controlPoints[tv.destWaypoint].position - currentPos).magnitude < 0.1f )
+        {
+            UpdateDestination(ref tv);
+        }
+
+        Vector3 dir = controlPoints[tv.destWaypoint].position - controlPoints[tv.lastWaypoint].position;
         float length = dir.magnitude;
-        tv.t += (tv.speed / length) * Time.deltaTime;
-        dir *= tv.t;
+        tv.t += (tv.speed / length) * Time.deltaTime;// simplified projection, calculate a percentage of speed
+
+        dir *= tv.t; // animate along the length
         dir += controlPoints[tv.lastWaypoint].position;
 
         return dir;

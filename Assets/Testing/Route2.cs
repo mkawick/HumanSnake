@@ -63,27 +63,32 @@ public class Route2 : MonoBehaviour
             destWaypoint = 1;
             needsInit = true;
         }
-        //public Vector3 lastPosition;
+    }
+
+    public void SetupInitValues(ref TrackingValues tv)
+    {
+        if (tv.needsInit == true)
+        {
+            tv.needsInit = false;
+            tv.t = 0;
+            if (tv.dir == -1 && pathType == PathType.Loop)
+            {
+                tv.lastWaypoint = 0;
+                tv.destWaypoint = controlPoints.Length - 1;
+            }
+            else 
+            {
+                tv.lastWaypoint = 0;
+                tv.destWaypoint = 1;
+            }
+        }
     }
     public Vector3 GetNext(ref TrackingValues tv, Vector3 currentPos)
-    {
-        /* if(tv.lastPosition == null)
-         {
-             tv.t = 0;
-             tv.dir = 1;
-             tv.speed = 1;
-             //tv.lastPosition = controlPoints[0].position;
-             tv.lastWaypoint = 0;
-             tv.destWaypoint = 1;
-         }*/
+    { 
 
         if ((controlPoints[tv.destWaypoint].position - currentPos).magnitude < 0.1f ||
             tv.t >= 1.0f)
         {
-            // have we reached the end of the loop?
-            /* int temp = tv.destWaypoint;
-             tv.destWaypoint = tv.lastWaypoint;
-             tv.lastWaypoint = temp;*/
             int temp = tv.lastWaypoint;
             tv.lastWaypoint = tv.destWaypoint;
             if(pathType == PathType.Loop)
@@ -91,6 +96,10 @@ public class Route2 : MonoBehaviour
                 tv.destWaypoint += tv.dir;
                 if (tv.destWaypoint >= controlPoints.Length)
                     tv.destWaypoint = 0;
+                else if (tv.destWaypoint < 0)
+                {
+                    tv.destWaypoint = controlPoints.Length - 1;
+                }
             }
             else if(pathType == PathType.Patrol)
             {
@@ -105,9 +114,6 @@ public class Route2 : MonoBehaviour
                     tv.destWaypoint = 1;
                     tv.dir = -tv.dir;
                 }
-                //else
-                    //tv.destWaypoint = temp;
-                    
             }
             
             tv.t = 0;
@@ -116,14 +122,9 @@ public class Route2 : MonoBehaviour
         Vector3 dir = (controlPoints[tv.destWaypoint].position - controlPoints[tv.lastWaypoint].position);
         float length = dir.magnitude;
         tv.t += (tv.speed / length) * Time.deltaTime;
-        //tv.t += 0.02f;
         dir *= tv.t;
-        //dir *= tv.speed * Time.deltaTime;
         dir += controlPoints[tv.lastWaypoint].position;
 
         return dir;
-        //Vector3 lastWp = controlPoints[tv.lastWaypoint];
-
-
     }
 }

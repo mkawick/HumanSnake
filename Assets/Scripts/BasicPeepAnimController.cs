@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class BasicPeepAnimController : MonoBehaviour
 {
-    Animator animator;
+    protected Animator animator;
     //bool running = false;
     public float runSpeed = 1;
     public float minimumMoveRange = 0.1f;
@@ -41,7 +41,10 @@ public class BasicPeepAnimController : MonoBehaviour
         RunJumpR,
         Wave,
         Run,
-        Idle
+        Idle,
+        PanicIdle,
+        PanicRun,
+        Throw
     }
 
     AnimStateChange currentState = AnimStateChange.Idle, pendingStateChange = AnimStateChange.None;
@@ -190,7 +193,7 @@ public class BasicPeepAnimController : MonoBehaviour
         }
     }
 
-    internal void PlayAnim(AnimationPlay clip)
+    internal virtual void PlayAnim(AnimationPlay clip)
     {
         switch(clip)
         {

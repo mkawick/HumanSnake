@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(TrappedPerson2))]
 public class BasicPeepAnimController : MonoBehaviour
 {
     protected Animator animator;

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5d63a7923cff64ab39752d169ae042c7
+=======
+guid: 61ca8f71b07fbf94aa9732a24b87193c
+>>>>>>> minor reorg. SimpleWoman4 added
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -8063,6 +8063,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleWoman02
       objectReference: {fileID: 0}
+    - target: {fileID: 8505382832691405179, guid: 9b9c258154bdf74488dcd54b1d9aea58,
+        type: 3}
+      propertyPath: runSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9c258154bdf74488dcd54b1d9aea58, type: 3}
 --- !u!1 &428092516 stripped
@@ -19045,7 +19050,7 @@ PrefabInstance:
     - target: {fileID: 637429954761307720, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 637429954761307721, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}

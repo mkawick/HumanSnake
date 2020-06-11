@@ -234,8 +234,12 @@ public class BasicPeepAnimController : MonoBehaviour
     {
         if(slowRotation)
         {
+            Vector3 dir = placeToLook - transform.position;
+            if (dir.sqrMagnitude <= Vector3.kEpsilon)
+                return;
+
             Quaternion lookOnLook =
-                    Quaternion.LookRotation(placeToLook - transform.position);
+                    Quaternion.LookRotation(dir);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * maximumRotationPerFrame);
         }
         else

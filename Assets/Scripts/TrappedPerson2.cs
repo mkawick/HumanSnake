@@ -11,7 +11,7 @@ public class TrappedPerson2 : MonoBehaviour
     internal Vector3 originalPos;
 
     internal BasicPeepAnimController control;
-    public PeepManager peepManager;
+    internal PeepManager peepManager;
 
     //public Renderer mesh;
 

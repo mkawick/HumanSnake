@@ -89,6 +89,11 @@ public class Level : MonoBehaviour
     internal void SetPeepManager(PeepManager mgr)
     {
         peepManager = mgr;
+        var peeps = GetTrappedPeople();
+        foreach(var peep in peeps)
+        {
+            peep.peepManager = mgr;
+        }
     }
 
     void SetupTraps()

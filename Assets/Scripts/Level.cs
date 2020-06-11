@@ -34,6 +34,10 @@ public class Level : MonoBehaviour
             {
                 door.Reset();
                 door.SetDoorNumber(listOfPeeps.Length);
+                if (door.blocksLevelEnd == false)
+                {
+                    door.EnableTrigger();
+                }
             }
         }
     }
@@ -47,7 +51,7 @@ public class Level : MonoBehaviour
         {
             if (doors != null && doors.Length > 0)
             {
-                foreach (var door in doors)
+                foreach (var door in doors)// unlock all doors
                 {
                     door.EnableTrigger();
                 }

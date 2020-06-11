@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DoorScript : MonoBehaviour
 {
     public GameObject swingAnchor;
-    public TextMeshPro[] numberDisplays;
+    List<TextMeshPro> numberDisplays;
     private Animator animator;
     bool isOpen = false;
 
@@ -23,6 +23,12 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        var numbers = GetComponentsInChildren<TextMeshPro>();
+        numberDisplays = new List<TextMeshPro>();
+        foreach (var number in numbers)
+        {
+            numberDisplays.Add(number);
+        }
     }
 
     // Update is called once per frame

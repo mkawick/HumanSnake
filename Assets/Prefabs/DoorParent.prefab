@@ -50,7 +50,7 @@ Animator:
   m_GameObject: {fileID: 637429954761307723}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: de13e1fd9cd48ee4c9ba6f42b1c9f1d0, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -88,6 +88,8 @@ MonoBehaviour:
   numberDisplays:
   - {fileID: 5521787649142680665}
   - {fileID: 2555139148577925425}
+  blocksLevelEnd: 1
+  showDoorNumber: 1
 --- !u!222 &8101642833242616739
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -158,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20f71fb5a5868ad48abaa89b6abfd859, type: 2}
+  - {fileID: 2100000, guid: 8a7ed3150f1ce4a8f8fc4255b5f0cd63, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

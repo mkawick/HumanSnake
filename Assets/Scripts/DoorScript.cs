@@ -73,11 +73,11 @@ public class DoorScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-       /* var player = other.GetComponent<PlayerMouseHoldLocomotion>();
+        var player = other.GetComponent<PlayerControllerWobbleMan>();
         if (player != null)
         {
             OpenDoor("CloseTrigger");
-        }*/
+        }
     }
 
     internal void EnableTrigger()

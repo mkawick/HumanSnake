@@ -5592,7 +5592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6848409460956574396c11a7f1ecd3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimalRangeCheckToMove: 0.001
+  minimalRangeCheckToMove: 0
 --- !u!114 &127301018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8157,10 +8157,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleWoman02
       objectReference: {fileID: 0}
+    - target: {fileID: 8505382832691405176, guid: 9b9c258154bdf74488dcd54b1d9aea58,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8505382832691405179, guid: 9b9c258154bdf74488dcd54b1d9aea58,
         type: 3}
       propertyPath: runSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505382832691405179, guid: 9b9c258154bdf74488dcd54b1d9aea58,
+        type: 3}
+      propertyPath: maximumRotationPerFrame
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505382832691405179, guid: 9b9c258154bdf74488dcd54b1d9aea58,
+        type: 3}
+      propertyPath: slowRotation
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b9c258154bdf74488dcd54b1d9aea58, type: 3}
@@ -14300,12 +14315,12 @@ PrefabInstance:
     - target: {fileID: 3557421984138256738, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 3557421984138256738, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3557421984138256738, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
@@ -14341,6 +14356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557421984138256738, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.87305
       objectReference: {fileID: 0}
     - target: {fileID: 5521787649142680665, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}

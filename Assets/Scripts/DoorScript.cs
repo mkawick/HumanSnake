@@ -15,6 +15,7 @@ public class DoorScript : MonoBehaviour
     public bool blocksLevelEnd = true;
     bool isTriggerEnabled = false;
     public bool showDoorNumber = true;
+    public bool isClosable = false;
 
     enum AnimClips
     {
@@ -95,14 +96,14 @@ public class DoorScript : MonoBehaviour
     {
         if(direction == "OpenTrigger")
         {
-            if (isOpen == true)
+            if (isOpen == true )
                 return;
             animator.SetTrigger(direction);
             isOpen = true;
         }
         else if (direction == "CloseTrigger")
         {
-            if (isOpen == false)
+            if (isOpen == false || isClosable == false)
                 return;
             animator.SetTrigger(direction);
             isOpen = false;

@@ -28,7 +28,7 @@ public class JoelAnimator : BasicPeepAnimController
                 break;
             // missing a few
             case AnimationPlay.Wave:
-                animation.CrossFade("Wave");
+                animation.CrossFade("Idle");
                 break;
             case AnimationPlay.Run:
                 animation.CrossFade("Run");
@@ -47,14 +47,11 @@ public class JoelAnimator : BasicPeepAnimController
                 break;
         }
     }
-    /*
-     * GetComponent<Animation>().CrossFade("Dodge");
-        else if (Input.GetMouseButtonDown(1))
-            GetComponent<Animation>().CrossFade("Damage");
-        else if (Input.GetMouseButtonDown(2))
-            GetComponent<Animation>().CrossFade("Death");
-     * */
 
+    protected override void ConductTests()
+    {
+        RunTests();
+    }
     void RunTests()
     {
         if (Input.GetKey(KeyCode.R))
@@ -71,7 +68,7 @@ public class JoelAnimator : BasicPeepAnimController
         }
         else if (Input.GetKey(KeyCode.V))
         {
-            animation.CrossFade("Wave");
+            animation.CrossFade("Idle");
         }
     }
 }

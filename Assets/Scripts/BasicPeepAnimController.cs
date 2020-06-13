@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -201,6 +202,12 @@ public class BasicPeepAnimController : MonoBehaviour
                 FacePosition(target);
             }
         }
+        ConductTests();
+    }
+
+    virtual protected void ConductTests()
+    {
+        // only needed in children
     }
 
     internal virtual void PlayAnim(AnimationPlay clip)

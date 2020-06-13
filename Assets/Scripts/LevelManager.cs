@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
 
     float timeWhenICanTransition = 0;
     public bool enableTransitionToNewLevels = true;
+    [SerializeField]
+    bool levelsLoop = false;
     // Start is called before the first frame update
 
     enum LevelState
@@ -111,7 +113,13 @@ public class LevelManager : MonoBehaviour
             if(enableTransitionToNewLevels == true)
                 currentLevel++;
             if (currentLevel >= levels.Length)
-                currentLevel = levels.Length - 1;
+            {
+                if (levelsLoop == true)
+                    currentLevel = 0;
+                else
+                    currentLevel = levels.Length - 1;
+            }
+            
             levelState = LevelState.Start;
         }
     }

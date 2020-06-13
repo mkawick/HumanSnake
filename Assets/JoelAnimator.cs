@@ -1,13 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class AnimationTestControl : MonoBehaviour
+public class JoelAnimator : MonoBehaviour
 {
-
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
     {
-
+        //GetComponent<Animation>().CrossFade("Walk");
+        GetComponent<Animation>().Play("Walk");
+        //GetComponent<Animation>().Play("Walk", AnimationPlayMode.Queue);
     }
 
     // Update is called once per frame
@@ -27,13 +29,5 @@ public class AnimationTestControl : MonoBehaviour
             else
                 GetComponent<Animation>().CrossFade("JumpB");
         }
-        else if (Input.GetMouseButtonDown(0))
-            GetComponent<Animation>().CrossFade("Dodge");
-        else if (Input.GetMouseButtonDown(1))
-            GetComponent<Animation>().CrossFade("Damage");
-        else if (Input.GetMouseButtonDown(2))
-            GetComponent<Animation>().CrossFade("Death");
-        if (!GetComponent<Animation>().isPlaying)
-            GetComponent<Animation>().CrossFade("Idle");
     }
 }

@@ -29,5 +29,7 @@ public class JoelAnimator : MonoBehaviour
             else
                 GetComponent<Animation>().CrossFade("JumpB");
         }
+        if (!GetComponent<Animation>().isPlaying || Input.GetKeyDown(KeyCode.I))
+            GetComponent<Animation>().CrossFade("Idle");
     }
 }

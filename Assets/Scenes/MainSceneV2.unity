@@ -13640,6 +13640,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1678745410, guid: 5eb2762cf0fb95e4e8e0c55dbd400029, type: 3}
+      propertyPath: runSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678745416, guid: 5eb2762cf0fb95e4e8e0c55dbd400029, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7644357527338022515, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}
       propertyPath: m_Name
@@ -13648,7 +13656,7 @@ PrefabInstance:
     - target: {fileID: 7644357527338445331, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8202578
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7644357527338445331, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}
@@ -13658,7 +13666,7 @@ PrefabInstance:
     - target: {fileID: 7644357527338445331, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.431637
+      value: -13.4
       objectReference: {fileID: 0}
     - target: {fileID: 7644357527338445331, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}
@@ -22502,6 +22510,7 @@ MonoBehaviour:
   peepManager: {fileID: 1107837590}
   gameManager: {fileID: 1276927563}
   enableTransitionToNewLevels: 1
+  levelsLoop: 0
 --- !u!1 &2089072705
 GameObject:
   m_ObjectHideFlags: 0

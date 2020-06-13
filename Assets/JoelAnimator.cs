@@ -2,34 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JoelAnimator : MonoBehaviour
+public class JoelAnimator : BasicPeepAnimController
 {
-    // Start is called before the first frame update
-    void Start()
+    Animation animation;
+    protected override void GrabAnimator()
     {
-        //GetComponent<Animation>().CrossFade("Walk");
-        GetComponent<Animation>().Play("Walk");
-        //GetComponent<Animation>().Play("Walk", AnimationPlayMode.Queue);
+        animation = GetComponent<Animation>();
     }
 
-    // Update is called once per frame
-    void Update()
+    internal override void PlayAnim(AnimationPlay clip)
     {
-        if (Input.GetKey(KeyCode.W))
+        switch (clip)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-                GetComponent<Animation>().CrossFade("Run");
-            else
-                GetComponent<Animation>().CrossFade("Walk");
+            case AnimationPlay.Walk:
+                animation.CrossFade("Walk");
+                break;
+            case AnimationPlay.Hit:
+                animation.CrossFade("Hit");
+                break;
+            case AnimationPlay.Attack:
+                animation.CrossFade("Attack");
+                break;
+            case AnimationPlay.Jump:
+                animation.CrossFade("JumpA");
+                break;
+            // missing a few
+            case AnimationPlay.Wave:
+                animation.CrossFade("Wave");
+                break;
+            case AnimationPlay.Run:
+                animation.CrossFade("Run");
+                break;
+            case AnimationPlay.Idle:
+                animation.CrossFade("Idle");
+                break;
+            case AnimationPlay.Dodge:
+                animation.CrossFade("Dodge");
+                break;
+            case AnimationPlay.Damage:
+                animation.CrossFade("Damage");
+                break;
+            case AnimationPlay.Death:
+                animation.CrossFade("Death");
+                break;
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+    }
+    /*
+     * GetComponent<Animation>().CrossFade("Dodge");
+        else if (Input.GetMouseButtonDown(1))
+            GetComponent<Animation>().CrossFade("Damage");
+        else if (Input.GetMouseButtonDown(2))
+            GetComponent<Animation>().CrossFade("Death");
+     * */
+
+    void RunTests()
+    {
+        if (Input.GetKey(KeyCode.R))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-                GetComponent<Animation>().CrossFade("JumpA");
-            else
-                GetComponent<Animation>().CrossFade("JumpB");
+            animation.CrossFade("Run");
         }
-        if (!GetComponent<Animation>().isPlaying || Input.GetKeyDown(KeyCode.I))
-            GetComponent<Animation>().CrossFade("Idle");
+        else if (Input.GetKey(KeyCode.W))
+        {
+            animation.CrossFade("Walk");
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            animation.CrossFade("Idle");
+        }
+        else if (Input.GetKey(KeyCode.V))
+        {
+            animation.CrossFade("Wave");
+        }
     }
 }

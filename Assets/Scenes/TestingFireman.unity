@@ -325,6 +325,7 @@ MonoBehaviour:
   swingAnchor: {fileID: 575199330}
   blocksLevelEnd: 1
   showDoorNumber: 1
+  isClosable: 0
 --- !u!208 &349397354
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1340,6 +1341,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3413af5d147d96048b2abe195cd4f55b, type: 3}
+--- !u!1 &1678745409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7644357527338022515, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
+    type: 3}
+  m_PrefabInstance: {fileID: 7644357525795465522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1678745410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678745409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea465a02f81b4e9459f91ac6cd32b05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 8
+  minimumMoveRange: 0.1
+  maximumRotationPerFrame: 0.01
+  isPlayer: 1
+  isLoggingEnabled: 0
+  slowRotation: 1
+  animChangeLagTime: 0.25
+--- !u!114 &1678745412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678745409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3e7b2e8d476e7449417fa9601c03a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emoticon: {fileID: 0}
+  boundingRadius: 0.5
+  wanderRange: 1.5
+--- !u!65 &1678745414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678745409}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.2108297, z: 1}
+  m_Center: {x: -0, y: 2.241941, z: -0}
+--- !u!54 &1678745416
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678745409}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1968652592
 PrefabInstance:
   m_ObjectHideFlags: 0

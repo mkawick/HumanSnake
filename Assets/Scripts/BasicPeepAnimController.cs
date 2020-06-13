@@ -45,18 +45,27 @@ public class BasicPeepAnimController : MonoBehaviour
         Idle,
         PanicIdle,
         PanicRun,
-        Throw
+        Throw,
+        Dodge,
+        Damage,
+        Death
     }
 
     AnimStateChange currentState = AnimStateChange.Idle, pendingStateChange = AnimStateChange.None;
     float animationTimeGate;
     public float animChangeLagTime = 0.25f;
 
-    void Start()
+    protected void Start()
+    {
+        GrabAnimator();
+        PlayAnim(AnimationPlay.Idle);
+        SaveInitialState();
+    }
+
+
+    protected virtual void GrabAnimator()
     {
         animator = GetComponent<Animator>();
-        animator.SetTrigger("Idle");
-        SaveInitialState();
     }
 
     internal void MovePlayer(Vector3 position)
@@ -262,7 +271,7 @@ public class BasicPeepAnimController : MonoBehaviour
             if (currentState == AnimStateChange.Idle)
             {
                 Log("StartRunning - actual change");
-                animator.SetTrigger("Run");
+                PlayAnim(AnimationPlay.Run);
 
                 animationTimeGate = Time.time + animChangeLagTime;
                 currentState = AnimStateChange.Run;
@@ -282,7 +291,7 @@ public class BasicPeepAnimController : MonoBehaviour
             if (currentState == AnimStateChange.Run)
             {
                 Log("GoToIdle - actual change");
-                animator.SetTrigger("Idle");
+                PlayAnim(AnimationPlay.Idle);
 
                 animationTimeGate = Time.time + animChangeLagTime;
                 currentState = AnimStateChange.Idle;
@@ -298,7 +307,7 @@ public class BasicPeepAnimController : MonoBehaviour
     internal void Wave()
     {
         Log("Wave");
-        animator.SetTrigger("Wave");
+        PlayAnim(AnimationPlay.Wave);
     }
 
     internal void Log(string text)

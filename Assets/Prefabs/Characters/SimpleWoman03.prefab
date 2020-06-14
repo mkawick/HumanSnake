@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2003661689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003661690}
+  m_Layer: 0
+  m_Name: FloorCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003661690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003661689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2896254215962287390}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2896254215962493096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,7 +3508,7 @@ GameObject:
   - component: {fileID: 2896254216658271377}
   - component: {fileID: 2896254216658271376}
   m_Layer: 0
-  m_Name: F_civilian_09
+  m_Name: SimpleWoman03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3491,7 +3521,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2896254215962515166}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 5.18, y: 0, z: -2.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3536,9 +3566,10 @@ Transform:
   - {fileID: 2896254215962302406}
   - {fileID: 2896254215962340016}
   - {fileID: 2896254215962251426}
+  - {fileID: 2003661690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!95 &2896254215955155334
 Animator:
   serializedVersion: 3
@@ -3549,7 +3580,7 @@ Animator:
   m_GameObject: {fileID: 2896254215962515166}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 635cb25ea3f6cc24f93ebb5d3f908585, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0613c159feb8f74d968944d289c4ac7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3600,7 +3631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emoticon: {fileID: 0}
-  peepManager: {fileID: 0}
   boundingRadius: 0.5
   wanderRange: 1.5
 --- !u!114 &2896254216658271376
@@ -3620,7 +3650,7 @@ MonoBehaviour:
   maximumRotationPerFrame: 0.01
   isPlayer: 0
   isLoggingEnabled: 0
-  slowRotation: 1
+  slowRotation: 0
   animChangeLagTime: 0.25
 --- !u!1 &2896254215962517784
 GameObject:

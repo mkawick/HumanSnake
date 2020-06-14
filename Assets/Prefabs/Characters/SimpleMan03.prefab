@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2121136550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121136551}
+  m_Layer: 0
+  m_Name: FloorCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2121136551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121136550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2641666323462175927}
+  m_RootOrder: 50
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2641666323462324573
 GameObject:
   m_ObjectHideFlags: 0
@@ -8734,7 +8764,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2641666323462404015}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 3.54, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8788,9 +8818,10 @@ Transform:
   - {fileID: 2641666323462223469}
   - {fileID: 2641666323462132541}
   - {fileID: 2641666323462179291}
+  - {fileID: 2121136551}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
 --- !u!95 &2641666323469644629
 Animator:
   serializedVersion: 3
@@ -8801,7 +8832,7 @@ Animator:
   m_GameObject: {fileID: 2641666323462404015}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8ed86b8ef3190a9429964c02eaa4f31c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0613c159feb8f74d968944d289c4ac7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -8821,7 +8852,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -8852,7 +8883,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emoticon: {fileID: 0}
-  peepManager: {fileID: 0}
   boundingRadius: 0.5
   wanderRange: 1.5
 --- !u!114 &2641666323462256547
@@ -8872,7 +8902,7 @@ MonoBehaviour:
   maximumRotationPerFrame: 0.01
   isPlayer: 0
   isLoggingEnabled: 0
-  slowRotation: 1
+  slowRotation: 0
   animChangeLagTime: 0.25
 --- !u!1 &2641666323462404503
 GameObject:

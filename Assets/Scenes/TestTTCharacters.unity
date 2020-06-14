@@ -415,6 +415,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleMan02
       objectReference: {fileID: 0}
+    - target: {fileID: 5641805081393639602, guid: 9bbb3720c09b91447aa008b04bd5c983,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.7407427
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641805081393639602, guid: 9bbb3720c09b91447aa008b04bd5c983,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.8174157
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbb3720c09b91447aa008b04bd5c983, type: 3}
 --- !u!1 &186062171

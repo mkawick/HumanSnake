@@ -14276,7 +14276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539436249, guid: 3fa9cfec49dc4bc46944fef2da6c42b7, type: 3}
       propertyPath: slowRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2904146110201375370, guid: 3fa9cfec49dc4bc46944fef2da6c42b7,
         type: 3}

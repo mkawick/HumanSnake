@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class JoelAnimator : BasicPeepAnimController
 {
@@ -70,5 +71,9 @@ public class JoelAnimator : BasicPeepAnimController
         {
             animation.CrossFade("Idle");
         }
+     /*   else if(Input.GetMouseButton((int)MouseButton.LeftMouse))
+        {
+
+        }*/
     }
 }

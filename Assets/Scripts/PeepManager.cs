@@ -24,6 +24,8 @@ public class PeepManager : MonoBehaviour
     public Material[] materialsForPeeps;
     internal LevelManager levelManager;
 
+    [SerializeField]
+    GameObject floorCircle;
 
     enum PeepStateColors
     {
@@ -52,13 +54,23 @@ public class PeepManager : MonoBehaviour
     public void NewLevel(List<TrappedPerson2> peepList)
     {
         peeps = peepList;
-        foreach(var p in peeps)
+        foreach(var peep in peeps)
         {
-            p.SetupInitialState(player);
+            peep.SetupInitialState(player);
+            if (floorCircle != null)
+            {
+                if (peep.floorCircle)
+                    Destroy(peep.floorCircle);
+
+                var obj = Utils.GetChildWithName(peep.gameObject, "FloorCircle");
+
+                peep.floorCircle = Instantiate<GameObject>(floorCircle, obj.transform);
+
+            }
         }
         snakeList = new List<Transform>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(Input.GetMouseButtonUp(1) == true)

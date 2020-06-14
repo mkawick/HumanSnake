@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrappedPerson2 : MonoBehaviour
 {
     private GameObject emoticonRoot;
+    internal GameObject floorCircle;
     public SpriteRenderer emoticon;
     internal Transform player;
     internal Vector3 originalPos;

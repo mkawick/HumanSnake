@@ -20,25 +20,6 @@ public class PlayerControllerWobbleMan : MonoBehaviour
     private void Update()
     {
         isButtonHeld = Input.GetMouseButton(0);
-
-       /* if (isButtonHeld == true)
-        {
-            if (isMouseHeld == true)
-            {
-                Vector3 vect = GetFingerPosition();
-                MoveInDirection(vect);
-            }
-            else
-            {
-                lastFingerPosition = GetFingerPosition();
-                isMouseHeld = true;
-            }
-        }
-        else
-        {
-            isMouseHeld = false;
-            StopInPlace();
-        }*/
     }
 
     private void FixedUpdate()
@@ -50,7 +31,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
             if (isMouseHeld == true)
             {
                 Vector3 vect = GetFingerPosition();
-                Debug.Log(vect);
+                //Debug.Log(vect);
                 MoveInDirection(vect);
             }
             else

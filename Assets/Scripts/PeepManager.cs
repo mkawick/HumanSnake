@@ -64,7 +64,10 @@ public class PeepManager : MonoBehaviour
 
                 var obj = Utils.GetChildWithName(peep.gameObject, "FloorCircle");
 
-                peep.floorCircle = Instantiate<GameObject>(floorCircle, obj.transform);
+                if (obj)
+                {
+                    peep.floorCircle = Instantiate<GameObject>(floorCircle, obj.transform);
+                }
 
             }
         }

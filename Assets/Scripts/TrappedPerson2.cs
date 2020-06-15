@@ -191,6 +191,8 @@ public class TrappedPerson2 : MonoBehaviour
         public override void Init(TrappedPerson2 tp)
         {
             person = tp;
+            
+
         }
         public override bool Update()
         {
@@ -245,6 +247,7 @@ public class TrappedPerson2 : MonoBehaviour
         public override void Init(TrappedPerson2 tp)
         {
             person = tp;
+           
         }
         public override bool Update()
         {
@@ -289,6 +292,8 @@ public class TrappedPerson2 : MonoBehaviour
                     person.peepManager.ChangeState(person, State.FollowPLayer);
                     person.indexInSnake = person.peepManager.AddToSnake(person.transform);
                     person.control.SetTarget(person.peepManager.WhomDoIFollow(person).position);
+                    //CIC [Capi is Coding]
+                    person.floorCircle.SetActive(false);
                 }
                 return false;
             }
@@ -346,6 +351,8 @@ public class TrappedPerson2 : MonoBehaviour
                     person.peepManager.ChangeState(person, State.FollowPLayer);
                     person.indexInSnake = person.peepManager.AddToSnake(person.transform);
                     person.control.SetTarget(person.peepManager.WhomDoIFollow(person).position);
+                    //CIC [Capi is Coding]
+                    person.floorCircle.SetActive(false);
                 }
                 return false;
             }

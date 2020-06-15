@@ -113,7 +113,14 @@ public class TrappedPerson2 : MonoBehaviour
 
     void UpdateEmoticonRotation()
     {
-        emoticonRoot.transform.forward = Camera.main.transform.forward;
+        Vector3 cameraDir = Camera.main.transform.forward;
+        Vector3 root = emoticonRoot.transform.forward;
+        //root.y = cameraDir.y;
+        root.y = cameraDir.y;
+        root.z = cameraDir.z;
+        //root.y = 0;
+        //root.z = 0;
+        emoticonRoot.transform.forward = root;
     }
 
     public void SetEmoticon(Sprite sprite)

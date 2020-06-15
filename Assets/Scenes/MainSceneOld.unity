@@ -10671,7 +10671,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 09a9f2037a770e54e8dd697f56b6db48, type: 3}
   - {fileID: 21300000, guid: 5ffca87b781e59540b468f2a79eaf530, type: 3}
   - {fileID: 21300000, guid: 6ae70a45791975f48b1bcab0f02e2179, type: 3}
-  showEmoticons: 0
+  showEmoticons: 1
   oddsOfSettingEmoticon: 1
   player: {fileID: 127301019}
   gameManager: {fileID: 1276927563}
@@ -10683,6 +10683,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: df47ae3d91387af48ac82c026d392fb0, type: 2}
   - {fileID: 2100000, guid: c16e5301afcd7ea4793db4da04d5974f, type: 2}
   - {fileID: 2100000, guid: a3053c8e719e8b94bb3166326c91d41b, type: 2}
+  floorCircle: {fileID: 0}
 --- !u!1001 &1119423471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17353,6 +17354,7 @@ MonoBehaviour:
   peepManager: {fileID: 1107837590}
   gameManager: {fileID: 1276927563}
   enableTransitionToNewLevels: 1
+  levelsLoop: 0
 --- !u!1 &2089072705
 GameObject:
   m_ObjectHideFlags: 0

@@ -113,14 +113,23 @@ public class TrappedPerson2 : MonoBehaviour
 
     void UpdateEmoticonRotation()
     {
-        Vector3 cameraDir = Camera.main.transform.forward;
-        Vector3 root = emoticonRoot.transform.forward;
-        //root.y = cameraDir.y;
-        root.y = cameraDir.y;
-        root.z = cameraDir.z;
-        //root.y = 0;
-        //root.z = 0;
-        emoticonRoot.transform.forward = root;
+        Vector3 camera = Camera.main.transform.position;
+        /*  Vector3 cameraDir = Camera.main.transform.forward;
+          Vector3 root = emoticonRoot.transform.forward;
+          //root.y = cameraDir.y;
+          root.y = cameraDir.y;
+          root.z = cameraDir.z;
+          //root.y = 0;
+          //root.z = 0;
+          emoticonRoot.transform.forward = root;*/
+        /* Vector3 clampedTargetPos = new Vector3(camera.x, transform.position.y, camera.z);
+         transform.LookAt(clampedTargetPos);*/
+        Vector3 dir = camera - gameObject.transform.position;
+        if (dir != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+            emoticonRoot.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        }
     }
 
     public void SetEmoticon(Sprite sprite)

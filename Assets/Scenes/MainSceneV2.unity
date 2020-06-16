@@ -8054,6 +8054,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: F_civilian_15
       objectReference: {fileID: 0}
+    - target: {fileID: 3006537047164255265, guid: 0c12287411956ed49b87110437da1eb1,
+        type: 3}
+      propertyPath: runSpeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c12287411956ed49b87110437da1eb1, type: 3}
 --- !u!4 &318869478 stripped
@@ -15762,6 +15767,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1568980186}
     m_Modifications:
+    - target: {fileID: 5632196514038955076, guid: 8360c761e42ad7946b658a92b637e81a,
+        type: 3}
+      propertyPath: runSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8692462890950657828, guid: 8360c761e42ad7946b658a92b637e81a,
         type: 3}
       propertyPath: m_Name
@@ -17299,7 +17309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061584872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.05, y: -0.33, z: -13.58}
+  m_LocalPosition: {x: -1.05, y: -0.33, z: -13.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1029711444}
@@ -17681,8 +17691,8 @@ MonoBehaviour:
   emoticons:
   - {fileID: 21300000, guid: dab38706c2eab46f6a6ab916dcab9151, type: 3}
   - {fileID: 21300000, guid: dab38706c2eab46f6a6ab916dcab9151, type: 3}
-  - {fileID: 21300000, guid: 5ffca87b781e59540b468f2a79eaf530, type: 3}
-  - {fileID: 21300000, guid: 6ae70a45791975f48b1bcab0f02e2179, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   showEmoticons: 1
   oddsOfSettingEmoticon: 1
   player: {fileID: 1797348566}
@@ -18139,6 +18149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641666323462256547, guid: 2c8602589bf93ec4590563f6c8990820,
+        type: 3}
+      propertyPath: runSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2641666323462404015, guid: 2c8602589bf93ec4590563f6c8990820,
         type: 3}

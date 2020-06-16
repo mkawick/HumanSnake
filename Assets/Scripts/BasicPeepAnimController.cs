@@ -79,6 +79,11 @@ public class BasicPeepAnimController : MonoBehaviour
         }
     }
 
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
     void SaveInitialState()
     {
         var tp = gameObject.GetComponent<TrappedPerson2>();

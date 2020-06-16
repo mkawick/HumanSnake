@@ -61,9 +61,7 @@ public class Level : MonoBehaviour
 
     public void SetupPlayerStart(BasicPeepAnimController go)
     {
-        Vector3 pos =( playerStartPosition.position);
-        BasicPeepAnimController nma = go.GetComponent<BasicPeepAnimController>();
-        nma.transform.position = pos;
+        go.SetPosition(playerStartPosition.position);
     }
 
     public List<TrappedPerson2> GetTrappedPeople()

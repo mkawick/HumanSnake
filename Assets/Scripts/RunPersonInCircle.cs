@@ -109,7 +109,8 @@ public class RunPersonInCircle : MonoBehaviour
         {
             return;
         }
-        if(Utils.GetChildWithName(transform.gameObject, "Bum") != null)
+        bum = Utils.GetChildWithName(transform.gameObject, "Bum");
+        if (bum != null)
         {
             return;
         }

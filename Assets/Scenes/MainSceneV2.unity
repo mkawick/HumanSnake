@@ -14517,9 +14517,28 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 1678745416, guid: 5eb2762cf0fb95e4e8e0c55dbd400029, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1678745418, guid: 5eb2762cf0fb95e4e8e0c55dbd400029, type: 3}
       propertyPath: minimalRangeCheckToMove
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644357526732972070, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
+        type: 3}
+      propertyPath: runSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644357526732972070, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
+        type: 3}
+      propertyPath: isLoggingEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644357526732972070, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
+        type: 3}
+      propertyPath: isPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7644357527338022515, guid: 5eb2762cf0fb95e4e8e0c55dbd400029,
         type: 3}

@@ -87,9 +87,12 @@ public class GameManager : MonoBehaviour
     internal void PlayFail(RunPersonInCircle person)
     {
         failureText.gameObject.SetActive(true);
-        peepsForFailure.Add(person);
-        person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
-        person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+        if (person)
+        {
+            peepsForFailure.Add(person);
+            person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
+            person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+        }
 
         // slight delay
         // zoom camera

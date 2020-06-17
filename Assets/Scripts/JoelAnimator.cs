@@ -5,10 +5,10 @@ using UnityEngine.UIElements;
 
 public class JoelAnimator : BasicPeepAnimController
 {
-    Animation animation;
+    //Animation animation;
     protected override void GrabAnimator()
     {
-        animation = GetComponent<Animation>();
+        //animation = GetComponent<Animation>();
     }
 
     internal override void PlayAnim(AnimationPlay clip)
@@ -16,35 +16,35 @@ public class JoelAnimator : BasicPeepAnimController
         switch (clip)
         {
             case AnimationPlay.Walk:
-                animation.CrossFade("Walk");
+                GetComponent<Animation>().CrossFade("Walk");
                 break;
             case AnimationPlay.Hit:
-                animation.CrossFade("Hit");
+                GetComponent<Animation>().CrossFade("Hit");
                 break;
             case AnimationPlay.Attack:
-                animation.CrossFade("Attack");
+                GetComponent<Animation>().CrossFade("Attack");
                 break;
             case AnimationPlay.Jump:
-                animation.CrossFade("JumpA");
+                GetComponent<Animation>().CrossFade("JumpA");
                 break;
             // missing a few
             case AnimationPlay.Wave:
-                animation.CrossFade("Idle");
+                GetComponent<Animation>().CrossFade("Idle");
                 break;
             case AnimationPlay.Run:
-                animation.CrossFade("Run");
+                GetComponent<Animation>().CrossFade("Run");
                 break;
             case AnimationPlay.Idle:
-                animation.CrossFade("Idle");
+                GetComponent<Animation>().CrossFade("Idle");
                 break;
             case AnimationPlay.Dodge:
-                animation.CrossFade("Dodge");
+                GetComponent<Animation>().CrossFade("Dodge");
                 break;
             case AnimationPlay.Damage:
-                animation.CrossFade("Damage");
+                GetComponent<Animation>().CrossFade("Damage");
                 break;
             case AnimationPlay.Death:
-                animation.CrossFade("Death");
+                GetComponent<Animation>().CrossFade("Death");
                 break;
         }
     }
@@ -57,19 +57,19 @@ public class JoelAnimator : BasicPeepAnimController
     {
         if (Input.GetKey(KeyCode.R))
         {
-            animation.CrossFade("Run");
+            GetComponent<Animation>().CrossFade("Run");
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            animation.CrossFade("Walk");
+            GetComponent<Animation>().CrossFade("Walk");
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            animation.CrossFade("Idle");
+            GetComponent<Animation>().CrossFade("Idle");
         }
         else if (Input.GetKey(KeyCode.V))
         {
-            animation.CrossFade("Idle");
+            GetComponent<Animation>().CrossFade("Idle");
         }
      /*   else if(Input.GetMouseButton((int)MouseButton.LeftMouse))
         {

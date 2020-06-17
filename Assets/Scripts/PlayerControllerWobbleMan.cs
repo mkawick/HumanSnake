@@ -13,6 +13,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
     BasicPeepAnimController control;
     public float minimalRangeCheckToMove = 0.01f;
     bool isButtonHeld = false;
+    private Vector3 currentDirection = new Vector3();
     private void Start()
     {
         control = GetComponent<BasicPeepAnimController>();
@@ -52,11 +53,16 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         vect.y = 0;// this.transform.position.y;
         if ((vect - lastFingerPosition).magnitude < minimalRangeCheckToMove) // todo, turn into a range check... slow moving or small movements should be ignored
         {
-            StopInPlace();
+
+            // CIC changing the controller to continue moving on direction even if mouse is down
+            control.MovePlayer(transform.position + currentDirection );
+            
+            //StopInPlace();
 
             return;
         }
         Vector3 dir = (vect - lastFingerPosition).normalized;
+        currentDirection = dir;
         control.MovePlayer(transform.position + dir*2);
         lastFingerPosition = vect;
     }

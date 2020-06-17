@@ -6,7 +6,7 @@ public class Route2Follower : MonoBehaviour
 {
     Route2.TrackingValues tracking = new Route2.TrackingValues();
     [SerializeField]
-    Route2 routeToFollow;
+    Route2 routeToFollow = null;
     public float speed = 1;
 
     [Tooltip("direction: either 1 or -1"), Range(-1,1)]

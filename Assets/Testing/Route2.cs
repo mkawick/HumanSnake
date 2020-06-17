@@ -7,7 +7,7 @@ using UnityEngine;
 public class Route2 : MonoBehaviour
 {
     [SerializeField]
-    Transform[] controlPoints;
+    Transform[] controlPoints = null;
     private Vector3 gizmosPosition;
 
     public enum PathType

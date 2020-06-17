@@ -25,7 +25,7 @@ public class PeepManager : MonoBehaviour
     internal LevelManager levelManager;
 
     [SerializeField]
-    GameObject floorCircle;
+    GameObject floorCircle = null;
 
     enum PeepStateColors
     {

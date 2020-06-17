@@ -41,6 +41,17 @@ public class Level : MonoBehaviour
             }
         }
     }
+    public void ResetObjects()
+    {
+        var objectesToRestore = GetComponentsInChildren<ObjectSavesPosition>();
+        if (objectesToRestore != null && objectesToRestore.Length > 0)
+        {
+            foreach (var objectToRestore in objectesToRestore)
+            {
+                objectToRestore.Reset();
+            }
+        }
+    }
 
     public void EnableExit()
     {

@@ -72,6 +72,7 @@ public class LevelManager : MonoBehaviour
         }
 
         levels[currentLevel].ResetDoors();
+        levels[currentLevel].ResetObjects();
         levels[currentLevel].SetupPlayerStart(player.GetComponent<BasicPeepAnimController>());
         levels[currentLevel].gameObject.SetActive(true);
         levels[currentLevel].SetPeepManager(peepManager);

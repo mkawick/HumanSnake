@@ -7,7 +7,7 @@ using UnityEngine;
 public class FlamingWall : MonoBehaviour
 {
     [SerializeField]
-    ParticleSystem[] psflames;
+    ParticleSystem[] psflames = null;
     [SerializeField, Range(0.21f, 3f)]
     float spawnDensity = 1;
     float markerRadius = 0.15f;

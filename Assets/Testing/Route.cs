@@ -6,7 +6,7 @@ using UnityEngine;
 public class Route : MonoBehaviour
 {
     [SerializeField]
-    Transform[] controlPoints;
+    Transform[] controlPoints = null;
     private Vector3 gizmosPosition;
 
     [SerializeField]

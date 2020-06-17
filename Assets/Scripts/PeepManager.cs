@@ -107,7 +107,7 @@ public class PeepManager : MonoBehaviour
                     {
                         //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.FollowingPlayerSafe];
-                       //CIC  if (sprite != null)
+                       // CIC if (sprite != null)
                             tp.SetEmoticon(sprite);
                     }
                     break;
@@ -115,7 +115,7 @@ public class PeepManager : MonoBehaviour
                     {
                         //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.ExitedBuilding];
-                        if (sprite != null)
+                        //CIC if (sprite != null)
                             tp.SetEmoticon(sprite);
                     }
                     break;

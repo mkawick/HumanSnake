@@ -7442,6 +7442,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936985989}
     m_Modifications:
+    - target: {fileID: 637429954761307721, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 47960bff762d2064d8d7133bccb25ca4, type: 2}
     - target: {fileID: 637429954761307722, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7516,6 +7521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: showDoorNumber
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: isClosable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 637429955316442928, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
@@ -11174,6 +11184,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1936985989}
     m_Modifications:
+    - target: {fileID: 637429954761307721, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: de13e1fd9cd48ee4c9ba6f42b1c9f1d0, type: 2}
     - target: {fileID: 637429954761307722, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_LocalPosition.x

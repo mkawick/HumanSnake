@@ -5951,6 +5951,11 @@ PrefabInstance:
       propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 637429955316442941, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1257769212716058229, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_Mesh
@@ -21608,6 +21613,11 @@ PrefabInstance:
       propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 637429955316442941, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1257769212716058229, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_Mesh
@@ -23404,6 +23414,11 @@ PrefabInstance:
       propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 637429955316442941, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1257769212716058229, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_Mesh
@@ -23853,6 +23868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: showDoorNumber
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637429955316442941, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1257769212716058229, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}

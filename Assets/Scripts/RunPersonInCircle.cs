@@ -35,6 +35,7 @@ public class RunPersonInCircle : MonoBehaviour
     public void InitForRunning(Transform pivot, Transform initialDirection, List<ParticleSystem>  psFailEnding)
     {
         timeToStart = Time.time + 0.2f;
+        SetupBumPosition();// must be here, relative to location before moving
 
         this.transform.position = initialDirection.position;
         this.transform.rotation = initialDirection.rotation;
@@ -48,7 +49,7 @@ public class RunPersonInCircle : MonoBehaviour
         isRunningPeepAPlayer = this.GetComponent<BasicPeepAnimController>().isPlayer;
         this.GetComponent<BasicPeepAnimController>().isPlayer = false;
 
-        SetupBumPosition();
+        
         foreach (var ps in psFailEnding)
         {
             this.AttachParticleEffect(ps);
@@ -117,8 +118,12 @@ public class RunPersonInCircle : MonoBehaviour
         root = Utils.GetChildWithName(transform.gameObject, "Root");
         if(root == null)
         {
-            root = CreateNode("Root", this.transform);
-            root.transform.position = new Vector3(0, 0, 0);
+            root = Utils.GetChildWithName(transform.gameObject, "FloorCircle");
+            if (root == null)
+            {
+                root = CreateNode("Root", this.transform);
+                root.transform.position = new Vector3(0, 0, 0);
+            }
         }
         bum = Utils.GetChildWithName(root, "Bum");
         if (bum != null)

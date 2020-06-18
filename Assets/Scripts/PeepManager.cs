@@ -159,15 +159,15 @@ public class PeepManager : MonoBehaviour
 
     void CleanupFromDancing()
     {
-       /* foreach (var peep in peeps)
+        foreach (var peep in peeps)
         {
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
-                DancingController dc = peep.GetComponent<DancingController>();
-                ObjectSavesPosition
+                peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
+                dc.enabled = false;
             }
-        }*/
+        }
     }
 
     public float DistanceToPlayer(int indexInSnake)

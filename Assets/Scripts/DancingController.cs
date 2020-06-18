@@ -39,4 +39,11 @@ public class DancingController : MonoBehaviour
             timeUntilStateChange = Time.time + UnityEngine.Random.value * range + timeMinInState;
         }
     }
+
+    internal void PrepToDance(Vector3 position, Vector3 facingLocation, float timeForDance)
+    {
+        this.transform.position = position;
+        this.transform.LookAt(facingLocation);
+        this.StartDancing();
+    }
 }

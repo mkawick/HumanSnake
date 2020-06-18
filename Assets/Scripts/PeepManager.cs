@@ -26,6 +26,7 @@ public class PeepManager : MonoBehaviour
 
     [SerializeField]
     GameObject floorCircle = null;
+    float timeWhenDancingEnds = 0;
 
     enum PeepStateColors
     {
@@ -140,24 +141,28 @@ public class PeepManager : MonoBehaviour
         }
     }
 
-    public void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList)
+    internal void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList, float timeEnds)
     {
-        float timeForDance = 3;
         peeps = peepList;
         foreach (var peep in peeps)
         {
-            Vector3 position;
+            Vector3 position = UnityEngine.Random.onUnitSphere;
+            position.y = 0;
+            float dist = Random.Range(1, 4);
+            position *= dist; 
+            position += centerSpot;
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
                 peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
                 dc.enabled = true;
-                //dc.PrepToDance(position, facingLocation, timeForDance);
+                dc.PrepToDance(position, facingLocation, timeEnds);
             }
         }
+        timeWhenDancingEnds = timeEnds;
     }
 
-    void CleanupFromDancing()
+    internal void CleanupFromDancing()
     {
         foreach (var peep in peeps)
         {

@@ -110,7 +110,7 @@ public class LevelManager : MonoBehaviour
         gameManager.PlayEnd(celebrationCameraSpot);
 
         GameObject celebrationDancingSpot = Utils.GetChildWithName(levels[currentLevel].gameObject, "EndOfSceneDancingSpot");
-        peepManager.MakeEveryoneDance(celebrationDancingSpot.transform.position, celebrationCameraSpot.transform.position, levels[currentLevel].GetTrappedPeople());
+        peepManager.MakeEveryoneDance(celebrationDancingSpot.transform.position, celebrationCameraSpot.transform.position, levels[currentLevel].GetTrappedPeople(), timeWhenICanTransition);
     }
 
     void FinishLevelTransitionToNewLevel()
@@ -128,6 +128,7 @@ public class LevelManager : MonoBehaviour
             }
             
             levelState = LevelState.Start;
+            peepManager.CleanupFromDancing();
         }
     }
 }

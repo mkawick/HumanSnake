@@ -101,12 +101,13 @@ public class LevelManager : MonoBehaviour
 
     void FinishLevel()
     {
+        GameObject celebrationCameraSpot = Utils.GetChildWithName(levels[currentLevel].gameObject, "EndOfSceneCameraSpot");
         // lock level
         timeWhenICanTransition = Time.time + 5;
         
         // celebration
         levelState = LevelState.Preload;
-        gameManager.PlayEnd();
+        gameManager.PlayEnd(celebrationCameraSpot);
     }
 
     void FinishLevelTransitionToNewLevel()

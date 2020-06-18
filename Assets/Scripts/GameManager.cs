@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public ParticleSystem[] psFailEnding;
     public ParticleSystem successFanfare;
     private Vector3 normalCameraPosition;
+    private Quaternion normalCameraRotation;
 
     public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         StartNewLevel();
         normalCameraPosition = Camera.main.transform.position;
+        normalCameraRotation = Camera.main.transform.rotation;
         peepsForFailure = new List<RunPersonInCircle>();
     }
 
@@ -45,8 +47,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayEnd()
+    public void PlayEnd(GameObject tempCameraSpot)
     {
+        if(tempCameraSpot != null)
+        {
+            Camera.main.transform.position = tempCameraSpot.transform.position;
+            Camera.main.transform.rotation = tempCameraSpot.transform.rotation;
+        }
         /*
         var main = successFanfare.main;
         main.duration = 1.0f;
@@ -68,6 +75,8 @@ public class GameManager : MonoBehaviour
 
         failureText.gameObject.SetActive(false);
         successText.gameObject.SetActive(false);
+        Camera.main.transform.position = normalCameraPosition;
+        Camera.main.transform.rotation = normalCameraRotation;
     }
 
 
@@ -115,5 +124,6 @@ public class GameManager : MonoBehaviour
 
         levelManager.ResetLevel();
         Camera.main.transform.position = normalCameraPosition;
+        Camera.main.transform.rotation = normalCameraRotation;
     }
 }

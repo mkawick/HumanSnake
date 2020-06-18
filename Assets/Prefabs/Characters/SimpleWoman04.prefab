@@ -11308,6 +11308,7 @@ GameObject:
   - component: {fileID: 6786895328466244939}
   - component: {fileID: 6786895328466244948}
   - component: {fileID: 8974487577054868908}
+  - component: {fileID: -1406277547015475272}
   m_Layer: 8
   m_Name: SimpleWoman04
   m_TagString: Untagged
@@ -11466,6 +11467,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointAround: {fileID: 0}
+--- !u!114 &-1406277547015475272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6786895328466429770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b89f70f58970d4c82990f136b15b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeMinInState: 0.25
+  timeMaxInState: 0.75
 --- !u!1 &6786895328466431196
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class DeadlyTrap : MonoBehaviour
     }
     private void OnCollisionEnter(Collision hit)
     {
-        //Debug.Log("entered");
+        Debug.Log("entered");
         var person = hit.gameObject.GetComponent<TrappedPerson2>();
         if(levelThatOwnsMe != null && person != null)
         {

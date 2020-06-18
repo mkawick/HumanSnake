@@ -101,7 +101,8 @@ public class DoorScript : MonoBehaviour
                 if (isOpen == true)
                     return;
             }
-            animator.SetTrigger(direction);
+            if(animator)
+                animator.SetTrigger(direction);
             isOpen = true;
         }
         else if (direction == "CloseTrigger")
@@ -111,7 +112,8 @@ public class DoorScript : MonoBehaviour
                 if (isOpen == false || isClosable == false)
                     return;
             }
-            animator.SetTrigger(direction);
+            if(animator)
+                animator.SetTrigger(direction);
             isOpen = false;
         }
         

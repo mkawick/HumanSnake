@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b843f7b9a902b448aa58d9c6511696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1
+  runSpeed: 5
   minimumMoveRange: 0.1
   maximumRotationPerFrame: 0.01
   isPlayer: 0

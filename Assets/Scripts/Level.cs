@@ -70,7 +70,7 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void SetupPlayerStart(BasicPeepAnimController go)
+    public void SetupPlayerStart(JoelAnimator go)
     {
         go.SetPosition(playerStartPosition.position);
     }

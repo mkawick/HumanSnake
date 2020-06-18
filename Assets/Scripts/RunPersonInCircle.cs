@@ -115,17 +115,28 @@ public class RunPersonInCircle : MonoBehaviour
             return;
         }
         root = Utils.GetChildWithName(transform.gameObject, "Root");
+        if(root == null)
+        {
+            root = CreateNode("Root", this.transform);
+            root.transform.position = new Vector3(0, 0, 0);
+        }
         bum = Utils.GetChildWithName(root, "Bum");
-        //bum = root;
         if (bum != null)
         {
             return;
         }
         Debug.Assert(root != null);
-        bum = new GameObject();
-        bum.transform.parent = root.transform;
-        bum.name = "Bum";
+        bum = CreateNode("Bum", root.transform);
         bum.transform.position = new Vector3(0, 0.45f, -0.3f);
+    }
+
+
+    GameObject CreateNode(string name, Transform parent)
+    {
+        GameObject obj = new GameObject();
+        obj.transform.parent = parent.transform;
+        obj.name = name;
+        return obj;
     }
 
     internal void AttachParticleEffect(ParticleSystem ps)

@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 5632196514038955076}
   - component: {fileID: -349814683422644867}
   - component: {fileID: 8657029777018583241}
+  - component: {fileID: 3818471196836119508}
   m_Layer: 8
   m_Name: SimpleMan01
   m_TagString: Untagged
@@ -348,8 +349,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8692462890950657828}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.00000028088027}
-  m_LocalPosition: {x: -2.37, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8692462890950945124}
@@ -515,6 +516,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeMinInState: 0.25
   timeMaxInState: 0.75
+--- !u!114 &3818471196836119508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692462890950657828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4902863478ead40b3498675b0d7a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8692462890950658408
 GameObject:
   m_ObjectHideFlags: 0

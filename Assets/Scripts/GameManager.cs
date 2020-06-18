@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartNewLevel();
         normalCameraPosition = Camera.main.transform.position;
         normalCameraRotation = Camera.main.transform.rotation;
+
+        StartNewLevel();
+        
         peepsForFailure = new List<RunPersonInCircle>();
     }
 

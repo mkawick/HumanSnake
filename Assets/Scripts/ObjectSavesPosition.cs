@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectSavesPosition : MonoBehaviour
 {
-    private Vector3 position;
+    Vector3 position;
     Quaternion rotation;
     // Start is called before the first frame update
     void Start()

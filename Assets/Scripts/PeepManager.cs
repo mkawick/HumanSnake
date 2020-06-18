@@ -140,6 +140,36 @@ public class PeepManager : MonoBehaviour
         }
     }
 
+    public void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList)
+    {
+        float timeForDance = 3;
+        peeps = peepList;
+        foreach (var peep in peeps)
+        {
+            Vector3 position;
+            DancingController dc = peep.GetComponent<DancingController>();
+            if (dc)
+            {
+                peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+                dc.enabled = true;
+                //dc.PrepToDance(position, facingLocation, timeForDance);
+            }
+        }
+    }
+
+    void CleanupFromDancing()
+    {
+       /* foreach (var peep in peeps)
+        {
+            DancingController dc = peep.GetComponent<DancingController>();
+            if (dc)
+            {
+                DancingController dc = peep.GetComponent<DancingController>();
+                ObjectSavesPosition
+            }
+        }*/
+    }
+
     public float DistanceToPlayer(int indexInSnake)
     {
         float addedDist = indexInSnake * increasedRangeWithEachFollower;

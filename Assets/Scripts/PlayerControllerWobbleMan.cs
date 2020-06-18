@@ -56,7 +56,7 @@ public class PlayerControllerWobbleMan : MonoBehaviour
         {
 
             // CIC changing the controller to continue moving on direction even if mouse is down
-            Debug.Log(currentDirection);
+            //Debug.Log(currentDirection);
             control.MovePlayer(transform.position + currentDirection );
             
             //StopInPlace();

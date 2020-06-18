@@ -89,9 +89,12 @@ public class GameManager : MonoBehaviour
         failureText.gameObject.SetActive(true);
         if (person)
         {
-            peepsForFailure.Add(person);
-            person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
-            person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+            if (peepsForFailure.Find(item => item==person ) == null)
+            {
+                peepsForFailure.Add(person);
+                person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
+                person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+            }
         }
 
         // slight delay

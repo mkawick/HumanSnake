@@ -7743,7 +7743,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -37054,7 +37054,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -37349,7 +37349,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43599,7 +43599,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44294,7 +44294,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -45257,7 +45257,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -47695,7 +47695,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -55157,7 +55157,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerStartPosition
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -57019,7 +57019,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndOfSceneDancingSpot
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -57611,7 +57611,7 @@ GameObject:
   m_Layer: 0
   m_Name: EndOfSceneCameraSpot
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -57623,7 +57623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834293651}
   m_LocalRotation: {x: -0, y: -0.40920463, z: -0, w: 0.9124427}
-  m_LocalPosition: {x: 9.231, y: 2.867, z: 14.119}
+  m_LocalPosition: {x: 11.26, y: 2.867, z: 12.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1368533910}
@@ -62164,9 +62164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 1368533911}
-  - {fileID: 1029711443}
-  - {fileID: 2043549858}
-  - {fileID: 64072284}
   player: {fileID: 1797348557}
   peepManager: {fileID: 1107837590}
   gameManager: {fileID: 1276927563}

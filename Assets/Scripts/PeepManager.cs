@@ -148,7 +148,7 @@ public class PeepManager : MonoBehaviour
         {
             Vector3 position = UnityEngine.Random.onUnitSphere;
             position.y = 0;
-            float dist = Random.Range(1, 4);
+            float dist = Random.Range(3, 5);
             position *= dist; 
             position += centerSpot;
             DancingController dc = peep.GetComponent<DancingController>();

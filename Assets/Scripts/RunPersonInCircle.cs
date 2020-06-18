@@ -60,6 +60,7 @@ public class RunPersonInCircle : MonoBehaviour
     {
         this.GetComponent<BasicPeepAnimController>().isPlayer = isRunningPeepAPlayer;
         this.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
+        //this.GetComponent<BasicPeepAnimController>().SetTarget(this.GetComponent<BasicPeepAnimController>().transform.position);
 
         this.RemoveAllParticleEffects();
         this.enabled = false;

@@ -73,6 +73,7 @@ public class Level : MonoBehaviour
     public void SetupPlayerStart(JoelAnimator go)
     {
         go.SetPosition(playerStartPosition.position);
+        go.SetTarget(playerStartPosition.position);
     }
 
     public List<TrappedPerson2> GetTrappedPeople()

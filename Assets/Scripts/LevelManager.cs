@@ -96,6 +96,7 @@ public class LevelManager : MonoBehaviour
     public void ResetLevel()
     {
         levelState = LevelState.Start;
+        levels[currentLevel].SetupPlayerStart(player.GetComponent<JoelAnimator>());
     }
 
     void FinishLevel()

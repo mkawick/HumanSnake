@@ -51,10 +51,12 @@ public class PlayerControllerWobbleMan : MonoBehaviour
     void MoveInDirection(Vector3 vect)
     {
         vect.y = 0;// this.transform.position.y;
-        if ((vect - lastFingerPosition).magnitude < minimalRangeCheckToMove) // todo, turn into a range check... slow moving or small movements should be ignored
+        float dist = (vect - lastFingerPosition).magnitude;
+        if ( dist < minimalRangeCheckToMove) // todo, turn into a range check... slow moving or small movements should be ignored
         {
 
             // CIC changing the controller to continue moving on direction even if mouse is down
+            Debug.Log(currentDirection);
             control.MovePlayer(transform.position + currentDirection );
             
             //StopInPlace();
@@ -62,6 +64,9 @@ public class PlayerControllerWobbleMan : MonoBehaviour
             return;
         }
         Vector3 dir = (vect - lastFingerPosition).normalized;
+        if (dir == Vector3.up)
+            return;
+
         currentDirection = dir;
         control.MovePlayer(transform.position + dir*2);
         lastFingerPosition = vect;

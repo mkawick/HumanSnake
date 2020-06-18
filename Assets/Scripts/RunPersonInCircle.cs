@@ -45,8 +45,8 @@ public class RunPersonInCircle : MonoBehaviour
         this.enabled = true;
 
         this.pointAround = pivot;
-        isRunningPeepAPlayer = this.GetComponent<BasicPeepAnimController>().isPlayer;
-        this.GetComponent<BasicPeepAnimController>().isPlayer = false;
+        isRunningPeepAPlayer = this.GetComponent<BasicTTPeepAnimController>().isPlayer;
+        this.GetComponent<BasicTTPeepAnimController>().isPlayer = false;
 
         SetupBumPosition();
         foreach (var ps in psFailEnding)
@@ -57,8 +57,8 @@ public class RunPersonInCircle : MonoBehaviour
 
     public void RestoreAfterRunning()
     {
-        this.GetComponent<BasicPeepAnimController>().isPlayer = isRunningPeepAPlayer;
-        this.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
+        this.GetComponent<BasicTTPeepAnimController>().isPlayer = isRunningPeepAPlayer;
+        this.GetComponent<BasicTTPeepAnimController>().EnableControllerComponents(true);
 
         this.RemoveAllParticleEffects();
         this.enabled = false;

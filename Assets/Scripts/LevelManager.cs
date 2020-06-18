@@ -71,12 +71,13 @@ public class LevelManager : MonoBehaviour
 
         }
 
+        levels[currentLevel].gameObject.SetActive(true);
+
         levels[currentLevel].ResetDoors();
         levels[currentLevel].ResetObjects();
         levels[currentLevel].SetupPlayerStart(player.GetComponent<BasicPeepAnimController>());
-        levels[currentLevel].gameObject.SetActive(true);
+        
         levels[currentLevel].SetPeepManager(peepManager);
-        // navMesh.BuildNavMesh();
 
         peepManager.NewLevel(levels[currentLevel].GetTrappedPeople());
         peepManager.exitLocation = levels[currentLevel].exitLocation;

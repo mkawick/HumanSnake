@@ -7151,6 +7151,7 @@ GameObject:
   - component: {fileID: 6235448329861774472}
   - component: {fileID: 6235448329861774479}
   - component: {fileID: 6235448329861774478}
+  - component: {fileID: 8877652254653186730}
   m_Layer: 0
   m_Name: M_civilian_15
   m_TagString: Untagged
@@ -7305,6 +7306,19 @@ MonoBehaviour:
   isLoggingEnabled: 0
   slowRotation: 0
   animChangeLagTime: 0.25
+--- !u!114 &8877652254653186730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6235448329861707785}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1e929526115c1429266de09f058bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointAround: {fileID: 0}
 --- !u!1 &6235448329861707965
 GameObject:
   m_ObjectHideFlags: 0

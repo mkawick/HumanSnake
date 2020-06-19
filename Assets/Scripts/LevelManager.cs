@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
+using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
@@ -114,8 +115,9 @@ public class LevelManager : MonoBehaviour
         gameManager.PlayEnd(celebrationCameraSpot);
 
         GameObject celebrationDancingSpot = Utils.GetChildWithName(celebrationSet, "DancingSpots");
-        var spots = celebrationDancingSpot.GetComponentsInChildren<Transform>();
-        Debug.Assert(spots.Length != 0, "missing dancing spots");
+        var spots = GrabSpots(celebrationDancingSpot);
+        Debug.Assert(spots.Count != 0, "missing dancing spots");
+
         GameObject joelDancingSpot = Utils.GetChildWithName(celebrationSet, "JoelDancingSpot");
         Debug.Assert(joelDancingSpot != null, "missing joel dancing spot");
 
@@ -125,6 +127,19 @@ public class LevelManager : MonoBehaviour
             player.GetComponent<JoelAnimator>(),
             joelDancingSpot.transform,
             timeWhenICanTransition);
+    }
+
+    List<Transform> GrabSpots(GameObject parent)
+    {
+        List<Transform> spots = new List<Transform>();
+        foreach (Transform t in parent.GetComponentsInChildren<Transform>())
+        {
+            if (t != parent.gameObject.transform)
+            {
+                spots.Add(t);
+            }
+        }
+        return spots;
     }
 
     void FinishLevelTransitionToNewLevel()

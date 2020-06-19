@@ -141,7 +141,7 @@ public class PeepManager : MonoBehaviour
         }
     }
 
-    internal void MakeEveryoneDance(Transform[] spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
+    internal void MakeEveryoneDance(List<Transform> spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
     {
         peeps = peepList;
         float dist = 9;// Random.Range(1, 5);

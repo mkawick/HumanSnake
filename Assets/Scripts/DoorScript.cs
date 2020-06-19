@@ -96,25 +96,24 @@ public class DoorScript : MonoBehaviour
     {
         if(direction == "OpenTrigger")
         {
-            if (ignoreFlags == false)
+         /*   if (ignoreFlags == false)
             {
                 if (isOpen == true)
                     return;
-            }
+            }*/
             if(animator)
-                animator.SetTrigger(direction);
-            isOpen = true;
+                animator.SetBool("isOpen", true);
+            //isOpen = true;
         }
         else if (direction == "CloseTrigger")
         {
             if (ignoreFlags == false)
             {
-                if (isOpen == false || isClosable == false)
+                if (isClosable == false)
                     return;
             }
             if(animator)
-                animator.SetTrigger(direction);
-            isOpen = false;
+                animator.SetBool("isOpen", false);
         }
         
 

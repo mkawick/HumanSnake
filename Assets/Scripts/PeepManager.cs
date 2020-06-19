@@ -141,14 +141,14 @@ public class PeepManager : MonoBehaviour
         }
     }
 
-    internal void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList, float timeEnds)
+    internal void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList, JoelAnimator player, float timeEnds)
     {
         peeps = peepList;
         foreach (var peep in peeps)
         {
             Vector3 position = UnityEngine.Random.onUnitSphere;
             position.y = 0;
-            float dist = Random.Range(3, 5);
+            float dist = Random.Range(1, 5);
             position *= dist; 
             position += centerSpot;
             DancingController dc = peep.GetComponent<DancingController>();
@@ -159,6 +159,9 @@ public class PeepManager : MonoBehaviour
                 dc.PrepToDance(position, facingLocation, timeEnds);
             }
         }
+
+        player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+        player.gameObject.transform.LookAt(facingLocation);
         timeWhenDancingEnds = timeEnds;
     }
 
@@ -173,6 +176,7 @@ public class PeepManager : MonoBehaviour
                 dc.enabled = false;
             }
         }
+        player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
     }
 
     public float DistanceToPlayer(int indexInSnake)

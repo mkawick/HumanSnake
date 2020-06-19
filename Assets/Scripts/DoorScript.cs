@@ -10,16 +10,15 @@ public class DoorScript : MonoBehaviour
     public GameObject swingAnchor;
     List<TextMeshPro> numberDisplays;
     private Animator animator;
-    bool isOpen = false;
 
     public bool blocksLevelEnd = true;
     bool isTriggerEnabled = false;
     public bool showDoorNumber = true;
     public bool isClosable = false;
 
-    enum AnimClips
+    enum Direction
     {
-        idle, open, close
+        open, close
     }
     void Start()
     {
@@ -32,7 +31,6 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(showDoorNumber == false)
@@ -69,7 +67,7 @@ public class DoorScript : MonoBehaviour
         var player = other.GetComponent<PlayerControllerWobbleMan>();
         if(player != null)
         {
-            OpenDoor("OpenTrigger");
+            OpenDoor(Direction.open);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -77,7 +75,7 @@ public class DoorScript : MonoBehaviour
         var player = other.GetComponent<PlayerControllerWobbleMan>();
         if (player != null)
         {
-            OpenDoor("CloseTrigger");
+            OpenDoor(Direction.close);
         }
     }
 
@@ -89,23 +87,17 @@ public class DoorScript : MonoBehaviour
     internal void Reset()
     {
         isTriggerEnabled = false;
-        OpenDoor("CloseTrigger", true);
+        OpenDoor(Direction.close, true);
     }
 
-    void OpenDoor(string direction, bool ignoreFlags = false)
+    void OpenDoor(Direction direction, bool ignoreFlags = false)
     {
-        if(direction == "OpenTrigger")
+        if(direction == Direction.open)
         {
-         /*   if (ignoreFlags == false)
-            {
-                if (isOpen == true)
-                    return;
-            }*/
             if(animator)
                 animator.SetBool("isOpen", true);
-            //isOpen = true;
         }
-        else if (direction == "CloseTrigger")
+        else if (direction == Direction.close)
         {
             if (ignoreFlags == false)
             {
@@ -115,7 +107,5 @@ public class DoorScript : MonoBehaviour
             if(animator)
                 animator.SetBool("isOpen", false);
         }
-        
-
     }
 }

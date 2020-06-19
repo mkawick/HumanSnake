@@ -144,12 +144,11 @@ public class PeepManager : MonoBehaviour
     internal void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList, JoelAnimator player, float timeEnds)
     {
         peeps = peepList;
+        float dist = 9;// Random.Range(1, 5);
         foreach (var peep in peeps)
         {
-            Vector3 position = UnityEngine.Random.onUnitSphere;
-            position.y = 0;
-            float dist = Random.Range(1, 5);
-            position *= dist; 
+            Vector2 circle = UnityEngine.Random.insideUnitCircle * dist;
+            Vector3 position = new Vector3(circle.x, 0, circle.y);
             position += centerSpot;
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)

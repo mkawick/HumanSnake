@@ -18,8 +18,6 @@ public class LevelManager : MonoBehaviour
     public bool enableTransitionToNewLevels = true;
     [SerializeField]
     bool levelsLoop = false;
-    [SerializeField]
-    float timeForDancing = 5;
     // Start is called before the first frame update
     GameObject celebrationSet;
 
@@ -110,7 +108,7 @@ public class LevelManager : MonoBehaviour
         GameObject celebrationCameraSpot = Utils.GetChildWithName(celebrationSet, "EndOfSceneCameraSpot");
         Debug.Assert(celebrationSet != null, "missing camera spot");
         // lock level
-        timeWhenICanTransition = Time.time + timeForDancing;
+        timeWhenICanTransition = Time.time + gameManager.playSuccessTime;
         
         // celebration
         levelState = LevelState.Preload;

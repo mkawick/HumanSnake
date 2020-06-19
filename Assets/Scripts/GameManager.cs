@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("End Game FX")]
     public float playFailTime = 3.0f;
+    public float playSuccessTime = 5.0f;
     public GameObject WellDone;
     public ParticleSystem[] psFailEnding;
     public ParticleSystem successFanfare;

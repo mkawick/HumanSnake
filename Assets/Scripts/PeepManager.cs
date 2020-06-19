@@ -141,26 +141,30 @@ public class PeepManager : MonoBehaviour
         }
     }
 
-    internal void MakeEveryoneDance(Vector3 centerSpot, Vector3 facingLocation, List<TrappedPerson2> peepList, JoelAnimator player, float timeEnds)
+    internal void MakeEveryoneDance(Transform[] spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
     {
         peeps = peepList;
         float dist = 9;// Random.Range(1, 5);
+        int index = 0;
         foreach (var peep in peeps)
         {
-            Vector2 circle = UnityEngine.Random.insideUnitCircle * dist;
+           /* Vector2 circle = UnityEngine.Random.insideUnitCircle * dist;
             Vector3 position = new Vector3(circle.x, 0, circle.y);
-            position += centerSpot;
+            position += centerSpot;*/
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
                 peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
                 dc.enabled = true;
-                dc.PrepToDance(position, facingLocation, timeEnds);
+                dc.PrepToDance(spots[index].position, spots[index].rotation, timeEnds);
             }
+            index++;
         }
 
         player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
-        player.gameObject.transform.LookAt(facingLocation);
+        player.transform.position = joelDancingSpot.position;
+        player.transform.rotation = joelDancingSpot.rotation;
+        //player.gameObject.transform.LookAt(facingLocation);
         timeWhenDancingEnds = timeEnds;
     }
 

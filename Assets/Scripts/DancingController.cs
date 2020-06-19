@@ -40,11 +40,11 @@ public class DancingController : MonoBehaviour
         }
     }
 
-    internal void PrepToDance(Vector3 position, Vector3 facingLocation, float timeForDance)
+    internal void PrepToDance(Vector3 position, Quaternion direction, float timeForDance)
     {
         GetComponent<BasicPeepAnimController>().SetTarget(position);
         this.transform.position = position;
-        this.transform.LookAt(facingLocation);
+        this.transform.rotation = direction;
         this.StartDancing();
     }
 }

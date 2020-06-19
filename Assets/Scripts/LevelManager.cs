@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     bool levelsLoop = false;
     // Start is called before the first frame update
+    GameObject celebrationSet;
 
     enum LevelState
     {
@@ -30,6 +31,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         peepManager.levelManager = this;
+        celebrationSet = Utils.GetChildWithName(this.gameObject, "HappyEndingSet");
+        Debug.Assert(celebrationSet != null, "the happyendingset must be placed under levels for the game to work");
     }
 
     // Update is called once per frame
@@ -101,7 +104,8 @@ public class LevelManager : MonoBehaviour
 
     void FinishLevel()
     {
-        GameObject celebrationCameraSpot = Utils.GetChildWithName(levels[currentLevel].gameObject, "EndOfSceneCameraSpot");
+        GameObject celebrationCameraSpot = Utils.GetChildWithName(celebrationSet, "EndOfSceneCameraSpot");
+        Debug.Assert(celebrationSet != null, "missing camera spot");
         // lock level
         timeWhenICanTransition = Time.time + 5;
         
@@ -109,11 +113,17 @@ public class LevelManager : MonoBehaviour
         levelState = LevelState.Preload;
         gameManager.PlayEnd(celebrationCameraSpot);
 
-        GameObject celebrationDancingSpot = Utils.GetChildWithName(levels[currentLevel].gameObject, "EndOfSceneDancingSpot");
-        peepManager.MakeEveryoneDance(celebrationDancingSpot.transform.position, 
-            celebrationCameraSpot.transform.position, 
+        GameObject celebrationDancingSpot = Utils.GetChildWithName(celebrationSet, "DancingSpots");
+        var spots = celebrationDancingSpot.GetComponentsInChildren<Transform>();
+        Debug.Assert(spots.Length != 0, "missing dancing spots");
+        GameObject joelDancingSpot = Utils.GetChildWithName(celebrationSet, "JoelDancingSpot");
+        Debug.Assert(joelDancingSpot != null, "missing joel dancing spot");
+
+        peepManager.MakeEveryoneDance(
+            spots, 
             levels[currentLevel].GetTrappedPeople(), 
-            player.GetComponent<JoelAnimator>(), 
+            player.GetComponent<JoelAnimator>(),
+            joelDancingSpot.transform,
             timeWhenICanTransition);
     }
 

@@ -110,6 +110,8 @@ public class PeepManager : MonoBehaviour
         GameObject joelDancingSpot = null;
         levelManager.GetFailSpots(ref joelDancingSpot);
         player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+        player.GetComponent<BasicPeepAnimController>().StopPlayer();
+
         player.transform.position = joelDancingSpot.transform.position;
         player.transform.rotation = joelDancingSpot.transform.rotation;
         timeWhenStateEnds = gameManager.playFailTime + Time.time;
@@ -118,6 +120,7 @@ public class PeepManager : MonoBehaviour
     internal void CleanupFromFailure()
     {
         player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
+        player.GetComponent<BasicPeepAnimController>().StopPlayer();
     }
 
     public void ChangeState(TrappedPerson2 tp, TrappedPerson2.State currentState)

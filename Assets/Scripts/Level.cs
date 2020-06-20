@@ -119,12 +119,8 @@ public class Level : MonoBehaviour
         }
     }
 
-    internal void PersonDied(TrappedPerson2 person)
+    internal void PersonDied()
     {
-        peepManager.PersonDied(person);
-    }
-    internal void PersonDied(RunPersonInCircle person)
-    {
-        peepManager.gameManager.PlayFail(person);
+        peepManager.PersonDied();
     }
 }

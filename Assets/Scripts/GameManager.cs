@@ -24,16 +24,23 @@ public class GameManager : MonoBehaviour
     public Transform runAroundPosition, runAroundStartPosition, cameraOffsetToPlayFail;
 
     public GameObject failureText, successText;
+    public Camera successCamera, failureCamera;
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        normalCameraPosition = Camera.main.transform.position;
-        normalCameraRotation = Camera.main.transform.rotation;
+        mainCamera = Camera.main;
+        normalCameraPosition = mainCamera.transform.position;
+        normalCameraRotation = mainCamera.transform.rotation;
 
         StartNewLevel();
         
         peepsForFailure = new List<RunPersonInCircle>();
+
+        
+        Debug.Assert(successCamera != null, "successCamera not set");
+        Debug.Assert(failureCamera != null, "failureCamera not set");
     }
 
     // Update is called once per frame
@@ -50,22 +57,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayEnd(GameObject tempCameraSpot)
+    public void PlayEnd()
     {
-        if(tempCameraSpot != null)
-        {
-            Camera.main.transform.position = tempCameraSpot.transform.position;
-            Camera.main.transform.rotation = tempCameraSpot.transform.rotation;
-        }
-        /*
-        var main = successFanfare.main;
-        main.duration = 1.0f;
-        successFanfare.enableEmission = true;
-        //WellDone.gameObject.SetActive(true);
-        //ps.MainModule.Duration = 2.0f;
-        //successFanfare.Play();
-        successText.gameObject.SetActive(true);
-        */
+        Utils.DisableAllCameras();
+        successCamera.gameObject.SetActive(true);
     }
 
     public void StartNewLevel()
@@ -78,15 +73,15 @@ public class GameManager : MonoBehaviour
 
         failureText.gameObject.SetActive(false);
         successText.gameObject.SetActive(false);
-        Camera.main.transform.position = normalCameraPosition;
-        Camera.main.transform.rotation = normalCameraRotation;
+        Utils.DisableAllCameras();
+        mainCamera.gameObject.SetActive(true);
     }
 
 
-    internal void PlayFail(TrappedPerson2 peep)
+   /* internal void PlayFail(TrappedPerson2 peep)
     {
         RunPersonInCircle person;
-        TrappedPerson2 temp = peep;//.GetComponent<TrappedPerson2>();
+       // TrappedPerson2 temp = peep;//.GetComponent<TrappedPerson2>();
         if (temp == null)
         {
             temp = peepManager.GetRandomPeep();
@@ -94,25 +89,13 @@ public class GameManager : MonoBehaviour
         person = temp.GetComponent<RunPersonInCircle>();
 
         PlayFail(person);
-    }
+    }*/
 
-    internal void PlayFail(RunPersonInCircle person)
+    internal void PlayFail()
     {
-        failureText.gameObject.SetActive(true);
-        if (person)
-        {
-            if (peepsForFailure.Find(item => item==person ) == null)
-            {
-                peepsForFailure.Add(person);
-                person.InitForRunning(runAroundPosition, runAroundStartPosition, psFailEnding.ToList());
-                person.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
-            }
-        }
+        Utils.DisableAllCameras();
+        failureCamera.gameObject.SetActive(true);
 
-        // slight delay
-        // zoom camera
-
-        Camera.main.transform.position = cameraOffsetToPlayFail.position;
         // play for 8 seconds
         isWaitingForSequenceGateTime = Time.time + playFailTime;
     }
@@ -126,7 +109,7 @@ public class GameManager : MonoBehaviour
         peepsForFailure.Clear();
 
         levelManager.ResetLevel();
-        Camera.main.transform.position = normalCameraPosition;
-        Camera.main.transform.rotation = normalCameraRotation;
+        /* Camera.main.transform.position = normalCameraPosition;
+         Camera.main.transform.rotation = normalCameraRotation;*/
     }
 }

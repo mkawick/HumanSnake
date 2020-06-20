@@ -26,7 +26,6 @@ public class PeepManager : MonoBehaviour
 
     [SerializeField]
     GameObject floorCircle = null;
-    float timeWhenDancingEnds = 0;
 
     enum PeepStateColors
     {
@@ -41,6 +40,10 @@ public class PeepManager : MonoBehaviour
         FollowingPlayerSafe,
         ExitedBuilding
     }
+
+    bool isWaitingForDancingToEnd = false;
+    bool isWaitingForFailureToEnd = false;
+    float timeWhenStateEnds = 0;
     void Start()
     {
         peeps = new List<TrappedPerson2>();
@@ -77,15 +80,44 @@ public class PeepManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(1) == true)
+        if(Input.GetMouseButtonUp(1) == true)// testing
         {
-            gameManager.PlayFail(GetRandomPeep());
+            gameManager.PlayFail();
+        }
+        if(isWaitingForDancingToEnd == true)
+        {
+            if(timeWhenStateEnds < Time.time)
+            {
+                timeWhenStateEnds = 0;
+                isWaitingForDancingToEnd = false;
+                CleanupFromDancing();
+            }
+        }
+        if (isWaitingForFailureToEnd == true)
+        {
+            if (timeWhenStateEnds < Time.time)
+            {
+                timeWhenStateEnds = 0;
+                isWaitingForFailureToEnd = false;
+                CleanupFromFailure();
+            }
         }
     }
 
-    public void PersonDied(TrappedPerson2 person)
+    public void PersonDied()
     {
-        gameManager.PlayFail(person);
+        gameManager.PlayFail();
+        GameObject joelDancingSpot = null;
+        levelManager.GetFailSpots(ref joelDancingSpot);
+        player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
+        player.transform.position = joelDancingSpot.transform.position;
+        player.transform.rotation = joelDancingSpot.transform.rotation;
+        timeWhenStateEnds = gameManager.playFailTime + Time.time;
+        isWaitingForFailureToEnd = true;
+    }
+    internal void CleanupFromFailure()
+    {
+        player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
     }
 
     public void ChangeState(TrappedPerson2 tp, TrappedPerson2.State currentState)
@@ -98,7 +130,6 @@ public class PeepManager : MonoBehaviour
             {
                 case TrappedPerson2.State.Wandering:
                     {
-                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.WanderingScared];
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.WanderingScared];
                         if (sprite != null)
                             tp.SetEmoticon(sprite);
@@ -106,25 +137,20 @@ public class PeepManager : MonoBehaviour
                     break;
                 case TrappedPerson2.State.FollowPLayer:
                     {
-                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.FollowingPlayerSafe];
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.FollowingPlayerSafe];
-                       // CIC if (sprite != null)
-                            tp.SetEmoticon(sprite);
+                         tp.SetEmoticon(sprite);
                     }
                     break;
                 case TrappedPerson2.State.EndOfLevel:
                     {
-                        //tp.mesh.material = materialsForPeeps[(int)PeepStateColors.ExitedBuilding];
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.ExitedBuilding];
-                        //CIC if (sprite != null)
-                            tp.SetEmoticon(sprite);
+                        tp.SetEmoticon(sprite);
                     }
                     break;
                 case TrappedPerson2.State.Wave:
                     {
                         Sprite sprite = emoticons[(int)PeepStateEmoticons.WavingForHelp];
-                        if (sprite != null)
-                            tp.SetEmoticon(sprite);
+                        tp.SetEmoticon(sprite);
                     }
                     break;
                 default:
@@ -144,13 +170,9 @@ public class PeepManager : MonoBehaviour
     internal void MakeEveryoneDance(List<Transform> spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
     {
         peeps = peepList;
-        float dist = 9;// Random.Range(1, 5);
         int index = 0;
         foreach (var peep in peeps)
         {
-           /* Vector2 circle = UnityEngine.Random.insideUnitCircle * dist;
-            Vector3 position = new Vector3(circle.x, 0, circle.y);
-            position += centerSpot;*/
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
@@ -164,8 +186,9 @@ public class PeepManager : MonoBehaviour
         player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
         player.transform.position = joelDancingSpot.position;
         player.transform.rotation = joelDancingSpot.rotation;
-        //player.gameObject.transform.LookAt(facingLocation);
-        timeWhenDancingEnds = timeEnds;
+        timeWhenStateEnds = timeEnds + Time.time;
+        isWaitingForDancingToEnd = true;
+
     }
 
     internal void CleanupFromDancing()

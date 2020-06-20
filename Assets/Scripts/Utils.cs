@@ -21,5 +21,13 @@ static class Utils
             return null;
         }
     }
+    static public void DisableAllCameras()
+    {
+        Camera[] cameras = Camera.allCameras;
+        for (int i = 1; i < cameras.Length; i++)
+        {
+            cameras[i].gameObject.SetActive(false);
+        }
+    }
 }
 

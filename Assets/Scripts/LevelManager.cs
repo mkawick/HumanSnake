@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     bool levelsLoop = false;
     // Start is called before the first frame update
-    GameObject celebrationSet;
+    internal GameObject celebrationSet, requiemSet;
 
     enum LevelState
     {
@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
     {
         peepManager.levelManager = this;
         celebrationSet = Utils.GetChildWithName(this.gameObject, "HappyEndingSet");
+        requiemSet = Utils.GetChildWithName(this.gameObject, "SadEndingSet");
         Debug.Assert(celebrationSet != null, "the happyendingset must be placed under levels for the game to work");
     }
 
@@ -54,7 +55,6 @@ public class LevelManager : MonoBehaviour
             case LevelState.EndLevel:
                 FinishLevel();
                 break;
-
         }
     }
 
@@ -105,14 +105,14 @@ public class LevelManager : MonoBehaviour
 
     void FinishLevel()
     {
-        GameObject celebrationCameraSpot = Utils.GetChildWithName(celebrationSet, "EndOfSceneCameraSpot");
-        Debug.Assert(celebrationSet != null, "missing camera spot");
+       /* GameObject celebrationCameraSpot = Utils.GetChildWithName(celebrationSet, "EndOfSceneCameraSpot");
+        Debug.Assert(celebrationSet != null, "missing camera spot");*/
         // lock level
         timeWhenICanTransition = Time.time + gameManager.playSuccessTime;
         
         // celebration
         levelState = LevelState.Preload;
-        gameManager.PlayEnd(celebrationCameraSpot);
+        gameManager.PlayEnd();
 
         GameObject celebrationDancingSpot = Utils.GetChildWithName(celebrationSet, "DancingSpots");
         var spots = GrabSpots(celebrationDancingSpot);
@@ -128,6 +128,13 @@ public class LevelManager : MonoBehaviour
             joelDancingSpot.transform,
             timeWhenICanTransition);
     }
+
+    internal void GetFailSpots(ref GameObject joelDancingSpot)
+    {
+        joelDancingSpot = Utils.GetChildWithName(requiemSet, "JoelDancingSpot");
+        Debug.Assert(joelDancingSpot != null, "missing joel dancing spot");
+    }
+
 
     List<Transform> GrabSpots(GameObject parent)
     {
@@ -157,7 +164,6 @@ public class LevelManager : MonoBehaviour
             }
             
             levelState = LevelState.Start;
-            peepManager.CleanupFromDancing();
         }
     }
 }

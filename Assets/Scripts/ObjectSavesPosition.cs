@@ -7,7 +7,7 @@ public class ObjectSavesPosition : MonoBehaviour
     Vector3 position;
     Quaternion rotation;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         position = transform.position;
         rotation = transform.rotation;

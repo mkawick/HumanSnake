@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class PeepManager : MonoBehaviour
 {
@@ -77,7 +76,6 @@ public class PeepManager : MonoBehaviour
             }
         }
         snakeList = new List<Transform>();
-        //player.GetComponent<BasicPeepAnimController>().EnableControllerComponents(true);
     }
 
     void Update()
@@ -175,14 +173,9 @@ public class PeepManager : MonoBehaviour
     internal void MakeEveryoneDance(List<Transform> spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
     {
         peeps = peepList;
-        var numberList = Enumerable.Range(0, spots.Count).ToList();
-        Debug.Assert(spots.Count >= peepList.Count, "the number of celebration spots is TooltipAttribute small");
+        int index = 0;
         foreach (var peep in peeps)
         {
-            int whichNumber = Random.Range(0, numberList.Count);
-            int index = numberList[whichNumber];
-            numberList.RemoveAt(whichNumber);
-
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {

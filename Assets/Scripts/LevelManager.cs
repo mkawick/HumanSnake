@@ -126,7 +126,7 @@ public class LevelManager : MonoBehaviour
             levels[currentLevel].GetTrappedPeople(), 
             player.GetComponent<JoelAnimator>(),
             joelDancingSpot.transform,
-            gameManager.playSuccessTime);
+            timeWhenICanTransition);
     }
 
     internal void GetFailSpots(ref GameObject joelDancingSpot)

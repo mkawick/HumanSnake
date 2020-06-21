@@ -74,6 +74,9 @@ public class PlayerControllerWobbleMan : MonoBehaviour
 
     Vector3 GetFingerPosition()
     {
+        var layerMask = LayerMask.NameToLayer("Default");
+        //layerMask = ~layerMask;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (!Physics.Raycast(ray, out hit))

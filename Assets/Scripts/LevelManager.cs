@@ -103,7 +103,7 @@ public class LevelManager : MonoBehaviour
         levels[currentLevel].SetupPlayerStart(player.GetComponent<JoelAnimator>());
     }
 
-    void FinishLevel()
+    internal void FinishLevel()
     {
        /* GameObject celebrationCameraSpot = Utils.GetChildWithName(celebrationSet, "EndOfSceneCameraSpot");
         Debug.Assert(celebrationSet != null, "missing camera spot");*/

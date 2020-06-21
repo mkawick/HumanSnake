@@ -82,7 +82,8 @@ public class PeepManager : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(1) == true)// testing
         {
-            gameManager.PlayFail();
+            //gameManager.PlayFail();
+            levelManager.FinishLevel();
         }
         if(isWaitingForDancingToEnd == true)
         {

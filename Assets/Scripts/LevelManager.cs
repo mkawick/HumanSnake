@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityStandardAssets.Characters.ThirdPerson;
 using System.Linq;
-using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -32,14 +31,11 @@ public class LevelManager : MonoBehaviour
     LevelState levelState = LevelState.Start;
     void Start()
     {
-        InitAllLevels();
         peepManager.levelManager = this;
         celebrationSet = Utils.GetChildWithName(this.gameObject, "HappyEndingSet");
         requiemSet = Utils.GetChildWithName(this.gameObject, "SadEndingSet");
         Debug.Assert(celebrationSet != null, "the happyendingset must be placed under levels for the game to work");
     }
-
-    
 
     // Update is called once per frame
     void Update()
@@ -168,13 +164,6 @@ public class LevelManager : MonoBehaviour
             }
             
             levelState = LevelState.Start;
-        }
-    }
-    private void InitAllLevels()
-    {
-        for (int i = 0; i < levels.Length; i++)
-        {
-            levels[i].Init();
         }
     }
 }

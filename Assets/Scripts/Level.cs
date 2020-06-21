@@ -10,15 +10,10 @@ public class Level : MonoBehaviour
 {
     public Transform playerStartPosition;
     public Transform exitLocation;
-    private DoorScript[] doors;
+    public DoorScript[] doors;
     public PeepManager peepManager;
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    internal void Init()
     {
         doors = GetComponentsInChildren<DoorScript>();
         SetupTraps();

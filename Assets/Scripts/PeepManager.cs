@@ -10,8 +10,6 @@ public class PeepManager : MonoBehaviour
     bool showEmoticons = false;
     [SerializeField]
     float oddsOfSettingEmoticon = 1.0f;
-    [SerializeField]
-    bool randomizeCelebrationLocations = false;
     List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
@@ -179,23 +177,18 @@ public class PeepManager : MonoBehaviour
         peeps = peepList;
         var numberList = Enumerable.Range(0, spots.Count).ToList();
         Debug.Assert(spots.Count >= peepList.Count, "the number of celebration spots is TooltipAttribute small");
-        int index = 0;
         foreach (var peep in peeps)
         {
-            int randomIndex = Random.Range(0, numberList.Count);
-            int whichSpot = index;
-            if (randomizeCelebrationLocations == true)
-            {
-                whichSpot = numberList[randomIndex];
-                numberList.RemoveAt(randomIndex);
-            }
+            int whichNumber = Random.Range(0, numberList.Count);
+            int index = numberList[whichNumber];
+            numberList.RemoveAt(whichNumber);
 
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
                 peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
                 dc.enabled = true;
-                dc.PrepToDance(spots[whichSpot].position, spots[whichSpot].rotation, timeEnds);
+                dc.PrepToDance(spots[index].position, spots[index].rotation, timeEnds);
             }
             index++;
         }

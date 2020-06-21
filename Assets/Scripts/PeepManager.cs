@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PeepManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PeepManager : MonoBehaviour
     bool showEmoticons = false;
     [SerializeField]
     float oddsOfSettingEmoticon = 1.0f;
+    [SerializeField]
+    bool randomizeCelebrationLocations = false;
+
     List<TrappedPerson2> peeps;
     List<Transform> snakeList;
     public Transform player;
@@ -80,11 +84,6 @@ public class PeepManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(1) == true)// testing
-        {
-            //gameManager.PlayFail();
-            levelManager.FinishLevel();
-        }
         if(isWaitingForDancingToEnd == true)
         {
             if(timeWhenStateEnds < Time.time)
@@ -173,16 +172,24 @@ public class PeepManager : MonoBehaviour
 
     internal void MakeEveryoneDance(List<Transform> spots, List<TrappedPerson2> peepList, JoelAnimator player, Transform joelDancingSpot, float timeEnds)
     {
-        peeps = peepList;
+        var numberList = Enumerable.Range(0, spots.Count).ToList();
+        Debug.Assert(spots.Count >= peepList.Count, "the number of celebration spots is TooltipAttribute small");
         int index = 0;
         foreach (var peep in peeps)
         {
+            int randomIndex = Random.Range(0, numberList.Count);
+            int whichSpot = index;
+            if (randomizeCelebrationLocations == true)
+            {
+                whichSpot = numberList[randomIndex];
+                numberList.RemoveAt(randomIndex);
+            }
             DancingController dc = peep.GetComponent<DancingController>();
             if (dc)
             {
                 peep.GetComponent<BasicPeepAnimController>().EnableControllerComponents(false);
                 dc.enabled = true;
-                dc.PrepToDance(spots[index].position, spots[index].rotation, timeEnds);
+                dc.PrepToDance(spots[whichSpot].position, spots[whichSpot].rotation, timeEnds);
             }
             index++;
         }

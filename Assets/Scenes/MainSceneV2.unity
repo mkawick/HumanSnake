@@ -9531,7 +9531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235916264}
   m_LocalRotation: {x: -0, y: 0.9994135, z: -0, w: -0.034245245}
-  m_LocalPosition: {x: -0.10998535, y: 0.93000007, z: 7.7699986}
+  m_LocalPosition: {x: -1.28, y: 0.93000007, z: 7.7699986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1063604728}
@@ -9724,6 +9724,11 @@ PrefabInstance:
     - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: isClosable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 637429955316442928, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
@@ -35627,6 +35632,11 @@ PrefabInstance:
     - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: isClosable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 637429955316442928, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
@@ -69689,6 +69699,11 @@ PrefabInstance:
       propertyPath: isClosable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: showDoorNumber
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 637429955316442928, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: m_Layer
@@ -71500,6 +71515,11 @@ PrefabInstance:
     - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
         type: 3}
       propertyPath: isClosable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637429954761307735, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
+        type: 3}
+      propertyPath: showDoorNumber
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 637429955316442928, guid: 6c92ad8fb5c84ae49a95c336b46f3ca6,
@@ -77150,8 +77170,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 670555432}
   - {fileID: 738832894}
+  - {fileID: 670555432}
   - {fileID: 1824827392}
   - {fileID: 286342424}
   - {fileID: 604913016}
@@ -77159,8 +77179,8 @@ Transform:
   - {fileID: 1539784943}
   - {fileID: 2128057116}
   - {fileID: 2087707228}
-  - {fileID: 835995151}
   - {fileID: 1564554113}
+  - {fileID: 835995151}
   - {fileID: 583913810}
   - {fileID: 266968830}
   m_Father: {fileID: 1382116485}
@@ -102959,9 +102979,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
+  - {fileID: 1368533911}
   - {fileID: 111740005}
-  - {fileID: 1029711443}
   - {fileID: 2043549858}
+  - {fileID: 1029711443}
   player: {fileID: 1797348557}
   peepManager: {fileID: 1107837590}
   gameManager: {fileID: 1276927563}

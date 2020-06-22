@@ -46,10 +46,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetMouseButtonUp(1) == true)// testing
         {
             levelManager.FinishLevel();
         }
+        */
         if (isWaitingForSequenceGateTime != 0)
         {
             if (isWaitingForSequenceGateTime < Time.time)
